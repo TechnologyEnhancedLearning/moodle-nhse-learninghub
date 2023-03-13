@@ -117,6 +117,7 @@ class core_renderer extends \theme_boost\output\core_renderer
 
         $context = new \stdClass();
         $context->breadcrumbs = $breadcrumbs;
+        $context->home_url = new \moodle_url('/');
 
         return $this->render_from_template('theme_nhse/breadcrumbs', $context);
     }
@@ -153,5 +154,15 @@ class core_renderer extends \theme_boost\output\core_renderer
         $context->login_header_text = get_config( 'theme_nhse', 'login_header_text');
 
         return $this->render_from_template('core/loginform', $context);
+    }
+
+    /**
+     * @param  \preferences_groups  $renderable
+     *
+     * @return bool|string
+     * @throws \moodle_exception
+     */
+    public function render_preferences_groups(\preferences_groups $renderable) {
+        return $this->render_from_template('core/preferences_groups', $renderable);
     }
 }

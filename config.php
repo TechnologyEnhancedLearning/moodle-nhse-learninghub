@@ -33,7 +33,7 @@ require_once(__DIR__ . '/lib.php');
 //
 @error_reporting(E_ALL ^ E_DEPRECATED | E_STRICT);
 @ini_set('display_errors', '1');
-$CFG->debug = (E_ALL | E_STRICT);
+$CFG->debug = (E_ALL ^ E_DEPRECATED | E_STRICT);
 $CFG->debugdisplay = 1;
 
 // You can specify a comma separated list of user ids that that always see

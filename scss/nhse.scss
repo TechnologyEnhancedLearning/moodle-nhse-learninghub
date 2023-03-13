@@ -11,6 +11,34 @@ $btn-secondary-text: $color_nhsuk-white;
 $btn-secondary-background: $color_nhsuk-dark-blue;
 $btn-secondary-border: $color_nhsuk-dark-blue;
 
+.dropdown-menu {
+  min-width: 20rem;
+}
+
+#frontpage-available-course-list {
+  .coursebox {
+    @extend .nhsuk-care-card__content;
+    border-radius: 0;
+    border-top: 1px solid $color_nhsuk-grey-4;
+
+    & > .info {
+      @extend .nhsuk-card__heading;
+      & > .coursename {
+        @extend .nhsuk-card__heading;
+        font-size: 1.5rem;
+        font-weight: bold;
+
+        & a {
+          color: inherit;
+        }
+      }
+    }
+    & > .content {
+      @extend .nhsuk-card__description;
+    }
+  }
+}
+
 #page-wrapper #page-footer {
   padding: 0.5rem 1rem;
 
