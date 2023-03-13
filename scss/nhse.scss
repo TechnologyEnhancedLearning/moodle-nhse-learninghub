@@ -1,0 +1,158 @@
+$color_nhsuk-dark-blue: #005eb8;
+
+$btn-default-text: $color_nhsuk-black;
+$btn-default-background: $color_nhsuk-white;
+
+$btn-primary-text: $color_nhsuk-white;
+$btn-primary-background: $color_nhsuk-blue;
+$btn-primary-border: $color_nhsuk-blue;
+
+$btn-secondary-text: $color_nhsuk-white;
+$btn-secondary-background: $color_nhsuk-dark-blue;
+$btn-secondary-border: $color_nhsuk-dark-blue;
+
+#page-wrapper #page-footer {
+  padding: 0.5rem 1rem;
+
+  a {
+    text-decoration: underline;
+  }
+
+  &.bg-light {
+    border-top: 4px solid $color_nhsuk-blue;
+    a {
+      color: $color_nhsuk-grey-1;
+    }
+  }
+
+  &.bg-dark {
+    border-top: 4px solid $color_nhsuk-white;
+    a {
+      color: $color_nhsuk-grey-1;
+    }
+  }
+}
+
+.bg-dark {
+  color: $btn-primary-text;
+  background-color: $btn-primary-background !important;
+  * {
+    color: $btn-primary-text !important;
+  }
+}
+.bg-light {
+  color: $color_nhsuk-grey-1;
+  background-color: $btn-default-background !important;
+  * {
+    color: $color_nhsuk-grey-1 !important;
+  }
+}
+
+.navbar {
+  .primary-navigation {
+    .navigation {
+      .nav-link {
+        box-shadow: none;
+        -moz-outline-style: none;
+        outline: 0;
+      }
+    }
+  }
+
+  &.navbar-light {
+    color: $btn-default-text;
+    background-color: $btn-default-background;
+    .navbar-brand {
+      color: $btn-default-text;
+    }
+
+    .primary-navigation {
+      .navigation {
+        color: $btn-default-text;
+        background-color: $btn-default-background;
+        .nav-link {
+          color: $btn-default-text;
+        }
+      }
+
+      .navbar-nav {
+        .show > .nav-link, .active > .nav-link, .nav-link.show, .nav-link.active {
+          color: $btn-primary-text;
+          background-color: $btn-primary-background;
+          border-color: transparent;
+          border-bottom-color: $btn-default-background;
+        }
+        .nav-link:hover {
+          color: $btn-default-text;
+          background-color: $btn-default-background;
+          border-color: transparent;
+          border-bottom-color: $btn-primary-background;
+        }
+      }
+    }
+  }
+
+  &.navbar-dark {
+    color: $btn-primary-text;
+    background-color: $btn-primary-background;
+    .navbar-brand {
+      color: $btn-primary-text;
+    }
+
+    .primary-navigation {
+      .navigation {
+        color: $btn-primary-text;
+        background-color: $btn-primary-background;
+        .nav-link {
+          color: $btn-primary-text;
+        }
+      }
+
+      .navbar-nav {
+        .show > .nav-link, .active > .nav-link, .nav-link.show, .nav-link.active {
+          color: $btn-default-text;
+          background-color: $btn-default-background;
+          border-color: transparent;
+          border-bottom-color: $btn-primary-background;
+        }
+        .nav-link:hover {
+          color: $btn-primary-text;
+          background-color: $btn-primary-background;
+          border-color: transparent;
+          border-bottom-color: $btn-default-background;
+        }
+      }
+    }
+  }
+}
+
+.btn-primary {
+  color: $btn-primary-text;
+  background-color: $btn-primary-background;
+  border-color: $btn-primary-border;
+  border-radius: 0;
+
+  &:hover {
+    background-color: $btn-secondary-background;
+    border-color: $btn-secondary-border;
+  }
+}
+
+.card {
+  border: none;
+  border-radius: 0;
+  -moz-border-radius: 0;
+  background-color: $color_nhsuk-grey-5;
+  margin: 10px;
+}
+
+.drawers .block_myoverview>.card-body {
+  padding: 1.25rem!important;
+}
+
+@media (min-width: 768px) {
+  #page.drawers {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

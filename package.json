@@ -1,0 +1,25 @@
+{
+  "name": "nhse",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NHSLeadership/moodle-nhse.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NHSLeadership/moodle-nhse/issues"
+  },
+  "homepage": "https://github.com/NHSLeadership/moodle-nhse#readme",
+  "dependencies": {
+    "nhsuk-frontend": "^4.0.0"
+  },
+  "devDependencies": {
+  }
+}
