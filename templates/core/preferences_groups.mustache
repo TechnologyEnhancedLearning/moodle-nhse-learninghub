@@ -23,19 +23,21 @@
         "nodes": "navigation_node_collection Object",
         "title": "Group title",
         "get_title": "User account",
-        "action": "https://domain.example/user/editadvanced.php?id=2&course=1",
+        "action": "https://domain.example/user/preferences.php",
         "get_content": "Edit profile"
     }
 }}
-<div class="row">
+<div class="nhsuk-grid-row nhsuk-card-group">
     {{#groups}}
-        <div class="col-md-4">
-            <div class="card mb-3">
-                <div class="card-body">
-                    <h4 class="card-title">{{title}}</h4>
-                    <div class="card-text">
+        <div class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+            <div class="nhsuk-card">
+                <div class="nhsuk-card__content">
+                    <h4 class="nhsuk-card__heading nhsuk-heading-m">{{title}}</h4>
+                    <div class="nhsuk-card__description">
                     {{#nodes}}
-                        <div><a {{#get_title}}title="{{get_title}}"{{/get_title}} href="{{{action}}}">{{get_content}}</a></div>
+                        <div class="card-node">
+                            <a {{#get_title}}title="{{get_title}}"{{/get_title}} href="{{{action}}}">{{get_content}}</a>
+                        </div>
                     {{/nodes}}
                     </div>
                 </div>

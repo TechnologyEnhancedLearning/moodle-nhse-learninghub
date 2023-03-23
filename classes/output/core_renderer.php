@@ -153,7 +153,7 @@ class core_renderer extends \theme_boost\output\core_renderer
         $context->login_header_text_default = get_config( 'theme_nhse', 'login_header_text_default');
         $context->login_header_text = get_config( 'theme_nhse', 'login_header_text');
 
-        return $this->render_from_template('core/loginform', $context);
+        return $this->render_from_template('theme_nhse/core/loginform', $context);
     }
 
     /**
@@ -163,6 +163,6 @@ class core_renderer extends \theme_boost\output\core_renderer
      * @throws \moodle_exception
      */
     public function render_preferences_groups(\preferences_groups $renderable) {
-        return $this->render_from_template('core/preferences_groups', $renderable);
+        return $this->render_from_template('theme_nhse/core/preferences_groups', $renderable);
     }
 }

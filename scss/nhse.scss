@@ -61,6 +61,10 @@ $btn-secondary-border: $color_nhsuk-dark-blue;
   }
 }
 
+.btn {
+  color: $btn-primary-text !important;
+}
+
 .bg-dark {
   color: $btn-primary-text;
   background-color: $btn-primary-background !important;
@@ -94,6 +98,19 @@ $btn-secondary-border: $color_nhsuk-dark-blue;
       color: $btn-default-text;
     }
 
+    .btn, .text-primary {
+      color: $btn-default-text;
+      background-color: $btn-default-background;
+      border-color: transparent;
+      border-bottom-color: $btn-primary-background;
+    }
+
+    .custom-control-input:checked~.custom-control-label::before {
+      color: $btn-primary-text;
+      background-color: $btn-primary-background;
+      border-color: $btn-primary-background;
+    }
+
     .primary-navigation {
       .navigation {
         color: $btn-default-text;
@@ -125,6 +142,19 @@ $btn-secondary-border: $color_nhsuk-dark-blue;
     background-color: $btn-primary-background;
     .navbar-brand {
       color: $btn-primary-text;
+    }
+
+    .btn, .text-primary {
+      color: $btn-primary-text;
+      background-color: $btn-primary-background;
+      border-color: transparent;
+      border-bottom-color: $btn-default-background;
+    }
+
+    .custom-control-input:checked~.custom-control-label::before {
+      color: $btn-default-text;
+      background-color: $btn-default-background;
+      border-color: $btn-default-background;
     }
 
     .primary-navigation {
