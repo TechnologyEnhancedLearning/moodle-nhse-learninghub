@@ -15,70 +15,65 @@
     along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 }}
 {{!
-    @template theme_foundation/footer
+    @template theme_nhse/footer
 
-    Page footer.
-
-    Context variables required for this template:
-    * output - The core renderer for the page.
-    * navbarbottom - true if navbar is at the bottom of the page.
-    * fa - true if using Font Awesome 4.
-    * fav - true if using Font Awesome 5.
-    * favi - true if using Font Awesome 6.
+    Page fooer template
 
     Example context (json):
     {
-        "output": "",
-        "navbarbottom": false,
-        "fa": false,
-        "fav": true,
-        "favi": false
     }
 }}
-<footer id="page-footer"
-        class="pt-3 {{^navbarbottom}}pb-3{{/navbarbottom}}{{#navbarbottom}}pb-6{{/navbarbottom}} bg-default">
-<p class="container">
-    {{#brandsenabled}}
-    <div class="row">
-    <div class="col-7">
-    {{/brandsenabled}}
-    <div id="course-footer">{{{ output.course_footer }}}</div>
+<footer role="contentinfo">
+    <div class="nhsuk-footer" id="nhsuk-footer">
+        <div class="nhsuk-width-container">
+            <div class="nhsuk-grid-row">
+                <div class="nhsuk-grid-column-one-third">
+                    <div class="footer-nav">
+                        <h5>{{footerbtitle1}}</h5>
+                        {{{output.home_link}}}
+                        {{{output.login_info}}}
+                        {{{footerblink}}}
+                    </div>
 
-    {{#pagedoclink }}
-        <p class="helplink">{{{ pagedoclink }}}</p>
-    {{/pagedoclink }}
+                    <div class="tool_usertours-resettourcontainer"></div>
+                </div>
+                <div class="nhsuk-grid-column-one-third">
+                    <div class="footer-nav">
+                        <h5>{{footerbtitle2}}</h5>
+                        {{{footerblink2}}}
+                    </div>
+                </div>
+                <div class="nhsuk-grid-column-one-third">
+                    <div class="footer-nav">
+                        <h5>{{footerbtitle3}}</h5>
+                        {{{footerblink3}}}
+                        {{#output.page_doc_link}}
+                            <p class="helplink">{{{output.page_doc_link}}}</p>
+                        {{/output.page_doc_link}}
+                        {{{ output.standard_footer_html}}}
+                        {{{ output.standard_end_of_body_html }}}
+                    </div>
+                </div>
 
-    {{{ output.login_info }}}
-    <div class="tool_usertours-resettourcontainer"></div>
-    <!--{{{ output.home_link }}}-->
-    <nav class="nav navbar-nav d-md-none">
-        {{# output.custom_menu_flat }}
-            <ul class="list-unstyled pt-3">
-                {{> theme_boost/custom_menu_footer }}
-            </ul>
-        {{/ output.custom_menu_flat }}
-    </nav>
-    {{{ output.standard_footer_html }}}
-    {{#brandsenabled}}
-    </div>
-        <div class="col-5">
-            {{> partials/brands}}
+                <div id="course-footer" class="nhsuk-grid-column-full">{{{output.course_footer}}}</div>
+
+                <div class="nhsuk-grid-column-full">
+                    <p class="nhsuk-footer__copyright">{{copyright}}</p>
+                </div>
+
+            </div>
+
+            <div class="nhsuk-grid-row">
+                <div class="nhsuk-grid-column-full">
+                    {{{ output.debug_footer_html }}}
+                </div>
+            </div>
+
         </div>
-    </div>
-    {{/brandsenabled}}
-    {{#debugfooterhtml }}
-        <div class="footer-content-debugging py-sm-3">
-            {{{ debugfooterhtml }}}
-        </div>
-    {{/debugfooterhtml }}
-    <span>Current theme: {{ config.theme }}, rev: {{ config.themerev }}</span>
-    {{{ output.standard_end_of_body_html }}}
     </div>
 </footer>
-<span class="footerantigravity{{#fav}} fav{{/fav}}{{#favi}} favi{{/favi}}  bg-default">
-    <button class="backtotop btn btn-primary" title="{{#str}}backtotop, theme_foundation{{/str}}"><span aria-hidden="true" class="fa fa-angle-up"></span></button>
-    <button class="gotobottom btn btn-primary" title="{{#str}}gotobottom, theme_foundation{{/str}}"><span aria-hidden="true" class="fa fa-angle-down"></span></button>
-</span>
 {{#js}}
-    require(['theme_foundation/anti_gravity']);
+require(['theme_boost/footer-popover'], function(FooterPopover) {
+    FooterPopover.init();
+});
 {{/js}}

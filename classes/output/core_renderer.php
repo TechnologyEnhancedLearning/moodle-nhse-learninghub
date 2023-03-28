@@ -63,6 +63,16 @@ class core_renderer extends \theme_boost\output\core_renderer
     }
 
     /**
+     * Returns standard main content placeholder.
+     * Designed to be called in theme layout.php files.
+     *
+     * @return string HTML fragment.
+     */
+    public function main_content() {
+        return '<div role="main">'.$this->unique_main_content_token.'</div>';
+    }
+
+    /**
      * @return array|string|string[]
      * @throws \dml_exception
      */
@@ -70,14 +80,14 @@ class core_renderer extends \theme_boost\output\core_renderer
     {
         $html = parent::footer();
 
-        $navbarstyle = get_config( 'theme_nhse', 'navbarstyle');
-        if ($navbarstyle) {
-            $html = str_replace('bg-default', 'bg-' . $navbarstyle, $html);
-        }
+        // Activate only if we want dark style footer
+        //$navbarstyle = get_config( 'theme_nhse', 'navbarstyle');
+        //if ($navbarstyle) {
+        //    $html = str_replace('bg-default', 'bg-' . $navbarstyle, $html);
+        //}
 
         return $html;
     }
-
 
     /**
      * Renders the breadcrumbs
@@ -129,7 +139,7 @@ class core_renderer extends \theme_boost\output\core_renderer
      * @return string
      */
     public function render_login(\core_auth\output\login $form) {
-        global $CFG, $SITE;
+        global $CFG, $SITE, $OUTPUT;
 
         $context = $form->export_for_template($this);
 
@@ -153,7 +163,15 @@ class core_renderer extends \theme_boost\output\core_renderer
         $context->login_header_text_default = get_config( 'theme_nhse', 'login_header_text_default');
         $context->login_header_text = get_config( 'theme_nhse', 'login_header_text');
 
-        return $this->render_from_template('theme_nhse/core/loginform', $context);
+        // Show full SSO loin for in DEBUG_DEVELOPER mode regardless settings
+        if ($CFG->debug < DEBUG_DEVELOPER) {
+            $context->login_page_toggle = true;
+            $context->hasidentityproviders = true;
+            $context->identityproviders = true;
+            $context->cansignup = true;
+        }
+
+        return $this->render_from_template('core/loginform', $context);
     }
 
     /**

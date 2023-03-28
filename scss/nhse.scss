@@ -39,30 +39,40 @@ $btn-secondary-border: $color_nhsuk-dark-blue;
   }
 }
 
-#page-wrapper #page-footer {
-  padding: 0.5rem 1rem;
+#page-wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 
-  a {
-    text-decoration: underline;
-  }
+  #page-footer {
+    padding: 0.5rem 1rem;
 
-  &.bg-light {
-    border-top: 4px solid $color_nhsuk-blue;
     a {
-      color: $color_nhsuk-grey-1;
+      text-decoration: underline;
     }
-  }
 
-  &.bg-dark {
-    border-top: 4px solid $color_nhsuk-white;
-    a {
-      color: $color_nhsuk-grey-1;
+    &.bg-light {
+      border-top: 4px solid $color_nhsuk-blue;
+
+      a {
+        color: $color_nhsuk-grey-1;
+      }
+    }
+
+    &.bg-dark {
+      border-top: 4px solid $color_nhsuk-white;
+
+      a {
+        color: $color_nhsuk-grey-1;
+      }
     }
   }
 }
 
-.btn {
-  color: $btn-primary-text !important;
+@media (min-width: 576px) {
+  #page-wrapper {
+    padding-top: 80px !important;
+  }
 }
 
 .bg-dark {
