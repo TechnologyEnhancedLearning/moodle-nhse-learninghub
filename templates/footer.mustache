@@ -21,59 +21,66 @@
 
     Example context (json):
     {
+        "output": {
+            "page_doc_link": "Help and documentation",
+            "supportemail": "<a href=\"#\">Contact site support</a>",
+            "has_popover_links": true,
+            "services_support": "Services and support",
+            "login_info": "You are logged in as cute kitten",
+            "moodle_release": "90210"
+        }
     }
 }}
-<footer role="contentinfo">
+<footer role="contentinfo" id="nhsuk-footer">
     <div class="nhsuk-footer" id="nhsuk-footer">
-        <div class="nhsuk-width-container">
+        <div class="nhsuk-width-container" data-region="footer-content-popover">
             <div class="nhsuk-grid-row">
-                <div class="nhsuk-grid-column-one-third">
-                    <div class="footer-nav">
-                        <h5>{{footerbtitle1}}</h5>
-                        {{{output.home_link}}}
-                        {{{output.login_info}}}
-                        {{{footerblink}}}
+                {{# output.has_popover_links }}
+                    <div class="nhsuk-grid-column-full footer-section p-3 border-bottom">
+                        {{# output.page_doc_link }}
+                            <div class="footer-support-link">{{{ output.page_doc_link }}}</div>
+                        {{/ output.page_doc_link }}
+
+                        {{# output.services_support_link }}
+                            <div class="footer-support-link">{{{ output.services_support_link }}}</div>
+                        {{/ output.services_support_link }}
+
+                        {{# output.supportemail }}
+                            <div class="footer-support-link">{{{ output.supportemail }}}</div>
+                        {{/ output.supportemail }}
+                    </div>
+                {{/ output.has_popover_links }}
+
+                <div class="nhsuk-grid-column-full footer-section p-3 border-bottom">
+                    <div class="logininfo">
+                        {{{ output.login_info }}}
+                        {{{ output.debug_footer_html }}}
+                    </div>
+                    <div class="tool_usertours-resettourcontainer">
                     </div>
 
-                    <div class="tool_usertours-resettourcontainer"></div>
-                </div>
-                <div class="nhsuk-grid-column-one-third">
-                    <div class="footer-nav">
-                        <h5>{{footerbtitle2}}</h5>
-                        {{{footerblink2}}}
-                    </div>
-                </div>
-                <div class="nhsuk-grid-column-one-third">
-                    <div class="footer-nav">
-                        <h5>{{footerbtitle3}}</h5>
-                        {{{footerblink3}}}
-                        {{#output.page_doc_link}}
-                            <p class="helplink">{{{output.page_doc_link}}}</p>
-                        {{/output.page_doc_link}}
-                        {{{ output.standard_footer_html}}}
-                        {{{ output.standard_end_of_body_html }}}
-                    </div>
+                    {{{ output.standard_footer_html }}}
+                    {{{ output.standard_end_of_body_html }}}
                 </div>
 
-                <div id="course-footer" class="nhsuk-grid-column-full">{{{output.course_footer}}}</div>
-
-                <div class="nhsuk-grid-column-full">
-                    <p class="nhsuk-footer__copyright">{{copyright}}</p>
+                <div class="nhsuk-grid-column-one-half">
+                    <div>{{#str}}poweredbymoodle, core{{/str}}</div>
+                    {{#output.moodle_release}}
+                        <div>
+                            {{#str}}version, core{{/str}} {{{ output.moodle_release }}}
+                        </div>
+                    {{/output.moodle_release}}
                 </div>
 
-            </div>
-
-            <div class="nhsuk-grid-row">
-                <div class="nhsuk-grid-column-full">
-                    {{{ output.debug_footer_html }}}
-                </div>
+                <p class="nhsuk-footer__copyright">© Copyright, Leadership Academy YYYY</p>
             </div>
 
         </div>
     </div>
 </footer>
 {{#js}}
-require(['theme_boost/footer-popover'], function(FooterPopover) {
+    require(['theme_boost/footer-popover'], function(FooterPopover) {
     FooterPopover.init();
-});
+    });
 {{/js}}
+

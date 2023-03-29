@@ -1,0 +1,42 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template theme_nhse/nav
+
+    This template renders the top nav.
+}}
+<nav class="nhsuk-header__navigation navigation app-header__navigation" id="header-navigation" role="navigation" aria-label="Primary navigation" aria-labelledby="label-navigation">
+    <div class="nhsuk-width-container app-width-container">
+        <ul id="nhsuk-header__navigation-list moremenu-{{moremenuid}}-{{navbarstyle}}" role="{{#istablist}}tablist{{/istablist}}{{^istablist}}menubar{{/istablist}}"
+            class="nhsuk-header__navigation-list">
+            {{#nodecollection}}
+                {{#children}}
+                    {{> core/moremenu_children}}
+                {{/children}}
+            {{/nodecollection}}
+            {{#nodearray}}
+                {{> core/moremenu_children}}
+            {{/nodearray}}
+            <li class="nhsuk-header__navigation-item nav-item dropdown dropdownmoremenu d-none" role="none" data-region="morebutton">
+                <a class="nhsuk-header__navigation-link dropdown-toggle nav-link {{#isactive}}active{{/isactive}}" href="#" id="moremenu-dropdown-{{moremenuid}}" role="{{#istablist}}tab{{/istablist}}{{^istablist}}menuitem{{/istablist}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="-1">
+                    {{#str}}moremenu, core{{/str}}
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+

@@ -11,78 +11,53 @@ $btn-secondary-text: $color_nhsuk-white;
 $btn-secondary-background: $color_nhsuk-dark-blue;
 $btn-secondary-border: $color_nhsuk-dark-blue;
 
-.dropdown-menu {
-  min-width: 20rem;
-}
-
-#frontpage-available-course-list {
-  .coursebox {
-    @extend .nhsuk-care-card__content;
-    border-radius: 0;
-    border-top: 1px solid $color_nhsuk-grey-4;
-
-    & > .info {
-      @extend .nhsuk-card__heading;
-      & > .coursename {
-        @extend .nhsuk-card__heading;
-        font-size: 1.5rem;
-        font-weight: bold;
-
-        & a {
-          color: inherit;
-        }
-      }
-    }
-    & > .content {
-      @extend .nhsuk-card__description;
-    }
-  }
-}
-
 #page-wrapper {
   height: 100%;
   display: flex;
   flex-direction: column;
 
-  #page-footer {
-    padding: 0.5rem 1rem;
+  #page {
+    padding-top: 3rem;
+  }
 
-    a {
-      text-decoration: underline;
-    }
-
-    &.bg-light {
-      border-top: 4px solid $color_nhsuk-blue;
-
-      a {
-        color: $color_nhsuk-grey-1;
-      }
-    }
-
-    &.bg-dark {
-      border-top: 4px solid $color_nhsuk-white;
-
-      a {
-        color: $color_nhsuk-grey-1;
-      }
-    }
+  svg {
+    max-height: 50px;
   }
 }
 
-@media (min-width: 576px) {
-  #page-wrapper {
-    padding-top: 80px !important;
+#page.drawers {
+  margin-top: 0;
+  .main-inner {
+    margin-top: 0;
+    margin-bottom: 0;
   }
 }
 
-.bg-dark {
+@media (min-width: 768px) {
+  #page.drawers {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.custom-switch .custom-control-label::before {
+  background-color: $btn-default-background !important;
+  border-color: $color_nhsuk-grey-1 !important;
+}
+
+.custom-switch .custom-control-label::after {
+  background-color: $btn-primary-background !important;
+  border-color: $btn-primary-text !important;
+}
+
+.bg__dark {
   color: $btn-primary-text;
   background-color: $btn-primary-background !important;
   * {
     color: $btn-primary-text !important;
   }
 }
-.bg-light {
+.bg__light {
   color: $color_nhsuk-grey-1;
   background-color: $btn-default-background !important;
   * {
@@ -90,21 +65,105 @@ $btn-secondary-border: $color_nhsuk-dark-blue;
   }
 }
 
+.nhsuk-header__light {
+  background-color: $color_nhsuk-white;
+  .nhsuk-header__navigation {
+    color: $btn-default-text;
+    background-color: $btn-default-background;
+    .nhsuk-header__service-name {
+      color: $btn-default-text;
+    }
+    * {
+      color: $btn-default-text;
+      background-color: $btn-default-background;
+    }
+  }
+}
+
+.navbar-toggler-icon {
+  width: 2.0em;
+  height: 2.0em;
+}
+
+.icon {
+  font-size: 26px;
+  width: 26px;
+  height: 26px;
+  padding-top:2px;
+  padding-bottom:2px;
+}
+
+.popover-region-header-container {
+  height: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.drawerheader {
+  height: 84px;
+}
+
+.navbar-expand {
+  .navbar-nav {
+    margin-top: .2em;
+    margin-left: .2em;
+  }
+}
+
 .navbar {
+  color: $btn-primary-text;
+  background-color: $btn-primary-background;
+  box-shadow: none;
+  padding: 0;
+
+  .divider {
+    display: none;
+  }
+
+  .popover-region .popover-region-container {
+    top: 84px;
+  }
+
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='3' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  }
+
+  .nav-link {
+    color: $btn-primary-text;
+  }
+
   .primary-navigation {
     .navigation {
       .nav-link {
         box-shadow: none;
         -moz-outline-style: none;
+        height: auto;
+        border-top: 0;
         outline: 0;
       }
     }
   }
 
-  &.navbar-light {
+  .navbar-brand {
+    color: $btn-primary-text;
+  }
+  .dropdown-toggle::after {
+    display: none;
+    color: $btn-primary-text;
+  }
+
+  &.navbar__light {
     color: $btn-default-text;
     background-color: $btn-default-background;
     .navbar-brand {
+      color: $btn-default-text;
+    }
+
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+
+    .nav-link {
       color: $btn-default-text;
     }
 
@@ -112,7 +171,7 @@ $btn-secondary-border: $color_nhsuk-dark-blue;
       color: $btn-default-text;
       background-color: $btn-default-background;
       border-color: transparent;
-      border-bottom-color: $btn-primary-background;
+      border-bottom: none;
     }
 
     .custom-control-input:checked~.custom-control-label::before {
@@ -125,9 +184,6 @@ $btn-secondary-border: $color_nhsuk-dark-blue;
       .navigation {
         color: $btn-default-text;
         background-color: $btn-default-background;
-        .nav-link {
-          color: $btn-default-text;
-        }
       }
 
       .navbar-nav {
@@ -147,18 +203,27 @@ $btn-secondary-border: $color_nhsuk-dark-blue;
     }
   }
 
-  &.navbar-dark {
+  &.navbar__dark {
     color: $btn-primary-text;
     background-color: $btn-primary-background;
+
     .navbar-brand {
       color: $btn-primary-text;
+    }
+
+    .nav-link {
+      color: $btn-primary-text;
+    }
+
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
     }
 
     .btn, .text-primary {
       color: $btn-primary-text;
       background-color: $btn-primary-background;
       border-color: transparent;
-      border-bottom-color: $btn-default-background;
+      border-bottom: none;
     }
 
     .custom-control-input:checked~.custom-control-label::before {
@@ -171,9 +236,6 @@ $btn-secondary-border: $color_nhsuk-dark-blue;
       .navigation {
         color: $btn-primary-text;
         background-color: $btn-primary-background;
-        .nav-link {
-          color: $btn-primary-text;
-        }
       }
 
       .navbar-nav {
@@ -211,16 +273,116 @@ $btn-secondary-border: $color_nhsuk-dark-blue;
   border-radius: 0;
   -moz-border-radius: 0;
   background-color: $color_nhsuk-grey-5;
-  margin: 10px;
+  margin: 0;
 }
 
 .drawers .block_myoverview>.card-body {
   padding: 1.25rem!important;
 }
 
-@media (min-width: 768px) {
-  #page.drawers {
-    padding-left: 0;
-    padding-right: 0;
+.dropdown-menu {
+  min-width: 20rem;
+}
+
+#frontpage-available-course-list {
+  .coursebox {
+    @extend .nhsuk-care-card__content;
+    border-radius: 0;
+    border-top: 1px solid $color_nhsuk-grey-4;
+
+    & > .info {
+      @extend .nhsuk-card__heading;
+      & > .coursename {
+        @extend .nhsuk-card__heading;
+        font-size: 1.5rem;
+        font-weight: bold;
+
+        & a {
+          color: inherit;
+        }
+      }
+    }
+    & > .content {
+      @extend .nhsuk-card__description;
+    }
   }
 }
+
+.simplesearchform .input-group input.form-control {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+[data-region=right-hand-drawer].drawer {
+  top: 84px;
+}
+
+.nhsuk-header__service-name {
+  display: none;
+}
+
+.popover-region-toggle::before, .popover-region-toggle::after {
+  display: none;
+}
+
+@media (min-width: 480px) {
+  .navbar {
+    .popover-region {
+      .popover-region-container {
+        top: 49px;
+      }
+    }
+    .popover-region-toggle::before, .popover-region-toggle::after {
+      display: inline-block;
+    }
+  }
+}
+
+@media (min-width: 640px) {
+  [data-region=right-hand-drawer].drawer {
+    top: 92px;
+  }
+  .navbar {
+    .divider {
+      display: block;
+    }
+    .dropdown-toggle::after {
+      display: inline-block;
+    }
+  }
+  .nhsuk-header__service-name {
+    display: inline-block;
+  }
+}
+
+@media (min-width: 768px) {
+  .d-md-none {
+    display: block !important;
+  }
+  [data-region=right-hand-drawer].drawer {
+    top: 92px;
+  }
+  body.limitedwidth {
+    #page.drawers {
+      .footer-popover {
+        max-width: none;
+      }
+    }
+  }
+}
+
+@media (min-width: 990px) {
+  .d-md-none {
+    display: none !important;
+  }
+  [data-region=right-hand-drawer].drawer {
+    top: 147px;
+  }
+  .drawer-left, .drawer-right {
+    top: 147px;
+  }
+}
+
+

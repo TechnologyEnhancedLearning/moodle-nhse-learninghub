@@ -34,19 +34,21 @@
 <body {{{ bodyattributes }}}>
 {{> core/local/toast/wrapper}}
 
-<div id="page-wrapper" class="nhsuk-u-margin-top-1">
+<div id="page-wrapper" class="nhse-login d-print-block">
 
     {{{ output.standard_top_of_body_html }}}
 
     {{> theme_nhse/navbar }}
 
-    <div class="nhsuk-width-container">
-        {{{ output.main_content }}}
+    <div id="page">
+        <div class="nhsuk-width-container">
+            {{{ output.main_content }}}
+        </div>
+
+        {{> theme_nhse/footer }}
     </div>
 
     {{{ output.standard_after_main_region_html }}}
-
-    {{> theme_nhse/footer }}
 </div>
 
 </body>

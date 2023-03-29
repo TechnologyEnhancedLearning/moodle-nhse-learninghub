@@ -55,10 +55,12 @@ class core_renderer extends \theme_boost\output\core_renderer
     {
         $html = parent::header();
         $navbarstyle = get_config( 'theme_nhse', 'navbarstyle');
-        if ($navbarstyle) {
-            $html = str_replace('navbar-default', 'navbar-' . $navbarstyle, $html);
-        }
-
+//        if ($navbarstyle) {
+//            $html = str_replace('nhsuk-header__default', 'nhsuk-header__' . $navbarstyle, $html);
+//            $html = str_replace('navbar__default', 'navbar__light', $html);
+//        }
+//        $html = str_replace('nhsuk-header__default', 'nhsuk-header__light', $html);
+//        $html = str_replace('navbar__default', 'navbar__light', $html);
         return $html;
     }
 
@@ -85,6 +87,7 @@ class core_renderer extends \theme_boost\output\core_renderer
         //if ($navbarstyle) {
         //    $html = str_replace('bg-default', 'bg-' . $navbarstyle, $html);
         //}
+        $html = str_replace('YYYY', date('Y'), $html);
 
         return $html;
     }
