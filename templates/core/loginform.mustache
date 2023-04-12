@@ -65,25 +65,25 @@
                     },
                     {
                         "name": "src",
-                        "value": "http://localhost/stable_master/theme/image.php?theme=boost&component=core&image=help"
+                        "value": "http://domain.example/stable_master/theme/image.php?theme=boost&component=core&image=help"
                     }
                 ]
             },
             "linktext": null,
             "title": "Help with Cookies must be enabled in your browser",
-            "url": "http://localhost/stable_master/help.php?component=core&identifier=cookiesenabled&lang=en",
+            "url": "http://domain.example/stable_master/help.php?component=core&identifier=cookiesenabled&lang=en",
             "ltr": true
         },
         "error": "",
-        "forgotpasswordurl": "http://localhost/stable_master/login/forgot_password.php",
+        "forgotpasswordurl": "http://domain.example/stable_master/login/forgot_password.php",
         "hasidentityproviders": false,
         "hasinstructions": true,
         "identityproviders": [],
         "instructions": "For full access to this site, you first need to create an account.",
         "instructionsformat": "1",
-        "loginurl": "http://localhost/stable_master/login/index.php",
+        "loginurl": "http://domain.example/stable_master/login/index.php",
         "rememberusername": true,
-        "signupurl": "http://localhost/stable_master/login/signup.php",
+        "signupurl": "http://domain.example/stable_master/login/signup.php",
         "cookieshelpiconformatted": "",
         "errorformatted": "",
         "logourl": false,
@@ -91,20 +91,38 @@
     }
 }}
 
-{{#cansignup}}
-    <div class="o-layout o-layout--normal">
-        <div class="u-margin-tiny@xs u-margin-small@md u-4/12@xl u-push-4/12@xl u-6/12@sm u-push-3/12@sm o-layout__item">
-            <a href="{{signupurl}}">{{#str}} tocreatenewaccount {{/str}}</a>
-        </div>
-    </div>
-{{/cansignup}}
-
 <div class="nhsuk-grid-row">
+
     <div class="nhsuk-grid-column-one-half">
-        <hr/>
         {{#hasinstructions}}
             {{{instructions}}}
         {{/hasinstructions}}
+        <h3 style="text-align:left;">Welcome to the Leadership Academy Virtual Campus</h3>
+        <p><img src="https://learninghub.leadershipacademy.nhs.uk/wp-content/uploads/2020/04/NHS-Login-Illustration-1024x636.png" alt="Illustration of two people carrying a giant key" width="1024" height="636" class="img-responsive atto_image_button_text-bottom"></p>
+        <div class="nhsuk-inset-text">
+            <span class="nhsuk-u-visually-hidden">Information: </span>
+            <p>If you are using a 10-digit Academy ID, please use
+            {{#login_header_text}}
+                '{{ login_header_text }}'
+            {{/login_header_text}}
+            {{^login_header_text}}
+                '{{#str}} login_header_text_default, theme_nhse {{/str}}'
+            {{/login_header_text}}' section.
+            </p>
+            {{#login_expand_text}}
+                <p>If you have a different username, please use the '{{ login_expand_text }}' section.</p>
+            {{/login_expand_text}}
+            {{^login_expand_text}}
+                <p>If you have a different username, please use the '{{#str}} login_expand_text_default, theme_nhse {{/str}}' section.</p>
+            {{/login_expand_text}}
+            <p>{{#str}} cookiesenabled, theme_nhse {{/str}}.
+                <a href="" {{!
+                        }} data-modal="alert"{{!
+                        }} data-modal-title-str='["cookiesenabled", "core"]' {{!
+                        }} data-modal-content-str='["cookiesenabled_help_html", "core"]'{{!
+                        }}>{{#str}} cookiesnotice, theme_nhse {{/str}}</a>
+            </p>
+        </div>
     </div>
 
     <div class="nhsuk-grid-column-one-half">
@@ -126,30 +144,37 @@
             {{/error}}
 
             {{#hasidentityproviders}}
-                <div class="nhsuk-care-card nhsuk-care-card--non-urgent">
+                <div class="nhsuk-care-card nhsuk-care-card--non-urgent nhsuk-u-margin-top-0">
+
                     <div class="nhsuk-care-card__heading-container">
-                        <h3 class="nhsuk-care-card__heading"><span role="text"><span class="nhsuk-u-visually-hidden">Panel
-                    title: </span>{{#login_header_text}}
-                            {{ login_header_text }}
-                        {{/login_header_text}}
-                            {{^login_header_text}}
-                                {{#str}} login_header_text_default, theme_nhsuk {{/str}}
-                            {{/login_header_text}}</span></h3>
+                        <h3 class="nhsuk-care-card__heading">
+                            <span role="text">
+                                <span class="nhsuk-u-visually-hidden">Panel title: </span>
+                                {{#login_header_text}}
+                                    {{ login_header_text }}
+                                {{/login_header_text}}
+                                {{^login_header_text}}
+                                    {{#str}} login_header_text_default, theme_nhse {{/str}}
+                                {{/login_header_text}}</span>
+                        </h3>
                         <span class="nhsuk-care-card__arrow" aria-hidden="true"></span>
                     </div>
+
                     <div class="nhsuk-care-card__content">
-                        <!--<h6>{{#str}} potentialidps, auth {{/str}}</h6>-->
-                        <div class="potentialidplist" class="u-margin-bottom-small">
+                        <h6>{{#str}} potentialidps, auth {{/str}}</h6>
+                        <div class="potentialidplist nhsuk-u-margin-bottom-1">
                             {{#identityproviders}}
                                 <div class="potentialidp">
-                                    <a href="{{url}}" title={{#quote}}{{#str}} login_oauth_with, theme_nhsuk {{/str}} {{name}}{{/quote}} class="nhsuk-button">
+                                    <a href="{{url}}"
+                                       class="nhsuk-button nhsuk-u-margin-bottom-0"
+                                       title={{#quote}}{{#str}} login_oauth_with, theme_nhse {{/str}} {{name}}{{/quote}}>
                                         <!-- we add a setting here because Moodle auto picks icon up from the provider if OAuth setting doesnt specify one -->
                                         {{#oauth_login_button_icon}}
                                             {{#iconurl}}
                                                 <img src="{{iconurl}}" alt="" width="24" height="24"/>
                                             {{/iconurl}}
                                         {{/oauth_login_button_icon}}
-                                        {{#str}} login_oauth_with, theme_nhsuk {{/str}} {{name}}
+                                        {{#str}} login_oauth_with, theme_nhse {{/str}} {{name}}
                                         {{^name}}
                                             Single Sign On
                                         {{/name}}
@@ -160,38 +185,36 @@
                     </div>
                 </div>
 
-            <details class="nhsuk-details" {{#error}}open{{/error}}>
-                <summary class="nhsuk-details__summary">
-                        <span class="nhsuk-details__summary-text">
-                            {{#login_expand_text}}
-                                {{ login_expand_text }}
-                            {{/login_expand_text}}
-                            {{^login_expand_text}}
-                                {{#str}} login_expand_text_default, theme_nhsuk {{/str}}
-                            {{/login_expand_text}}
-                        </span>
-                </summary>
+                <details class="nhsuk-details" {{#error}}open{{/error}}>
+                    <summary class="nhsuk-details__summary">
+                            <span class="nhsuk-details__summary-text">
+                                {{#login_expand_text}}
+                                    {{ login_expand_text }}
+                                {{/login_expand_text}}
+                                {{^login_expand_text}}
+                                    {{#str}} login_expand_text_default, theme_nhse {{/str}}
+                                {{/login_expand_text}}
+                            </span>
+                    </summary>
 
+                    <div class="nhsuk-details__text">
             {{/hasidentityproviders}}
+
         {{/login_page_toggle}}
 
-        {{#login_page_toggle}}
-            {{#hasidentityproviders}}
-            <div class="nhsuk-details__text">
-            {{/hasidentityproviders}}
-        {{/login_page_toggle}}
-
-        <div class="nhsuk-care-card nhsuk-care-card--non-urgent">
+        <div class="nhsuk-care-card nhsuk-care-card--non-urgent nhsuk-u-margin-top-0">
             <div class="nhsuk-care-card__heading-container">
-                <h3 class="nhsuk-care-card__heading"><span role="text"><span class="nhsuk-u-visually-hidden">Panel
-                            title: </span>
-                    {{#login_expand_text}}
-                        {{ login_expand_text }}
-                    {{/login_expand_text}}
-                    {{^login_expand_text}}
-                        {{#str}} Login {{/str}}
-                    {{/login_expand_text}}</span></h3>
-                <span class="nhsuk-care-card__arrow" aria-hidden="true"></span>
+                <h3 class="nhsuk-care-card__heading">
+                    <span role="text">
+                        <span class="nhsuk-u-visually-hidden">Panel title: </span>
+                        {{#login_expand_text}}
+                            {{ login_expand_text }}
+                        {{/login_expand_text}}
+                        {{^login_expand_text}}
+                            {{#str}} login_expand_text_default, theme_nhse {{/str}}
+                        {{/login_expand_text}}
+                    </span>
+                </h3>
             </div>
             <div class="nhsuk-care-card__content">
 
@@ -237,88 +260,85 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="nhsuk-form-group">
-                        <button type="submit" class="nhsuk-button"
-                                id="loginbtn">Login
-                        </button>
+                    <div class="nhsuk-form-group nhsuk-u-margin-bottom-0">
+                        <button type="submit" class="nhsuk-button nhsuk-u-margin-bottom-0" id="loginbtn">Login</button>
                     </div>
-
                 </form>
 
-                <div class="nhsuk-pill-notice">
-                    {{#str}} cookiesenabled {{/str}}
-                    {{{cookieshelpiconformatted}}}
-                </div>
-            </div>
-
-            {{#canloginasguest}}
-                <div class="nhsuk-grid-column-full">
-                    <hr/>
-                    <div class="u-margin-bottom-small">
-                        <p>{{#str}}someallowguest{{/str}}</p>
-                        <form action="{{loginurl}}" method="post" id="guestlogin">
-                            <input type="hidden" name="username" value="guest"/>
-                            <input type="hidden" name="password" value="guest"/>
-                            <div class="nhsuk-action-link">
-                                <a tclass="nhsuk-action-link__link" href="javascript:document.getElementById('guestlogin').submit();">
-                                    <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="36" height="36">
-                                        <path d="M0 0h24v24H0z" fill="none"></path>
-                                        <path d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z"></path>
-                                    </svg>
-                                    <span class="nhsuk-action-link__text">{{#str}} loginguest, theme_nhsuk {{/str}}</span>
-                                </a>
-                            </div>
-                            <!--<button class="nhsuk-button" type="submit">{{#str}} loginguest, theme_nhsuk {{/str}}</button>-->
-                        </form>
+                {{#languagemenu}}
+                    <div class="login-languagemenu">
+                        {{>core/action_menu}}
                     </div>
-                </div>
-            {{/canloginasguest}}
+                    <div class="divider border-left align-self-center mx-3"></div>
+                {{/languagemenu}}
 
-            {{#cansignup}}
-                <div class="nhsuk-grid-column-full">
-                    <hr/>
-                    <form action="{{signupurl}}" method="get" id="signup">
-                        <button type="submit" class="nhsuk-button">{{#str}}startsignup{{/str}}</button>
-                    </form>
-                </div>
-            {{/cansignup}}
-
+            </div>
         </div>
 
         {{#login_page_toggle}}
             {{#hasidentityproviders}}
-            </div>
+                </div>
             </details>
             {{/hasidentityproviders}}
         {{/login_page_toggle}}
-    </div>
 
-    {{#js}}
-        require([], function($) {
-        document.getElementById("showPassword").onclick = function() {
-        var x = document.getElementById("password");
-        if (x.type === "password") {
-        x.type = "text";
-        } else {
-        x.type = "password";
-        }
-        }
+        {{#cansignup}}
+        <div class="nhsuk-grid-row">
+            <div class="nhsuk-grid-column-full">
+                <form action="{{signupurl}}" method="get" id="signup">
+                    <div class="nhsuk-action-link">
+                        <a class="nhsuk-action-link__link" href="javascript:document.getElementById('signup').submit();">
+                            <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="36" height="36">
+                                <path d="M0 0h24v24H0z" fill="none"></path>
+                                <path d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z"></path>
+                            </svg>
+                            <strong class="nhsuk-action-link__text">{{#str}}startsignup{{/str}}</strong>
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        {{/cansignup}}
+
+        {{#canloginasguest}}
+        <div class="nhsuk-grid-row">
+            <div class="nhsuk-grid-column-full">
+                <p>{{#str}}someallowguest{{/str}}</p>
+                <form action="{{loginurl}}" method="post" id="guestlogin">
+                    <input type="hidden" name="username" value="guest"/>
+                    <input type="hidden" name="password" value="guest"/>
+                    <div class="nhsuk-action-link">
+                        <a class="nhsuk-action-link__link" href="javascript:document.getElementById('guestlogin').submit();">
+                            <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="36" height="36">
+                                <path d="M0 0h24v24H0z" fill="none"></path>
+                                <path d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z"></path>
+                            </svg>
+                            <strong class="nhsuk-action-link__text">{{#str}} loginguest, theme_nhse {{/str}}</strong>
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        {{/canloginasguest}}
+
+    </div>
+</div>
+{{#js}}
+    {{#error}}
+        require(['jquery'], function($) {
+        $('#loginerrormessage').focus();
         });
-        {{#error}}
+    {{/error}}
+    {{^error}}
+        {{#autofocusform}}
             require(['jquery'], function($) {
-            $('#loginerrormessage').focus();
+            if ($('#username').val()) {
+            $('#password').focus();
+            } else {
+            $('#username').focus();
+            }
             });
-        {{/error}}
-        {{^error}}
-            {{#autofocusform}}
-                require(['jquery'], function($) {
-                if ($('#username').val()) {
-                $('#password').focus();
-                } else {
-                $('#username').focus();
-                }
-                });
-            {{/autofocusform}}
-        {{/error}}
-    {{/js}}
+        {{/autofocusform}}
+    {{/error}}
+{{/js}}
+

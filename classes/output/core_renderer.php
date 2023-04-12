@@ -55,11 +55,23 @@ class core_renderer extends \theme_boost\output\core_renderer
     {
         $html = parent::header();
         $navbarstyle = get_config( 'theme_nhse', 'navbarstyle');
-        if ($navbarstyle) {
-            $html = str_replace('navbar-default', 'navbar-' . $navbarstyle, $html);
-        }
-
+//        if ($navbarstyle) {
+//            $html = str_replace('nhsuk-header__default', 'nhsuk-header__' . $navbarstyle, $html);
+//            $html = str_replace('navbar__default', 'navbar__light', $html);
+//        }
+//        $html = str_replace('nhsuk-header__default', 'nhsuk-header__light', $html);
+//        $html = str_replace('navbar__default', 'navbar__light', $html);
         return $html;
+    }
+
+    /**
+     * Returns standard main content placeholder.
+     * Designed to be called in theme layout.php files.
+     *
+     * @return string HTML fragment.
+     */
+    public function main_content() {
+        return '<div role="main">'.$this->unique_main_content_token.'</div>';
     }
 
     /**
@@ -70,14 +82,15 @@ class core_renderer extends \theme_boost\output\core_renderer
     {
         $html = parent::footer();
 
-        $navbarstyle = get_config( 'theme_nhse', 'navbarstyle');
-        if ($navbarstyle) {
-            $html = str_replace('bg-default', 'bg-' . $navbarstyle, $html);
-        }
+        // Activate only if we want dark style footer
+        //$navbarstyle = get_config( 'theme_nhse', 'navbarstyle');
+        //if ($navbarstyle) {
+        //    $html = str_replace('bg-default', 'bg-' . $navbarstyle, $html);
+        //}
+        $html = str_replace('YYYY', date('Y'), $html);
 
         return $html;
     }
-
 
     /**
      * Renders the breadcrumbs
@@ -117,6 +130,7 @@ class core_renderer extends \theme_boost\output\core_renderer
 
         $context = new \stdClass();
         $context->breadcrumbs = $breadcrumbs;
+        $context->home_url = new \moodle_url('/');
 
         return $this->render_from_template('theme_nhse/breadcrumbs', $context);
     }
@@ -128,7 +142,7 @@ class core_renderer extends \theme_boost\output\core_renderer
      * @return string
      */
     public function render_login(\core_auth\output\login $form) {
-        global $CFG, $SITE;
+        global $CFG, $SITE, $OUTPUT;
 
         $context = $form->export_for_template($this);
 
@@ -152,6 +166,24 @@ class core_renderer extends \theme_boost\output\core_renderer
         $context->login_header_text_default = get_config( 'theme_nhse', 'login_header_text_default');
         $context->login_header_text = get_config( 'theme_nhse', 'login_header_text');
 
+        // Show full SSO loin for in DEBUG_DEVELOPER mode regardless settings
+        if ($CFG->debug < DEBUG_DEVELOPER) {
+            $context->login_page_toggle = true;
+            $context->hasidentityproviders = true;
+            $context->identityproviders = true;
+            $context->cansignup = true;
+        }
+
         return $this->render_from_template('core/loginform', $context);
+    }
+
+    /**
+     * @param  \preferences_groups  $renderable
+     *
+     * @return bool|string
+     * @throws \moodle_exception
+     */
+    public function render_preferences_groups(\preferences_groups $renderable) {
+        return $this->render_from_template('theme_nhse/core/preferences_groups', $renderable);
     }
 }
