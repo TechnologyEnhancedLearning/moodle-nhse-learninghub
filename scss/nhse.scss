@@ -25,6 +25,13 @@ $btn-secondary-border: $color_nhsuk-dark-blue;
   }
 }
 
+body.limitedwidth #page.drawers .main-inner {
+  max-width: 960px;
+}
+.header-maxwidth {
+  max-width: 960px;
+}
+
 #page.drawers {
   margin-top: 0;
   .main-inner {
@@ -40,28 +47,32 @@ $btn-secondary-border: $color_nhsuk-dark-blue;
   }
 }
 
-.custom-switch .custom-control-label::before {
-  background-color: $btn-default-background !important;
-  border-color: $color_nhsuk-grey-1 !important;
-}
 
-.custom-switch .custom-control-label::after {
-  background-color: $btn-primary-background !important;
-  border-color: $btn-primary-text !important;
-}
-
-.bg__dark {
+.bg-dark {
   color: $btn-primary-text;
   background-color: $btn-primary-background !important;
   * {
     color: $btn-primary-text !important;
   }
 }
-.bg__light {
+.bg-light {
   color: $color_nhsuk-grey-1;
   background-color: $btn-default-background !important;
   * {
     color: $color_nhsuk-grey-1 !important;
+  }
+}
+
+.nhsuk-header__navigation-link {
+  &:visited {
+    color: $color_nhsuk-white;
+  }
+  &.active {
+    border-bottom: 4px solid $color_nhsuk-white;
+  }
+  &:checked {
+    color: $color_nhsuk-black;
+    border-bottom: 4px solid $color_nhsuk-black;
   }
 }
 
@@ -73,9 +84,18 @@ $btn-secondary-border: $color_nhsuk-dark-blue;
     .nhsuk-header__service-name {
       color: $btn-default-text;
     }
-    * {
-      color: $btn-default-text;
-      background-color: $btn-default-background;
+  }
+
+  .nhsuk-header__navigation-link {
+    &:visited {
+      color: $color_nhsuk-black;
+    }
+    &.active {
+      border-bottom: 4px solid $color_nhsuk-blue;
+    }
+    &:checked {
+      color: $color_nhsuk-white;
+      border-bottom: 4px solid $color_nhsuk-white;
     }
   }
 }
@@ -86,11 +106,15 @@ $btn-secondary-border: $color_nhsuk-dark-blue;
 }
 
 .icon {
-  font-size: 26px;
-  width: 26px;
-  height: 26px;
-  padding-top:2px;
-  padding-bottom:2px;
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+  padding-top:0;
+  padding-bottom:0;
+}
+
+.navbar-expand .navbar-nav .nav-link {
+  padding-top: 15px;
 }
 
 .popover-region-header-container {
@@ -382,6 +406,15 @@ $btn-secondary-border: $color_nhsuk-dark-blue;
   }
   .drawer-left, .drawer-right {
     top: 147px;
+  }
+}
+
+.dashboard-card-deck {
+  .dashboard-card {
+    background-color: $color_nhsuk-white;
+    .dashboard-card-img {
+      border-radius: 0;
+    }
   }
 }
 

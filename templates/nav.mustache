@@ -21,22 +21,31 @@
 }}
 <nav class="nhsuk-header__navigation navigation app-header__navigation" id="header-navigation" role="navigation" aria-label="Primary navigation" aria-labelledby="label-navigation">
     <div class="nhsuk-width-container app-width-container">
-        <ul id="nhsuk-header__navigation-list moremenu-{{moremenuid}}-{{navbarstyle}}" role="{{#istablist}}tablist{{/istablist}}{{^istablist}}menubar{{/istablist}}"
+        <ul id="nhsuk-header__navigation-list moremenu-{{moremenuid}}-{{navbarstyle}}"
+            role="{{#istablist}}tablist{{/istablist}}{{^istablist}}menubar{{/istablist}}"
             class="nhsuk-header__navigation-list">
-            {{#nodecollection}}
-                {{#children}}
+            {{#primarymoremenu}}
+                {{#nodecollection}}
+                    {{#children}}
+                        {{> core/moremenu_children}}
+                    {{/children}}
+                {{/nodecollection}}
+                {{#nodearray}}
                     {{> core/moremenu_children}}
-                {{/children}}
-            {{/nodecollection}}
-            {{#nodearray}}
-                {{> core/moremenu_children}}
-            {{/nodearray}}
-            <li class="nhsuk-header__navigation-item nav-item dropdown dropdownmoremenu d-none" role="none" data-region="morebutton">
-                <a class="nhsuk-header__navigation-link dropdown-toggle nav-link {{#isactive}}active{{/isactive}}" href="#" id="moremenu-dropdown-{{moremenuid}}" role="{{#istablist}}tab{{/istablist}}{{^istablist}}menuitem{{/istablist}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="-1">
-                    {{#str}}moremenu, core{{/str}}
-                </a>
-            </li>
+                {{/nodearray}}
+                <li class="nhsuk-header__navigation-item nav-item dropdown dropdownmoremenu d-none" role="none" data-region="morebutton">
+                    <a class="nhsuk-header__navigation-link dropdown-toggle nav-link {{#isactive}}active{{/isactive}}" href="#" id="moremenu-dropdown-{{moremenuid}}" role="{{#istablist}}tab{{/istablist}}{{^istablist}}menuitem{{/istablist}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="-1">
+                        {{#str}}moremenu, core{{/str}}
+                    </a>
+                </li>
+            {{/primarymoremenu}}
+            {{^primarymoremenu}}
+                <li data-key="home" class="nhsuk-header__navigation-item nav-item" role="none" data-forceintomoremenu="false">
+                    <a role="menuitem" class="nhsuk-header__navigation-link nav-link  " href="{{home_url}}" tabindex="-1">
+                        Home
+                    </a>
+                </li>
+            {{/primarymoremenu}}
         </ul>
     </div>
 </nav>
-
