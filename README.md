@@ -32,8 +32,8 @@ node -v
 
 3. Merge from develop to main
 
-4. `git tag YYYYMMDDXX` (Moodle format where YYYYMMDD is the current date and XX is the release number, e.g. 2023042301 for the first release on 23rd April 2023)
+4. `git checkout main && git pull`
 
-5. `git push --tags`
+5. `git tag YYYYMMDDXX && git push --tags` (Moodle format where YYYYMMDD is the current date and XX is the release number, e.g. 2023042301 for the first release on 23rd April 2023)
 
 6. Allow GitHub Actions to complete.
