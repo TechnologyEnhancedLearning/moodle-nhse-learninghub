@@ -3,7 +3,7 @@ name: Create new release
 on:
   push:
     tags:
-      - 'v*'
+      - '20[0-9][0-9][0-9][0-9][0-9][0-9]'
 
 jobs:
   build:
@@ -25,7 +25,7 @@ jobs:
 
       - name: Get package version
         id: get_version
-        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\/v/}
+        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
 
       - name: Create artifact
         run: mkdir dist && zip -r dist/${{ steps.get_version.outputs.VERSION }}.zip . -x .git -x .github
