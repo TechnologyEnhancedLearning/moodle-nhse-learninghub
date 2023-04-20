@@ -1,0 +1,8 @@
+# Enforce LF line endings
+* text=auto eol=lf
+
+# Exclude files/dirs that aren't needed in the final release zip for Moodle deployment.
+# Mainly impacts git archive.
+/.git		export-ignore
+/.github	export-ignore
+/.gitignore	export-ignore
