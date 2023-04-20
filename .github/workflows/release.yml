@@ -28,7 +28,7 @@ jobs:
         run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
 
       - name: Create artifact
-        run: zip -r ${{ steps.get_version.outputs.VERSION }}.zip.zip . -x '.github**' -x '.git**' -x '.gitignore' -x '.gitattributes'
+        run: zip -r ${{ steps.get_version.outputs.VERSION }}.zip . -x '.github**' -x '.git**' -x '.gitignore' -x '.gitattributes'
 
       - name: Create release
         id: create_release
