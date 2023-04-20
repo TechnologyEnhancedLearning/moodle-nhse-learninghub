@@ -6,3 +6,4 @@
 /.git		export-ignore
 /.github	export-ignore
 /.gitignore	export-ignore
+/.gitattributes	export-ignore
