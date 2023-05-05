@@ -419,3 +419,23 @@ body.limitedwidth #page.drawers .main-inner {
 }
 
 
+.nhsuk-header2__navigation-list {
+  .nhsuk-header__navigation-link {
+    color: $color_nhsuk-blue;
+
+    &:visited {
+      color: $color_nhsuk-blue;
+    }
+
+    &.active {
+      border-bottom: 4px solid $color_nhsuk-white;
+      background-color: $color_nhsuk-white;
+    }
+
+    &:checked {
+      color: $color_nhsuk-blue;
+      border-bottom: 4px solid $color_nhsuk-black;
+    }
+  }
+}
+
