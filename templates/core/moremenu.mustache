@@ -45,9 +45,9 @@
         "moremenuid": "614c104dbacfa"
     }
 }}
-<nav class="nhsuk-header2__navigation app-header__navigation" id="header-navigation" role="navigation" aria-label="Primary navigation" aria-labelledby="label-navigation">
-    <div class="nhsuk-width-container app-width-container">
-        <ul class="nhsuk-header2__navigation-list nav more-nav {{navbarstyle}}" id="moremenu-{{moremenuid}}-{{navbarstyle}}" role="{{#istablist}}tablist{{/istablist}}{{^istablist}}menubar{{/istablist}}">
+<nav class="app-header__navigation" id="header-navigation" role="navigation" aria-label="Primary navigation" aria-labelledby="label-navigation">
+    <div class="app-width-container">
+        <ul class="nav more-nav {{navbarstyle}}" id="moremenu-{{moremenuid}}-{{navbarstyle}}" role="{{#istablist}}tablist{{/istablist}}{{^istablist}}menubar{{/istablist}}">
             {{#nodecollection}}
                 {{#children}}
                     {{> core/moremenu_children}}
@@ -56,8 +56,8 @@
             {{#nodearray}}
                 {{> core/moremenu_children}}
             {{/nodearray}}
-            <li class="nhsuk-header2__navigation__item nav-item dropdown dropdownmoremenu d-none" role="none" data-region="morebutton">
-                <a class="nhsuk-header2__navigation-link dropdown-toggle nav-link {{#isactive}}active{{/isactive}}" href="#" id="moremenu-dropdown-{{moremenuid}}" role="{{#istablist}}tab{{/istablist}}{{^istablist}}menuitem{{/istablist}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="-1">
+            <li class="nav-item dropdown dropdownmoremenu d-none" role="none" data-region="morebutton">
+                <a class="dropdown-toggle nav-link {{#isactive}}active{{/isactive}}" href="#" id="moremenu-dropdown-{{moremenuid}}" role="{{#istablist}}tab{{/istablist}}{{^istablist}}menuitem{{/istablist}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="-1">
                     {{#str}}moremenu, core{{/str}}
                 </a>
                 <ul class="dropdown-menu dropdown-menu-left" data-region="moredropdown" aria-labelledby="moremenu-dropdown-{{moremenuid}}" role="menu">
