@@ -63,18 +63,47 @@ body.limitedwidth #page.drawers .main-inner {
   }
 }
 
+// Header navigation and tabs
+
 .nhsuk-header__navigation-link {
+  color: $color_nhsuk-white;
+
   &:visited {
     color: $color_nhsuk-white;
   }
+
   &.active {
     border-bottom: 4px solid $color_nhsuk-white;
   }
+
   &:checked {
     color: $color_nhsuk-black;
     border-bottom: 4px solid $color_nhsuk-black;
   }
 }
+
+// Header navigation tabs only
+
+.nav-tabs {
+  .nhsuk-header__navigation-link {
+    color: $color_nhsuk-blue;
+    border-bottom: 0;
+
+    &:visited {
+      color: $color_nhsuk-blue;
+    }
+
+    &.active {
+      background-color: $color_nhsuk-white;
+    }
+
+    &:checked {
+      color: $color_nhsuk-blue;
+    }
+  }
+}
+
+// Header navigation light variation
 
 .nhsuk-header__light {
   background-color: $color_nhsuk-white;
@@ -417,5 +446,4 @@ body.limitedwidth #page.drawers .main-inner {
     }
   }
 }
-
 
