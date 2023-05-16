@@ -18,8 +18,6 @@
   },
   "homepage": "https://github.com/NHSLeadership/moodle-nhse#readme",
   "dependencies": {
-    "nhsuk-frontend": "^4.0.0"
-  },
-  "devDependencies": {
+    "nhsuk-frontend": "^6.2.0"
   }
 }
