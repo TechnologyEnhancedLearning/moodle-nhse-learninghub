@@ -324,21 +324,19 @@
     </div>
 </div>
 {{#js}}
-    {{#error}}
-        require(['jquery'], function($) {
-        $('#loginerrormessage').focus();
-        });
-    {{/error}}
     {{^error}}
         {{#autofocusform}}
-            require(['jquery'], function($) {
-            if ($('#username').val()) {
-            $('#password').focus();
+            var userNameField = document.getElementById('username');
+            if (userNameField.value.length == 0) {
+            userNameField.focus();
             } else {
-            $('#username').focus();
+            document.getElementById('password').focus();
             }
-            });
         {{/autofocusform}}
     {{/error}}
+    {{#error}}
+        document.getElementById('loginerrormessage').focus();
+    {{/error}}
 {{/js}}
+
 
