@@ -89,16 +89,28 @@ body.limitedwidth #page.drawers .main-inner {
     color: $color_nhsuk-blue;
     border-bottom: 0;
 
+    &.dropdown-item {
+      display: flex;
+      padding-left: 25px;
+    }
+
     &:visited {
       color: $color_nhsuk-blue;
     }
 
     &.active {
-      background-color: $color_nhsuk-white;
+      background-color: $color_nhsuk-blue;
+      color: $color_nhsuk-white;
+    }
+
+    &:hover {
+      background-color: $color_nhsuk-blue;
+      color: $color_nhsuk-white;
     }
 
     &:checked {
-      color: $color_nhsuk-blue;
+      background-color: $color_nhsuk-blue;
+      color: $color_nhsuk-white;
     }
   }
 }
