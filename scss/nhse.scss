@@ -366,14 +366,14 @@ body.limitedwidth #page.drawers .main-inner {
 
 #frontpage-available-course-list {
   .coursebox {
-    @extend .nhsuk-care-card__content;
+    @extend .nhsuk-card__content;
     border-radius: 0;
     border-top: 1px solid $color_nhsuk-grey-4;
 
     & > .info {
-      @extend .nhsuk-card__heading;
+      @extend .nhsuk-card--care__heading;
       & > .coursename {
-        @extend .nhsuk-card__heading;
+        @extend .nhsuk-card--care__heading;
         font-size: 1.5rem;
         font-weight: bold;
 
@@ -383,7 +383,7 @@ body.limitedwidth #page.drawers .main-inner {
       }
     }
     & > .content {
-      @extend .nhsuk-card__description;
+      @extend .nhsuk-card__content;
     }
   }
 }
