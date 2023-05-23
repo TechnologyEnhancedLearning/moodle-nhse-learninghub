@@ -166,13 +166,6 @@ class core_renderer extends \theme_boost\output\core_renderer
         $context->login_header_text_default = get_config( 'theme_nhse', 'login_header_text_default');
         $context->login_header_text = get_config( 'theme_nhse', 'login_header_text');
 
-        // Preview SSO login for in DEBUG_DEVELOPER mode regardless identity provider config
-        if ($CFG->debug < DEBUG_DEVELOPER) {
-            $context->hasidentityproviders = true;
-            $context->identityproviders = true;
-            $context->cansignup = true;
-        }
-
         return $this->render_from_template('core/loginform', $context);
     }
 
