@@ -11,6 +11,18 @@ $btn-secondary-text: $color_nhsuk-white;
 $btn-secondary-background: $color_nhsuk-dark-blue;
 $btn-secondary-border: $color_nhsuk-dark-blue;
 
+/**
+ * Generic style tweaks
+ */
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-weight: 600
+}
+
+/**
+ * Page and headings
+ */
+
 #page-wrapper {
   height: 100%;
   display: flex;
@@ -25,11 +37,31 @@ $btn-secondary-border: $color_nhsuk-dark-blue;
   }
 }
 
-body.limitedwidth #page.drawers .main-inner {
-  max-width: 960px;
+body.limitedwidth {
+  #page.drawers .main-inner {
+    max-width: 960px;
+  }
 }
+
 .header-maxwidth {
   max-width: 960px;
+}
+
+@media (min-width: 768px) {
+  #page.drawers {
+    .main-inner {
+      padding: 1.5rem 1.5rem;
+    }
+
+    div[role="main"] {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  .header-maxwidth {
+    padding-left: 0;
+  }
 }
 
 #page.drawers {
@@ -63,7 +95,9 @@ body.limitedwidth #page.drawers .main-inner {
   }
 }
 
-// Header navigation and tabs
+/**
+ * Header navigation and tabs
+ */
 
 .nhsuk-header__navigation-link {
   color: $color_nhsuk-white;
@@ -82,7 +116,9 @@ body.limitedwidth #page.drawers .main-inner {
   }
 }
 
-// Header navigation tabs only
+/**
+ * Header navigation tabs only
+ */
 
 .nav-tabs {
   .nhsuk-header__navigation-link {
@@ -115,7 +151,9 @@ body.limitedwidth #page.drawers .main-inner {
   }
 }
 
-// Header navigation light variation
+/**
+ * Header navigation light variation
+ */
 
 .nhsuk-header__light {
   background-color: $color_nhsuk-white;
@@ -146,16 +184,16 @@ body.limitedwidth #page.drawers .main-inner {
   height: 2.0em;
 }
 
+.navbar-expand .navbar-nav .nav-link {
+  padding-top: 15px;
+}
+
 .icon {
   font-size: 20px;
   width: 20px;
   height: 20px;
   padding-top:0;
   padding-bottom:0;
-}
-
-.navbar-expand .navbar-nav .nav-link {
-  padding-top: 15px;
 }
 
 .popover-region-header-container {
@@ -173,6 +211,10 @@ body.limitedwidth #page.drawers .main-inner {
     margin-top: .2em;
     margin-left: .2em;
   }
+}
+
+.nav {
+  margin-left: 0;
 }
 
 .navbar {
@@ -348,18 +390,22 @@ body.limitedwidth #page.drawers .main-inner {
   }
 }
 
-.btn-primary {
-  color: $btn-primary-text;
-  background-color: $btn-primary-background;
-  border-color: $btn-primary-border;
-  border-radius: 0;
+/**
+ * Button styles
+ */
 
-  &:hover {
-    background-color: $btn-secondary-background;
-    border-color: $btn-secondary-border;
-  }
+.btn-primary:not(.search-icon),
+.btn-secondary:not(.search-icon) {
+  @extend .nhsuk-button;
 }
 
+.btn-secondary:not(.search-icon) {
+  @extend .nhsuk-button--secondary;
+}
+
+/**
+ * Cards and drawers
+ */
 .card {
   border: none;
   border-radius: 0;
@@ -485,3 +531,24 @@ body.limitedwidth #page.drawers .main-inner {
     }
   }
 }
+
+.nhsuk-list--number, ol {
+  padding-left: 32px;
+}
+
+/**
+ * Calendar styles
+ */
+
+.maincalendar {
+  .calendarmonth {
+    td {
+      .day-number-circle {
+        .day-number {
+          padding: 50% 0;
+        }
+      }
+    }
+  }
+}
+
