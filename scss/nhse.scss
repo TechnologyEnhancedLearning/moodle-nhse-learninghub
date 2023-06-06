@@ -155,6 +155,10 @@ body.limitedwidth {
  * Header navigation light variation
  */
 
+.nhsuk-header__navigation {
+  overflow: visible;
+}
+
 .nhsuk-header__light {
   background-color: $color_nhsuk-white;
   .nhsuk-header__navigation {
