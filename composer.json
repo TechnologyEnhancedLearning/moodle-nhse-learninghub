@@ -12,5 +12,6 @@
         "allow-plugins": {
             "composer/installers": true
         }
+        "preferred-install": "dist"
     }
 }
