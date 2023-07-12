@@ -1,7 +1,7 @@
 {
     "name": "nhsla/moodle-nhse",
     "type": "moodle-theme",
-    "version": "2023061301",
+    "version": "2023071201",
     "require": {
         "composer/installers": "~1.0"
     },
