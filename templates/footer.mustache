@@ -56,31 +56,29 @@
                         {{{ output.login_info }}}
                         {{{ output.debug_footer_html }}}
                     </div>
-                    <div class="tool_usertours-resettourcontainer">
-                    </div>
-
+                    <div class="tool_usertours-resettourcontainer"></div>
                     {{{ output.standard_footer_html }}}
                     {{{ output.standard_end_of_body_html }}}
                 </div>
 
                 <div class="nhsuk-grid-column-one-half">
-                    <div>{{#str}}poweredbymoodle, core{{/str}}</div>
+                    {{#str}}poweredbymoodle, core{{/str}}
                     {{#output.moodle_release}}
-                        <div>
-                            {{#str}}version, core{{/str}} {{{ output.moodle_release }}}
-                        </div>
+                        {{#str}}version, core{{/str}} {{{ output.moodle_release }}}
                     {{/output.moodle_release}}
                 </div>
 
-                <p class="nhsuk-footer__copyright">© Copyright, Leadership Academy YYYY</p>
+                <div class="nhsuk-grid-column-one-half nhsuk-footer__copyright">
+                    © Copyright, Leadership Academy YYYY
+                </div>
             </div>
 
         </div>
     </div>
 </footer>
 {{#js}}
-    require(['theme_boost/footer-popover'], function(FooterPopover) {
+require(['theme_boost/footer-popover'], function(FooterPopover) {
     FooterPopover.init();
-    });
+});
 {{/js}}
 

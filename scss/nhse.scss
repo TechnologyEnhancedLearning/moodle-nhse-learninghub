@@ -19,13 +19,11 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   font-weight: 600;
 }
 
-.coursebox {
-  ul,
-  ol,
-  p {
-    font-size: initial;
-    line-height: initial;
-  }
+ul,
+ol,
+p {
+  font-size: initial;
+  line-height: initial;
 }
 
 .course_category_tree {
@@ -68,7 +66,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   flex-direction: column;
 
   #page {
-    padding-top: 3rem;
+    padding-top: 0;
     margin-top: 0;
   }
 
@@ -267,6 +265,8 @@ body.limitedwidth {
 
 .nav-link {
   padding: 0.6rem 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
 .navbar {
@@ -487,6 +487,10 @@ body.limitedwidth {
 
 .nhsuk-header__service-name {
   display: none;
+}
+
+.nhsuk-header__navigation-item {
+  border-top: none;
 }
 
 .popover-region-toggle::before, .popover-region-toggle::after {
