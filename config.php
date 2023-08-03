@@ -201,7 +201,7 @@ $THEME->iconsystem = \core\output\icon_system::FONTAWESOME;
 $THEME->haseditswitch = true;
 $THEME->usescourseindex = true;
 
-// Control displaying nhse titles.
+// Control displaying nhse titles (Boost is set to true).
 $THEME->activityheaderconfig = [
     'notitle' => false
 ];
