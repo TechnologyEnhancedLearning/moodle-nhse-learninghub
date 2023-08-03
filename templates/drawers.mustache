@@ -148,12 +148,11 @@
                             <div class="region_main_settings_menu_proxy"></div>
                         {{/hasregionmainsettingsmenu}}
                         {{{ output.course_content_header }}}
+                        {{#headercontent}}
+                            {{> core/activity_header }}
+                        {{/headercontent}}
                         {{#overflow}}
-                            <div class="container-fluid tertiary-navigation">
-                                <div class="navitem">
-                                    {{> core/url_select}}
-                                </div>
-                            </div>
+                            {{> core/url_select}}
                         {{/overflow}}
                         {{{ output.main_content }}}
                         {{{ output.activity_navigation }}}
@@ -171,10 +170,10 @@
 </body>
 </html>
 {{#js}}
-    M.util.js_pending('theme_boost/loader');
-    require(['theme_boost/loader', 'theme_boost/drawer'], function(Loader, Drawer) {
+M.util.js_pending('theme_boost/loader');
+require(['theme_boost/loader', 'theme_boost/drawer'], function(Loader, Drawer) {
     Drawer.init();
-    M.util.js_complete('theme_boost/loader');
-    });
+M.util.js_complete('theme_boost/loader');
+});
 {{/js}}
 

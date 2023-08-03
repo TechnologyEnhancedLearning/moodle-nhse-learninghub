@@ -43,7 +43,7 @@ $CFG->debugdisplay = 1;
 
 $THEME->doctype = 'html5';
 $THEME->name = 'nhse';
-$THEME->version = '2023072001';
+$THEME->version = '2023073103';
 $THEME->parents = ['boost'];
 $THEME->regions = [];
 $THEME->sheets = [];
@@ -201,7 +201,7 @@ $THEME->iconsystem = \core\output\icon_system::FONTAWESOME;
 $THEME->haseditswitch = true;
 $THEME->usescourseindex = true;
 
-// Control displaying nhse titles.
+// Control displaying nhse titles (Boost is set to true).
 $THEME->activityheaderconfig = [
     'notitle' => false
 ];
