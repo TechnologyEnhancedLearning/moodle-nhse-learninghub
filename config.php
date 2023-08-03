@@ -43,7 +43,7 @@ $CFG->debugdisplay = 1;
 
 $THEME->doctype = 'html5';
 $THEME->name = 'nhse';
-$THEME->version = '2023072001';
+$THEME->version = '2023073103';
 $THEME->parents = ['boost'];
 $THEME->regions = [];
 $THEME->sheets = [];

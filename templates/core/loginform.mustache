@@ -97,24 +97,8 @@
         {{#hasinstructions}}
             {{{instructions}}}
         {{/hasinstructions}}
-        <h3 style="text-align:left;">Welcome to the Leadership Academy Virtual Campus</h3>
-        <p><img src="https://learninghub.leadershipacademy.nhs.uk/wp-content/uploads/2020/04/NHS-Login-Illustration-1024x636.png" alt="Illustration of two people carrying a giant key" width="1024" height="636" class="img-responsive atto_image_button_text-bottom"></p>
         <div class="nhsuk-inset-text">
             <span class="nhsuk-u-visually-hidden">Information: </span>
-            <p>If you are using a 10-digit Academy ID, please use
-            {{#login_header_text}}
-                '{{ login_header_text }}'
-            {{/login_header_text}}
-            {{^login_header_text}}
-                '{{#str}} login_header_text_default, theme_nhse {{/str}}'
-            {{/login_header_text}}' section.
-            </p>
-            {{#login_expand_text}}
-                <p>If you have a different username, please use the '{{ login_expand_text }}' section.</p>
-            {{/login_expand_text}}
-            {{^login_expand_text}}
-                <p>If you have a different username, please use the '{{#str}} login_expand_text_default, theme_nhse {{/str}}' section.</p>
-            {{/login_expand_text}}
             <p>{{#str}} cookiesenabled, theme_nhse {{/str}}.
                 <a href="" {{!
                         }} data-modal="alert"{{!
