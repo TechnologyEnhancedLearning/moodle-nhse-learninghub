@@ -19,11 +19,22 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   font-weight: 600;
 }
 
-ul,
-ol,
-p {
-  font-size: initial;
-  line-height: initial;
+
+ul {
+  @extend %nhsuk-list;
+  @extend %nhsuk-list--bullet;
+}
+
+ol {
+  @extend %nhsuk-list;
+  @extend %nhsuk-list--number;
+}
+
+.coursebox {
+  p {
+    font-size: initial;
+    line-height: initial;
+  }
 }
 
 .course_category_tree {
@@ -40,7 +51,13 @@ p {
  * Button styles
  */
 .btn {
-  &:not(.btn-link):not(.btn-icon):not(.search-icon):not(.dropdown-toggle):not(.icon-no-margin) {
+  &:not(.btn-close)
+  &:not(.btn-icon)
+  &:not(.btn-link)
+  &:not(.btn-open)
+  &:not(.search-icon)
+  &:not(.dropdown-toggle)
+  &:not(.icon-no-margin) {
     @extend .nhsuk-button--small;
   }
 }
@@ -314,10 +331,13 @@ body.limitedwidth {
 
   .navbar-nav {
     .btn {
-      color: $btn-primary-text;
-      background-color: $btn-primary-background;
-      border-color: transparent;
-      border-bottom: none;
+      &:not(.btn-close)
+      &:not(.btn-open) {
+        color: $btn-primary-text;
+        background-color: $btn-primary-background;
+        border-color: transparent;
+        border-bottom: none;
+      }
     }
 
     .custom-control-input:checked~.custom-control-label::before {
@@ -352,10 +372,13 @@ body.limitedwidth {
 
     .navbar-nav {
       .btn {
-        color: $btn-default-text;
-        background-color: $btn-default-background;
-        border-color: transparent;
-        border-bottom: none;
+        &:not(.btn-close)
+        &:not(.btn-open) {
+          color: $btn-default-text;
+          background-color: $btn-default-background;
+          border-color: transparent;
+          border-bottom: none;
+        }
       }
     }
 
@@ -474,11 +497,23 @@ body.limitedwidth {
   }
 }
 
-.simplesearchform .input-group input.form-control {
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
+.simplesearchform {
+  .collapse.show {
+    background-color: $color_nhsuk-blue;
+  }
+  .simplesearchform {
+    .collapsing {
+      background-color: $color_nhsuk-blue;
+    }
+  }
+  .input-group {
+    input.form-control {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
 }
 
 [data-region=right-hand-drawer].drawer {
