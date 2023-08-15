@@ -19,7 +19,6 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   font-weight: 600;
 }
 
-
 ul {
   @extend %nhsuk-list;
   @extend %nhsuk-list--bullet;
@@ -28,6 +27,66 @@ ul {
 ol {
   @extend %nhsuk-list;
   @extend %nhsuk-list--number;
+}
+
+/* Import NHSE scss directory partials */
+
+@import "nhse/courseindex";
+
+/**
+ * Button styles
+ */
+.btn {
+  &:not(.btn-close)
+  &:not(.btn-icon)
+  &:not(.btn-link)
+  &:not(.btn-open)
+  &:not(.search-icon)
+  &:not(.dropdown-toggle)
+  &:not(.icon-no-margin) {
+    @extend .nhsuk-button--small;
+  }
+}
+
+/**
+ * Body styles
+ */
+body.limitedwidth {
+  #page.drawers .main-inner {
+    max-width: 960px;
+  }
+}
+
+/**
+ * Background variations
+ */
+
+.bg-dark {
+  color: $btn-primary-text;
+  background-color: $btn-primary-background !important;
+  * {
+    color: $btn-primary-text !important;
+  }
+}
+
+.bg-light {
+  color: $color_nhsuk-grey-1;
+  background-color: $btn-default-background !important;
+  > * {
+    color: $color_nhsuk-grey-1 !important;
+  }
+}
+
+/**
+ * Cards and box styles
+ */
+
+.card {
+  border: none;
+  border-radius: 0;
+  -moz-border-radius: 0;
+  background-color: $color_nhsuk-grey-5;
+  margin: 0;
 }
 
 .coursebox {
@@ -47,30 +106,75 @@ ol {
   }
 }
 
-/**
- * Button styles
- */
-.btn {
-  &:not(.btn-close)
-  &:not(.btn-icon)
-  &:not(.btn-link)
-  &:not(.btn-open)
-  &:not(.search-icon)
-  &:not(.dropdown-toggle)
-  &:not(.icon-no-margin) {
-    @extend .nhsuk-button--small;
+.dashboard-card-deck {
+  .dashboard-card {
+    background-color: $color_nhsuk-white;
+    .dashboard-card-img {
+      border-radius: 0;
+    }
   }
 }
 
 /**
- * Cards and drawers
+ * Drawer styles
  */
-.card {
-  border: none;
-  border-radius: 0;
-  -moz-border-radius: 0;
-  background-color: $color_nhsuk-grey-5;
-  margin: 0;
+
+.drawer-toggles {
+  .drawer-toggler {
+    top: calc(83px + 0.7rem)
+  }
+}
+
+@media (min-width: 992px) {
+  .drawer-toggles {
+    .drawer-toggler {
+      top: calc(140px + 0.7rem)
+    }
+  }
+}
+
+.drawercontent {
+  height: calc(100% - 124px)
+}
+
+.drawers .block_myoverview>.card-body {
+  padding: 1.25rem!important;
+}
+
+.dropdown-menu {
+  min-width: 20rem;
+}
+
+[data-region=right-hand-drawer].drawer {
+  top: 84px;
+}
+
+@media (min-width: 640px) {
+  [data-region=right-hand-drawer].drawer {
+    top: 92px;
+  }
+}
+
+/**
+ * Header styles
+ */
+
+.header-maxwidth {
+  max-width: 960px;
+}
+
+@media (min-width: 768px) {
+  .header-maxwidth {
+    padding-left: 0;
+  }
+}
+
+.icon {
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+  padding-top:0;
+  padding-bottom:0;
 }
 
 /**
@@ -83,7 +187,6 @@ ol {
   flex-direction: column;
 
   #page {
-    padding-top: 0;
     margin-top: 0;
   }
 
@@ -92,14 +195,26 @@ ol {
   }
 }
 
-body.limitedwidth {
-  #page.drawers .main-inner {
-    max-width: 960px;
+.pagelayout-mydashboard,
+.pagelayout-mycourses
+{
+  #page-wrapper {
+    #page {
+      padding-top: 0;
+    }
   }
 }
 
-.header-maxwidth {
-  max-width: 960px;
+.pagelayout-login,
+.pagelayout-popup,
+.pagelayout-embedded,
+.pagelayout-redirect
+{
+  #page-wrapper {
+    #page {
+      padding-top: 60px;
+    }
+  }
 }
 
 @media (min-width: 768px) {
@@ -113,9 +228,13 @@ body.limitedwidth {
       padding-right: 0;
     }
   }
+}
 
-  .header-maxwidth {
-    padding-left: 0;
+@media (max-width: 768px) {
+  #page-wrapper {
+    #page {
+      margin-top: 60px;
+    }
   }
 }
 
@@ -134,28 +253,42 @@ body.limitedwidth {
   }
 }
 
-.bg-dark {
-  color: $btn-primary-text;
-  background-color: $btn-primary-background !important;
-  * {
-    color: $btn-primary-text !important;
-  }
-}
+#frontpage-available-course-list {
+  .coursebox {
+    @extend .nhsuk-card__content;
+    border-radius: 0;
+    border-top: 1px solid $color_nhsuk-grey-4;
 
-.bg-light {
-  color: $color_nhsuk-grey-1;
-  background-color: $btn-default-background !important;
-  > * {
-    color: $color_nhsuk-grey-1 !important;
+    & > .info {
+      @extend .nhsuk-card--care__heading;
+      & > .coursename {
+        @extend .nhsuk-card--care__heading;
+        font-size: 1.5rem;
+        font-weight: bold;
+
+        & a {
+          color: inherit;
+        }
+      }
+    }
+    & > .content {
+      @extend .nhsuk-card__content;
+    }
   }
 }
 
 /**
  * Header navigation and tabs
  */
+@media (max-width: 40.0525em) {
+  .nhsuk-header__container {
+    padding: 20px;
+  }
+}
 
 .nhsuk-header__navigation-link {
   color: $color_nhsuk-white;
+  white-space: nowrap;
 
   &:visited {
     color: $color_nhsuk-white;
@@ -251,22 +384,22 @@ body.limitedwidth {
   }
 }
 
-.icon {
-  font-size: 20px;
-  width: 20px;
-  height: 20px;
-  padding-top:0;
-  padding-bottom:0;
+@media (min-width: 992px) {
+  .path-admin-reportbuilder {
+    &.pagelayout-popup {
+      .dynamictabs {
+        .nav-tabs {
+          padding-top: 0;
+        }
+      }
+    }
+  }
 }
 
 .popover-region-header-container {
   height: 50px;
   padding-top: 10px;
   padding-bottom: 10px;
-}
-
-.drawerheader {
-  height: 84px;
 }
 
 .navbar-expand {
@@ -465,35 +598,9 @@ body.limitedwidth {
   }
 }
 
-.drawers .block_myoverview>.card-body {
-  padding: 1.25rem!important;
-}
-
-.dropdown-menu {
-  min-width: 20rem;
-}
-
-#frontpage-available-course-list {
-  .coursebox {
-    @extend .nhsuk-card__content;
-    border-radius: 0;
-    border-top: 1px solid $color_nhsuk-grey-4;
-
-    & > .info {
-      @extend .nhsuk-card--care__heading;
-      & > .coursename {
-        @extend .nhsuk-card--care__heading;
-        font-size: 1.5rem;
-        font-weight: bold;
-
-        & a {
-          color: inherit;
-        }
-      }
-    }
-    & > .content {
-      @extend .nhsuk-card__content;
-    }
+#navbuttons {
+  input[type="submit"] {
+    @extend .nhsuk-button--small;
   }
 }
 
@@ -514,10 +621,6 @@ body.limitedwidth {
       border-bottom-right-radius: 0;
     }
   }
-}
-
-[data-region=right-hand-drawer].drawer {
-  top: 84px;
 }
 
 .nhsuk-header__service-name {
@@ -546,9 +649,6 @@ body.limitedwidth {
 }
 
 @media (min-width: 640px) {
-  [data-region=right-hand-drawer].drawer {
-    top: 92px;
-  }
   .navbar {
     .divider {
       display: block;
@@ -583,19 +683,11 @@ body.limitedwidth {
     display: none !important;
   }
   [data-region=right-hand-drawer].drawer {
-    top: 147px;
+    top: 148px;
   }
   .drawer-left, .drawer-right {
-    top: 147px;
-  }
-}
-
-.dashboard-card-deck {
-  .dashboard-card {
-    background-color: $color_nhsuk-white;
-    .dashboard-card-img {
-      border-radius: 0;
-    }
+    top: 148px;
+    height: calc(100vh - 124px)
   }
 }
 
