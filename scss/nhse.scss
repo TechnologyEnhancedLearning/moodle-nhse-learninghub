@@ -121,14 +121,14 @@ body.limitedwidth {
 
 .drawer-toggles {
   .drawer-toggler {
-    top: calc(83px + 0.7rem)
+    top: calc(140px + 0.7rem)
   }
 }
 
-@media (min-width: 992px) {
+@media (max-width: 991.98px) {
   .drawer-toggles {
     .drawer-toggler {
-      top: calc(140px + 0.7rem)
+      top: calc(99vh - (60px * 2.5))
     }
   }
 }
@@ -226,14 +226,6 @@ body.limitedwidth {
     div[role="main"] {
       padding-left: 0;
       padding-right: 0;
-    }
-  }
-}
-
-@media (max-width: 768px) {
-  #page-wrapper {
-    #page {
-      margin-top: 60px;
     }
   }
 }
