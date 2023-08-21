@@ -61,6 +61,7 @@ class core_renderer extends \theme_boost\output\core_renderer
 //        }
 //        $html = str_replace('nhsuk-header__default', 'nhsuk-header__light', $html);
 //        $html = str_replace('navbar__default', 'navbar__light', $html);
+
         return $html;
     }
 

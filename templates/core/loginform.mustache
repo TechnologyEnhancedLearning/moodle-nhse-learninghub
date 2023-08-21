@@ -308,13 +308,22 @@
     </div>
 </div>
 {{#js}}
+    var loginField = document.getElementById('password');
+    var showPassword = document.getElementById('showPassword');
+    showPassword.addEventListener('click', function () {
+        if (loginField.getAttribute("type") == 'password') {
+            loginField.setAttribute("type", "text");
+        } else {
+            loginField.setAttribute("type", "password");
+        }
+    });
     {{^error}}
         {{#autofocusform}}
             var userNameField = document.getElementById('username');
             if (userNameField.value.length == 0) {
-            userNameField.focus();
+                userNameField.focus();
             } else {
-            document.getElementById('password').focus();
+                document.getElementById('password').focus();
             }
         {{/autofocusform}}
     {{/error}}
