@@ -41,14 +41,12 @@
 <body {{{ bodyattributes }}}>
 {{> core/local/toast/wrapper}}
 
-<div id="page-wrapper" class="nhse-columns1 d-print-block">
+<div id="page-wrapper" class="d-print-block">
 
     {{{ output.standard_top_of_body_html }}}
-
-    {{> theme_boost/navbar }}
+    {{> theme_nhse/header }}
 
     <div id="page" class="container-fluid d-print-block">
-        {{{ output.breadcrumbs }}}
         <div id="page-content" class="row pb-3 d-print-block">
             <div id="region-main-box" class="col-12">
                 <section id="region-main" aria-label="{{#str}}content{{/str}}">
@@ -60,20 +58,25 @@
                     {{{ output.activity_navigation }}}
                     {{{ output.course_content_footer }}}
                 </section>
+                {{#hasblocks}}
+                    <section data-region="blocks-column" class="d-print-none" aria-label="{{#str}}blocks{{/str}}">
+                        {{{ addblockbutton }}}
+                        {{{ sidepreblocks }}}
+                    </section>
+                {{/hasblocks}}
             </div>
         </div>
     </div>
-
     {{{ output.standard_after_main_region_html }}}
+    {{> theme_nhse/footer }}
 
 </div>
 {{{ output.standard_end_of_body_html }}}
-{{> theme_nhse/footer }}
 </body>
 </html>
 {{#js}}
 M.util.js_pending('theme_boost/loader');
-require(['theme_boost/loader'], function() {
+    require(['theme_boost/loader'], function() {
     M.util.js_complete('theme_boost/loader');
 });
 {{/js}}

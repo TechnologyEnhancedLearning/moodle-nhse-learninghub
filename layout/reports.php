@@ -15,29 +15,27 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Theme NHSE
+ * A one column layout for the boost theme.
  *
- * @package   theme_nhse
- * @author    Marcin Calka
- * @copyright 2023 NHS Leadership Academy
+ * @package   theme_boost
+ * @copyright 2016 Damyon Wiese
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-// This is the version of the plugin.
-$plugin->version = 2023081801;
-$plugin->release = '401.0.1';
-$plugin->maturity = MATURITY_BETA;
-
-// This is the version of Moodle this plugin requires.
-$plugin->requires  = 2022112800.00; // 4.1 (Build 20221128)
-
-// This is the component name of the plugin - it always starts with 'theme_'
-// for themes and should be the same as the name of the folder.
-$plugin->component = 'theme_nhse';
-
-// This is a list of plugins, this plugin depends on (and their versions).
-$plugin->dependencies = [
-    'theme_boost' => 2022112800
+$bodyattributes = $OUTPUT->body_attributes([]);
+$templatecontext = [
+    'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
+    'output' => $OUTPUT,
+    'bodyattributes' => $bodyattributes,
 ];
+
+if (empty($PAGE->layout_options['noactivityheader'])) {
+    $header = $PAGE->activityheader;
+    $renderer = $PAGE->get_renderer('core');
+    $templatecontext['headercontent'] = $header->export_for_template($renderer);
+}
+
+echo $OUTPUT->render_from_template('theme_nhse/reports', $templatecontext);
+
