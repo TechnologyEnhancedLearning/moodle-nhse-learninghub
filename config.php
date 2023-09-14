@@ -103,7 +103,7 @@ $THEME->layouts = [
     // My courses page.
     'mycourses' => array(
         'file' => 'drawers.php',
-        'regions' => ['side-pre'],
+        'regions' => array('side-pre'),
         'defaultregion' => 'side-pre',
         'options' => array('nonavbar' => true),
     ),
@@ -112,7 +112,10 @@ $THEME->layouts = [
         'file' => 'drawers.php',
         'regions' => array('side-pre'),
         'defaultregion' => 'side-pre',
-        'options' => array('nonavbar' => true, 'langmenu' => true),
+        'options' => array(
+            'nonavbar' => true,
+            'langmenu' => true
+        ),
     ),
     // My public page.
     'mypublic' => array(
@@ -123,7 +126,9 @@ $THEME->layouts = [
     'login' => array(
         'file' => 'login.php',
         'regions' => array(),
-        'options' => array('langmenu' => true),
+        'options' => array(
+            'langmenu' => true,
+        )
     ),
     // Pages that appear in pop-up windows - no navigation, no blocks, no header and bare activity header.
     'popup' => array(
@@ -132,11 +137,11 @@ $THEME->layouts = [
         'options' => array(
             'nofooter' => true,
             'nonavbar' => true,
-            'activityheader' => [
+            'activityheader' => array(
                 'notitle' => true,
                 'nocompletion' => true,
                 'nodescription' => true
-            ]
+            )
         )
     ),
     // No blocks and minimal footer - used for legacy frame layouts only!
@@ -146,9 +151,9 @@ $THEME->layouts = [
         'options' => array(
             'nofooter' => true,
             'nocoursefooter' => true,
-            'activityheader' => [
+            'activityheader' => array(
                 'nocompletion' => true
-            ]
+            )
         ),
     ),
     // Embeded pages, like iframe/object embeded in moodleform - it needs as much space as possible.
@@ -168,7 +173,11 @@ $THEME->layouts = [
     'print' => array(
         'file' => 'columns1.php',
         'regions' => array(),
-        'options' => array('nofooter' => true, 'nonavbar' => false, 'noactivityheader' => true),
+        'options' => array(
+            'nofooter' => true,
+            'nonavbar' => false,
+            'noactivityheader' => true
+        ),
     ),
     // The pagelayout used when a redirection is occuring.
     'redirect' => array(
