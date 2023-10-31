@@ -148,6 +148,7 @@ body.limitedwidth {
 
 [data-region=right-hand-drawer].drawer {
   top: 84px;
+  height: calc(100% - 149px)
 }
 
 @media (min-width: 640px) {
