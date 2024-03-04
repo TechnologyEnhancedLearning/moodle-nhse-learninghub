@@ -26,8 +26,8 @@
 defined('MOODLE_INTERNAL') || die();
 
 // This is the version of the plugin.
-$plugin->version = 2023110201;
-$plugin->release = '401.0.2';
+$plugin->version = 2024022001;
+$plugin->release = '401.0.3';
 $plugin->maturity = MATURITY_BETA;
 
 // This is the version of Moodle this plugin requires.
