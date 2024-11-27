@@ -1,5 +1,25 @@
-$color_nhsuk-dark-blue: #005eb8;
+/* Import the entire NHSUK scss */
+@import "../node_modules/nhsuk-frontend/packages/nhsuk";
+@import "../scss/bootstrap/_config.scss";
 
+@import "../../boost/scss/fontawesome.scss";
+@import "../../boost/scss/bootstrap.scss";
+@import "../../boost/scss/moodle.scss";
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/**
+ * For sticky header
+ */
+body {
+  height: auto;
+}
+
+/**
+ * Extra colour mappings for Moodle
+ */
 $btn-default-text: $color_nhsuk-black;
 $btn-default-background: $color_nhsuk-white;
 
@@ -11,12 +31,65 @@ $btn-secondary-text: $color_nhsuk-white;
 $btn-secondary-background: $color_nhsuk-dark-blue;
 $btn-secondary-border: $color_nhsuk-dark-blue;
 
+/* Import NHSE scss directory partials */
+@import "nhse/courseindex";
+@import "nhse/media";
+
+/* Custom components */
+@import "components/button/button";
+
 /**
  * Generic style tweaks
  */
+a {
+  &.btn {
+    &:focus {
+      @include nhsuk-focused-button;
+    }
+  }
+  &.btn {
+    &:focus {
+      @include nhsuk-focused-button;
+    }
+  }
+  &.nav-link {
+    &:focus {
+      @include nhsuk-focused-button;
+    }
+  }
+}
+
+button {
+  &.btn {
+    &:focus {
+      @include nhsuk-focused-button;
+    }
+  }
+}
+
+input {
+  &.custom-control-input {
+    &:focus {
+      @include nhsuk-focused-text;
+    }
+  }
+}
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   font-weight: 600;
+}
+
+h1 {
+  font-size: 1.75rem;
+}
+h2 {
+  font-size: 1.50rem;
+}
+h3 {
+  font-size: 1.35rem;
+}
+h4, h5, h6 {
+  font-size: 1.1875rem;
 }
 
 ul {
@@ -29,32 +102,94 @@ ol {
   @extend %nhsuk-list--number;
 }
 
-/* Import NHSE scss directory partials */
+ul {
+  &.course-list {
+    padding-left: 0;
+    border-left: calc(1px + 5px) solid $color_nhsuk-blue;
+  }
+}
 
-@import "nhse/courseindex";
-@import "nhse/media";
+.text-muted {
+  color: $nhsuk-text-color !important;
+}
+
+.nhsuk-breadcrumb__item {
+  font-size: 15px;
+}
 
 /**
  * Button styles
  */
 .btn {
-  &:not(.btn-close)
-  &:not(.btn-icon)
-  &:not(.btn-link)
-  &:not(.btn-open)
-  &:not(.search-icon)
-  &:not(.dropdown-toggle)
-  &:not(.icon-no-margin) {
+  &:not(
+    .btn-icon,
+    .btn-close,
+    .btn-link,
+    .btn-open,
+    .search-icon,
+    .navbar .dropdown-toggle,
+    .icon-no-margin
+  ) {
     @extend .nhsuk-button--small;
+    box-shadow: 0 2px 0 $nhsuk-box-shadow-color;
   }
+
+  &.disabled {
+    @extend .nhsuk-button--disabled;
+    box-shadow: 0 2px 0 $nhsuk-box-shadow-color;
+  }
+
+  &.active, &.visited {
+    @extend .nhsuk-button--reverse;
+    box-shadow: 0 2px 0 $nhsuk-box-shadow-color;
+  }
+
+  &.text-primary {
+    color: $btn-secondary-text!important;
+  }
+}
+
+.bg-secondary {
+  color: $nhsuk-reverse-button-text-color!important;
+}
+
+.btn {
+  &.btn-secondary,
+  &.btn-outline-secondary {
+    @extend .nhsuk-button--small;
+    @extend .nhsuk-button--secondary;
+    box-shadow: 0 2px 0 $nhsuk-box-shadow-color;
+
+    &:visited {
+      color: $nhsuk-reverse-button-color;
+    }
+  }
+}
+
+.btn-group>.btn:not(:first-child),
+.btn-group>.btn:not(:last-child):not(.dropdown-toggle),
+.btn-group>.btn-group:not(:first-child)>.btn,
+.btn-group>.btn-group:not(:last-child)>.btn {
+  border-top-left-radius: 4px!important;
+  border-top-right-radius: 4px!important;
+  border-bottom-left-radius: 4px!important;
+  border-bottom-right-radius: 4px!important;
 }
 
 /**
  * Body styles
  */
-body.limitedwidth {
-  #page.drawers .main-inner {
-    max-width: 960px;
+body {
+  background-color: $nhsuk-form-element-background-color;
+  background: none;
+  &.limitedwidth {
+    #page {
+      &.drawers {
+        .main-inner {
+          max-width: 990px;
+        }
+      }
+    }
   }
 }
 
@@ -79,6 +214,13 @@ body.limitedwidth {
 }
 
 /**
+ * Increase max container width
+ */
+.nhsuk-width-container {
+  max-width: 990px;
+}
+
+/**
  * Cards and box styles
  */
 
@@ -86,14 +228,10 @@ body.limitedwidth {
   border: none;
   border-radius: 0;
   -moz-border-radius: 0;
-  background-color: $color_nhsuk-grey-5;
   margin: 0;
-}
-
-.coursebox {
-  p {
-    font-size: initial;
-    line-height: initial;
+  background-color: $color_nhsuk-grey-5;
+  &.course-card {
+    background-color: $color_nhsuk-white;
   }
 }
 
@@ -119,6 +257,16 @@ body.limitedwidth {
 /**
  * Drawer styles
  */
+.drawer {
+  ul {
+    font-size: 15px;
+  }
+  .card-text {
+    li {
+      padding: .25rem .5rem;
+    }
+  }
+}
 
 .drawer-toggles {
   .drawer-toggler {
@@ -135,12 +283,36 @@ body.limitedwidth {
 }
 
 .drawercontent {
-  height: calc(100% - 124px)
+  height: calc(100% - 124px);
+  h1, h2, h3 {
+    margin-bottom: 0;
+    padding: .25rem .5rem;
+    line-height: 1.5;
+  }
 }
 
-.drawers .block_myoverview>.card-body {
-  padding: 1.25rem!important;
+.drawers {
+  .block_myoverview>.card-body {
+    padding: 1.25rem!important;
+  }
 }
+.comment-area {
+  padding: 10px 0 0;
+}
+
+.comment-list {
+  font-size: 1rem;
+  color: $nhsuk-text-color;
+  li {
+    background-color: $color_nhsuk-white;
+    margin: 0;
+    margin-bottom: 10px;
+  }
+}
+.comment-ctrl {
+  font-size: 1rem;
+}
+
 
 .dropdown-menu {
   min-width: 20rem;
@@ -160,9 +332,31 @@ body.limitedwidth {
 /**
  * Header styles
  */
+.sticky-top {
+  position: sticky;
+  top: 0;
+}
+
+.nhsuk-header__container {
+  padding: 16px 0;
+  max-width: 990px;
+}
+
+.nhsuk-header__search-form {
+  margin: 0;
+}
+
+@media (max-width: 40.0525em) {
+  .nhsuk-header__container {
+    display: flex !important;
+    .nhsuk-header__logo {
+      padding-right: 12px;
+    }
+  }
+}
 
 .header-maxwidth {
-  max-width: 960px;
+  max-width: 990px;
 }
 
 @media (min-width: 768px) {
@@ -179,6 +373,16 @@ body.limitedwidth {
   padding-bottom:0;
 }
 
+.editmode-switch-form {
+  margin-block-start: 0.4em;
+  margin-block-end: 0.6em;
+  .input-group {
+    label {
+      padding-top: 3px;
+    }
+  }
+}
+
 /**
  * Page and headings
  */
@@ -189,7 +393,16 @@ body.limitedwidth {
   flex-direction: column;
 
   #page {
-    margin-top: 0;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1440px;
+    &.nhsuk-width-container {
+      max-width: 990px;
+    }
+    .main-inner {
+      padding: 1.5rem 1.5rem;
+      width: 100%;
+    }
   }
 
   svg {
@@ -197,8 +410,62 @@ body.limitedwidth {
   }
 }
 
-.pagelayout-mydashboard,
-.pagelayout-mycourses
+/**
+ * Max width except reportbuilder
+ */
+#page-admin-reportbuilder,
+#page-admin-reportbuilder-edit {
+  height: 100%;
+  #page-wrapper {
+    #page {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+}
+
+#page {
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  &.drawers {
+    margin-top: 0;
+
+    .main-inner {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  a {
+    &:not([class]) {
+      text-decoration: underline;
+
+      &:focus {
+        @include nhsuk-focused-text;
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  #page {
+    &.drawers {
+      &.show-drawer-left {
+        padding-left: 286px;
+        margin-left: 0;
+      }
+      &.show-drawer-right {
+        padding-right: 316px;
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.pagelayout-admin,
+.pagelayout-mycourses,
+.pagelayout-mydashboard
 {
   #page-wrapper {
     #page {
@@ -223,27 +490,13 @@ body.limitedwidth {
   #page.drawers {
     .main-inner {
       padding: 1.5rem 1.5rem;
+      width: 100%;
     }
 
     div[role="main"] {
       padding-left: 0;
       padding-right: 0;
     }
-  }
-}
-
-#page.drawers {
-  margin-top: 0;
-  .main-inner {
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-}
-
-@media (min-width: 768px) {
-  #page.drawers {
-    padding-left: 0;
-    padding-right: 0;
   }
 }
 
@@ -271,45 +524,67 @@ body.limitedwidth {
   }
 }
 
-/**
- * Header navigation and tabs
- */
-@media (max-width: 40.0525em) {
-  .nhsuk-header__container {
-    padding: 20px;
+.reportbuilder-toggle-card {
+  .toggle-card-button {
+    i.toggle-card-icon {
+      color: $color_nhsuk-white;
+    }
   }
 }
 
-.nhsuk-header__navigation-link {
-  color: $color_nhsuk-white;
-  white-space: nowrap;
+/**
+ * Container notification messages
+ */
 
-  &:visited {
+.content-item-container {
+  &.notification {
+    .content-item-body {
+      .notification-message {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+#region-main {
+  height: 100%;
+}
+
+/**
+ * Header navigation
+ */
+.nhsuk-header--white {
+  .nhsuk-header__navigation-link {
     color: $color_nhsuk-white;
-  }
+    white-space: nowrap;
 
-  &.active {
-    border-bottom: 4px solid $color_nhsuk-white;
-  }
+    &:visited {
+      color: $color_nhsuk-white;
+    }
 
-  &:checked {
-    color: $color_nhsuk-black;
-    border-bottom: 4px solid $color_nhsuk-black;
+    &.active {
+      border-bottom: 4px solid $color_nhsuk-white;
+    }
+
+    &:checked {
+      color: $color_nhsuk-black;
+      border-bottom: 4px solid $color_nhsuk-black;
+    }
   }
 }
 
 /**
  * Header navigation tabs only
  */
-
 .nav-tabs {
   .nhsuk-header__navigation-link {
     color: $color_nhsuk-blue;
     border-bottom: 0;
+    padding: 12px 12px;
 
     &.dropdown-item {
       display: flex;
-      padding-left: 25px;
+      padding-left: 1rem;
     }
 
     &:visited {
@@ -331,6 +606,12 @@ body.limitedwidth {
       color: $color_nhsuk-white;
     }
   }
+
+  .nav-link {
+    &:focus {
+      @include nhsuk-focused-text;
+    }
+  }
 }
 
 /**
@@ -340,8 +621,10 @@ body.limitedwidth {
 .nhsuk-header__navigation {
   overflow: visible;
 }
-
-.nhsuk-header__light {
+.nhsuk-header__service-name {
+  max-width: none;
+}
+.nhsuk-header--white {
   background-color: $color_nhsuk-white;
   .nhsuk-header__navigation {
     color: $btn-default-text;
@@ -361,6 +644,14 @@ body.limitedwidth {
     &:checked {
       color: $color_nhsuk-white;
       border-bottom: 4px solid $color_nhsuk-white;
+    }
+  }
+}
+
+.nhsuk-breadcrumb__list {
+  .nhsuk-breadcrumb__item {
+    .nhsuk-breadcrumb__link {
+      padding: 0 10px 10px 0;
     }
   }
 }
@@ -392,15 +683,8 @@ body.limitedwidth {
 
 .popover-region-header-container {
   height: 50px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-.navbar-expand {
-  .navbar-nav {
-    margin-top: .2em;
-    margin-left: .2em;
-  }
+  padding-top: 12px;
+  padding-bottom: 12px;
 }
 
 .nav {
@@ -411,6 +695,12 @@ body.limitedwidth {
   padding: 0.6rem 1rem;
   font-size: 1rem;
   line-height: 1.5;
+}
+
+.icon-no-margin {
+  &:focus {
+    @include nhsuk-focused-button;
+  }
 }
 
 .navbar {
@@ -430,6 +720,7 @@ body.limitedwidth {
 
   .popover-region .popover-region-container {
     top: 84px;
+    color: $nhsuk-secondary-text-color;
   }
 
   .navbar-toggler-icon {
@@ -458,10 +749,15 @@ body.limitedwidth {
 
   .navbar-nav {
     .btn {
-      &:not(.btn-close)
-      &:not(.btn-open) {
+      &:not(
+        .btn-close,
+        .btn-open
+      ) {
         color: $btn-primary-text;
         background-color: $btn-primary-background;
+        &:focus {
+          @include nhsuk-focused-button;
+        }
         border-color: transparent;
         border-bottom: none;
       }
@@ -478,7 +774,7 @@ body.limitedwidth {
     }
 
     .text-primary {
-      color: $btn-primary-text!important;
+      color: $btn-secondary-text!important;
     }
   }
 
@@ -499,8 +795,10 @@ body.limitedwidth {
 
     .navbar-nav {
       .btn {
-        &:not(.btn-close)
-        &:not(.btn-open) {
+        &:not(
+          .btn-close,
+          .btn-open
+        ) {
           color: $btn-default-text;
           background-color: $btn-default-background;
           border-color: transparent;
@@ -509,14 +807,17 @@ body.limitedwidth {
       }
     }
 
-    .custom-control-input:checked~.custom-control-label::before {
-      color: $btn-primary-text;
-      background-color: $btn-primary-background;
-      border-color: $btn-primary-background;
-    }
+    .custom-control-input {
 
-    .custom-control-input:checked~.custom-control-label::after {
-      background-color: $btn-default-background;
+      &:checked ~ .custom-control-label::before {
+        color: $btn-primary-text;
+        background-color: $btn-primary-background;
+        border-color: $btn-primary-background;
+      }
+
+      &:checked ~ .custom-control-label::after {
+        background-color: $btn-default-background;
+      }
     }
 
     .dropdown-toggle::after {
@@ -592,21 +893,94 @@ body.limitedwidth {
   }
 }
 
+.content-area {
+  .navbar {
+    a, a:visited {
+     color: $btn-primary-text;
+    }
+  }
+}
+
+.nhsuk-header__search-wrap {
+  .btn-close,
+  .btn-open {
+    color: $btn-primary-text;
+    background-color: $btn-primary-background;
+  }
+}
+
+@media (min-width: 48.0625em) {
+  .nhsuk-search__input {
+    width: 180px;
+  }
+
+  .nhsuk-search__submit {
+    padding: 0 8px 0;
+  }
+}
+
 #navbuttons {
   input[type="submit"] {
     @extend .nhsuk-button--small;
   }
 }
 
-.simplesearchform {
-  .collapse.show {
-    background-color: $color_nhsuk-blue;
-  }
-  .simplesearchform {
-    .collapsing {
-      background-color: $color_nhsuk-blue;
+/**
+ * Double-sized Checkboxes
+ */
+input[type=checkbox] {
+  -ms-transform: scale(2); /* IE */
+  -moz-transform: scale(2); /* FF */
+  -webkit-transform: scale(2); /* Safari and Chrome */
+  -o-transform: scale(2); /* Opera */
+  transform: scale(2);
+}
+
+label input[type=checkbox] {
+  margin-right: 1.0rem!important;
+}
+.form-check label {
+  padding-left: 1.0rem!important;
+}
+
+.form-check-inline .form-check-input {
+  margin-left: 1.0rem;
+  margin-right: 1.0rem;
+}
+
+.form-control {
+  padding: 0 0.75rem;
+  border-radius: 0;
+}
+
+.form-item {
+  .form-setting {
+    .form-defaultinfo {
+      padding-left: 1rem;
     }
   }
+}
+
+.custom-select {
+  padding: 0 1.75rem 0 .75rem
+}
+
+.simplesearchform {
+  .btn-close {
+    right: -2.5em;
+    top: 0.2rem;
+  }
+  .collapse.show {
+    background-color: $color_nhsuk-blue;
+    right: 0;
+  }
+  .collapsing {
+    background-color: $color_nhsuk-blue;
+    right: 0;
+  }
+  .searchform-navbar {
+    padding-right: 2.5em;
+}
   .input-group {
     input.form-control {
       border-top-left-radius: 0;
@@ -615,10 +989,6 @@ body.limitedwidth {
       border-bottom-right-radius: 0;
     }
   }
-}
-
-.nhsuk-header__service-name {
-  display: none;
 }
 
 .nhsuk-header__navigation-item {
@@ -651,9 +1021,6 @@ body.limitedwidth {
       display: inline-block;
     }
   }
-  .nhsuk-header__service-name {
-    display: inline-block;
-  }
 }
 
 @media (min-width: 768px) {
@@ -672,15 +1039,15 @@ body.limitedwidth {
   }
 }
 
-@media (min-width: 990px) {
+@media (min-width: 992px) {
   .d-md-none {
     display: none !important;
   }
   [data-region=right-hand-drawer].drawer {
-    top: 148px;
+    top: 140px;
   }
   .drawer-left, .drawer-right {
-    top: 148px;
+    top: 135px;
     height: calc(100vh - 124px)
   }
 }
@@ -692,9 +1059,16 @@ body.limitedwidth {
 /**
  * Calendar styles
  */
-
 .maincalendar {
   .calendarmonth {
+    ul {
+      li {
+        &>a {
+          white-space: normal;
+        }
+      }
+    }
+
     td {
       .day-number-circle {
         .day-number {
@@ -702,5 +1076,18 @@ body.limitedwidth {
         }
       }
     }
+  }
+}
+
+th, td {
+  font-size: 1.0rem;
+}
+
+@media (min-width: 40.0625em) {
+  th, td {
+    font-size: 1.0rem;
+  }
+  .nhsuk-breadcrumb__item {
+    font-size: 1.1875rem;
   }
 }

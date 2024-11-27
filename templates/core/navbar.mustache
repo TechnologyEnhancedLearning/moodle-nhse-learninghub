@@ -65,15 +65,17 @@
 }}
 <nav class="nhsuk-breadcrumb header-maxwidth d-print-none" aria-label="{{#str}}breadcrumb, access{{/str}}">
     <ol class="nhsuk-breadcrumb__list">
-        <li class="nhsuk-breadcrumb__item">
-            <a href="/{{home_url}}" class="nhsuk-breadcrumb__link"><span class="media-left">
-                <i class="icon fa fa-home fa-fw" aria-hidden="true"></i>
-            </span>Home</a>
-        </li>
+        {{^get_items}}
+            <li class="nhsuk-breadcrumb__item">
+                <a href="{{{config.homeurl}}}courses.php" class="nhsuk-breadcrumb__link">
+                    <span class="media-left"><i class="icon fa fa-home fa-fw" aria-hidden="true"></i>
+                </span>My courses</a>
+            </li>
+        {{/get_items}}
         {{#get_items}}
             {{#has_action}}
                 <li class="nhsuk-breadcrumb__item">
-                    <a href="{{{action}}}" {{#is_last}}aria-current="page"{{/is_last}} {{#get_title}}title="{{get_title}}"{{/get_title}}>{{{get_content}}}</a>
+                    <a href="{{{action}}}" {{#is_last}}aria-current="page"{{/is_last}}{{#get_title}}title="{{get_title}}"{{/get_title}}>{{{get_content}}}</a>
                 </li>
             {{/has_action}}
             {{^has_action}}

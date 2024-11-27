@@ -56,10 +56,10 @@ class core_renderer extends \theme_boost\output\core_renderer
         $html = parent::header();
         $navbarstyle = get_config( 'theme_nhse', 'navbarstyle');
 //        if ($navbarstyle) {
-//            $html = str_replace('nhsuk-header__default', 'nhsuk-header__' . $navbarstyle, $html);
+//            $html = str_replace('nhsuk-header--default', 'nhsuk-header__' . $navbarstyle, $html);
 //            $html = str_replace('navbar__default', 'navbar__light', $html);
 //        }
-//        $html = str_replace('nhsuk-header__default', 'nhsuk-header__light', $html);
+//        $html = str_replace('nhsuk-header--default', 'nhsuk-header--white', $html);
 //        $html = str_replace('navbar__default', 'navbar__light', $html);
 
         return $html;
@@ -83,14 +83,26 @@ class core_renderer extends \theme_boost\output\core_renderer
     {
         $html = parent::footer();
 
-        // Activate only if we want dark style footer
+        // Activate only if we want white style footer
         //$navbarstyle = get_config( 'theme_nhse', 'navbarstyle');
+        //$navbarstyle = 'white';
         //if ($navbarstyle) {
-        //    $html = str_replace('bg-default', 'bg-' . $navbarstyle, $html);
+        //    $html = str_replace('nhsuk-header--default', 'nhsuk-header--' . $navbarstyle, $html);
         //}
         $html = str_replace('YYYY', date('Y'), $html);
 
         return $html;
+    }
+
+    public function other_info()
+    {
+        $layout = $this->get_page()->pagelayout;
+        $pagetype = $this->get_page()->pagetype;
+        $title = $this->page_title();
+
+        return "<span>Page title: {$title}<span><br>                
+                <span>Page layout: {$layout}</span><br>
+                <span>Page type: {$pagetype}</span>";
     }
 
     /**

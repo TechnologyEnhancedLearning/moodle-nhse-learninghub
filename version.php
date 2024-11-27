@@ -19,19 +19,19 @@
  *
  * @package   theme_nhse
  * @author    Marcin Calka
- * @copyright 2023 NHS Leadership Academy
+ * @copyright 2024 NHS England
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
 // This is the version of the plugin.
-$plugin->version = 2024022001;
-$plugin->release = '401.0.3';
+$plugin->version = 2024100801;
+$plugin->release = '404.4.0';
 $plugin->maturity = MATURITY_BETA;
 
 // This is the version of Moodle this plugin requires.
-$plugin->requires  = 2022112800.00; // 4.1 (Build 20221128)
+$plugin->requires  = 2024041600.00; // 4.4.4 (Build: 20241007)
 
 // This is the component name of the plugin - it always starts with 'theme_'
 // for themes and should be the same as the name of the folder.
@@ -39,5 +39,5 @@ $plugin->component = 'theme_nhse';
 
 // This is a list of plugins, this plugin depends on (and their versions).
 $plugin->dependencies = [
-    'theme_boost' => 2022112800
+    'theme_boost' => 2024042200
 ];

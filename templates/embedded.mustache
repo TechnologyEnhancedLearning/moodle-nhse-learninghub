@@ -45,12 +45,13 @@
 <html {{{ output.htmlattributes }}}>
 <head>
     <title>{{{ output.page_title }}}</title>
-    <link rel="shortcut icon" href="{{{ output.favicon }}}" />
+    <link rel="shortcut icon" href="{{{ output.favicon }}}" type="image/x-icon">
     {{{ output.standard_head_html }}}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body {{{ output.body_attributes }}}>
+<a class="nhsuk-skip-link" href="#page" aria-label="{{#str}}tocontent, core_access{{/str}}">{{#str}}tocontent, core_access{{/str}}</a>
 {{> core/local/toast/wrapper}}
 
 {{{ output.standard_top_of_body_html }}}

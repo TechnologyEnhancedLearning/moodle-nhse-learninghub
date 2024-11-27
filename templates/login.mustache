@@ -29,9 +29,10 @@
         }
     }
 }}
-{{> theme_boost/head }}
+{{> theme_nhse/head }}
 
 <body {{{ bodyattributes }}}>
+<a class="nhsuk-skip-link" href="#page-wrapper">{{#str}}tocontent, core_access{{/str}}</a>
 {{> core/local/toast/wrapper}}
 
 <div id="page-wrapper" class="nhse-login d-print-block">
@@ -39,14 +40,14 @@
     {{{ output.standard_top_of_body_html }}}
     {{> theme_nhse/header }}
 
-    <div id="page">
-        <div class="nhsuk-width-container">
+    <div  id="page" class="nhsuk-width-container">
+        <div class="main-inner nhsuk-u-padding-bottom-4">
             {{{ output.main_content }}}
         </div>
-
-        {{> theme_nhse/footer }}
     </div>
+    <!-- end of div id="page"-->
 
+    {{> theme_nhse/footer }}
     {{{ output.standard_after_main_region_html }}}
 </div>
 

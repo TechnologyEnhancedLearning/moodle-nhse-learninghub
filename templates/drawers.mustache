@@ -49,12 +49,13 @@
         "addblockbutton": ""
     }
 }}
-{{> theme_boost/head }}
+{{> theme_nhse/head }}
 
 <body {{{ bodyattributes }}}>
+<a class="nhsuk-skip-link" href="#page-wrapper">{{#str}}tocontent, core_access{{/str}}</a>
 {{> core/local/toast/wrapper}}
 
-<div id="page-wrapper" class="nhse-drawers d-print-block">
+<div id="page-wrapper" class="d-print-block">
 
     {{{ output.standard_top_of_body_html }}}
     {{> theme_nhse/header }}
@@ -62,16 +63,21 @@
     {{#courseindex}}
         {{< theme_boost/drawer }}
             {{$id}}theme_boost-drawers-courseindex{{/id}}
+            {{$drawerheadercontent}}
+                {{> theme_nhse/courseindexdrawercontrols}}
+            {{/drawerheadercontent}}
             {{$drawerclasses}}drawer drawer-left {{#courseindexopen}}show{{/courseindexopen}}{{/drawerclasses}}
             {{$drawercontent}}
+                {{{output.page_heading}}}
                 {{{courseindex}}}
             {{/drawercontent}}
             {{$drawerpreferencename}}drawer-open-index{{/drawerpreferencename}}
             {{$drawerstate}}show-drawer-left{{/drawerstate}}
             {{$tooltipplacement}}right{{/tooltipplacement}}
             {{$closebuttontext}}{{#str}}closecourseindex, core{{/str}}{{/closebuttontext}}
-        {{/ theme_boost/drawer}}
+        {{/ theme_boost/drawer }}
     {{/courseindex}}
+
     {{#hasblocks}}
         {{< theme_boost/drawer }}
             {{$id}}theme_boost-drawers-blocks{{/id}}
@@ -91,8 +97,9 @@
         {{/ theme_boost/drawer}}
     {{/hasblocks}}
 
-    <div id="page" data-region="mainpage" data-usertour="scroller" class="drawers {{#courseindexopen}}show-drawer-left{{/courseindexopen}} {{#blockdraweropen}}show-drawer-right{{/blockdraweropen}} drag-container">
-        <div id="topofscroll" class="main-inner">
+    <div id="page" class="nhsuk-width-container-fluid drawers {{#courseindexopen}}show-drawer-left{{/courseindexopen}} {{#blockdraweropen}}show-drawer-right{{/blockdraweropen}} drag-container"
+         data-region="mainpage" data-usertour="scroller">
+        <div id="topofscroll" class="main-inner nhsuk-u-padding-bottom-4">
             <div class="drawer-toggles d-flex">
                 {{#courseindex}}
                     <div class="drawer-toggler drawer-left-toggle open-nav d-print-none">
@@ -121,9 +128,9 @@
                             data-placement="right"
                             title="{{#str}}opendrawerblocks, core{{/str}}"
                         >
-                            <span class="sr-only">{{#str}}opendrawerblocks, core{{/str}}</span>
-                            <span class="dir-rtl-hide">{{#pix}}t/blocks_drawer, core{{/pix}}</span>
-                            <span class="dir-ltr-hide">{{#pix}}t/blocks_drawer_rtl, core{{/pix}}</span>
+                            <span class="sr-only" aria-label="{{#str}}opendrawerblocks, core{{/str}}">{{#str}}opendrawerblocks, core{{/str}}</span>
+                            <span class="dir-rtl-hide" aria-label="Left drawer">{{#pix}}t/blocks_drawer, core{{/pix}}</span>
+                            <span class="dir-ltr-hide" aria-label="Right drawer">{{#pix}}t/blocks_drawer_rtl, core{{/pix}}</span>
                         </button>
                     </div>
                 {{/hasblocks}}
@@ -162,9 +169,12 @@
                 </div>
             </div>
         </div>
-        {{> theme_nhse/footer }}
     </div>
+    <!-- end of div id="page"-->
+
+    {{> theme_nhse/footer }}
     {{{ output.standard_after_main_region_html }}}
+
 </div>
 
 </body>

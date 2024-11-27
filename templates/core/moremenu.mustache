@@ -45,29 +45,46 @@
         "moremenuid": "614c104dbacfa"
     }
 }}
-<nav class="app-header__navigation" id="header-navigation" role="navigation" aria-label="Primary navigation" aria-labelledby="label-navigation">
-    <div class="app-width-container">
-        <ul class="nav more-nav {{navbarstyle}}" id="moremenu-{{moremenuid}}-{{navbarstyle}}" role="{{#istablist}}tablist{{/istablist}}{{^istablist}}menubar{{/istablist}}">
+<div class="nhsuk-navigation-container">
+    <nav class="nhsuk-navigation" id="page-navigation" role="navigation" aria-label="Page navigation">
+        <ul id="moremenu-{{moremenuid}}-{{navbarstyle}}"
+            class="nhsuk-header__navigation-list nav more-nav {{navbarstyle}}"
+            role="{{#istablist}}tablist{{/istablist}}{{^istablist}}menubar{{/istablist}}">
+
             {{#nodecollection}}
                 {{#children}}
                     {{> core/moremenu_children}}
                 {{/children}}
             {{/nodecollection}}
+
             {{#nodearray}}
                 {{> core/moremenu_children}}
             {{/nodearray}}
-            <li class="nav-item dropdown dropdownmoremenu d-none" role="none" data-region="morebutton">
-                <a class="dropdown-toggle nav-link {{#isactive}}active{{/isactive}}" href="#" id="moremenu-dropdown-{{moremenuid}}" role="{{#istablist}}tab{{/istablist}}{{^istablist}}menuitem{{/istablist}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="-1">
+
+            <!-- Required by Moodle -->
+            <li role="none" class="nhsuk-header__navigation-item nav-item dropdown dropdownmoremenu d-none" data-region="morebutton">
+                <a class="dropdown-toggle nav-link {{#isactive}}active{{/isactive}}" href="#"
+                   id="moremenu-dropdown-{{moremenuid}}"
+                   role="{{#istablist}}tab{{/istablist}}{{^istablist}}menuitem{{/istablist}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="-1">
                     {{#str}}moremenu, core{{/str}}
                 </a>
                 <ul class="dropdown-menu dropdown-menu-left" data-region="moredropdown" aria-labelledby="moremenu-dropdown-{{moremenuid}}" role="menu">
                 </ul>
             </li>
+
+            <li class="nhsuk-header__navigation-item nhsuk-mobile-menu-container">
+                <button class="nhsuk-header__menu-toggle nhsuk-header__navigation-link" id="toggle-page-menu" aria-expanded="false">
+                    {{#str}}moremenu, core{{/str}}...
+                    <svg class="nhsuk-icon nhsuk-icon__chevron-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
+                    </svg>
+                </button>
+            </li>
         </ul>
-    </div>
-</nav>
+    </nav>
+</div>
 {{#js}}
-require(['core/moremenu'], function(moremenu) {
+    require(['core/moremenu'], function(moremenu) {
     moremenu(document.querySelector('#moremenu-{{moremenuid}}-{{navbarstyle}}'));
-});
+    });
 {{/js}}
