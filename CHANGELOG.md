@@ -1,5 +1,8 @@
 # NHSE Theme change log
 
+## 2024-12-02.01
+1. Footer debug tweaks
+
 ## 2024-10-08.01
 
 1. Integrated NHSUK Frontend Framework 9.x (BOOST child theme)

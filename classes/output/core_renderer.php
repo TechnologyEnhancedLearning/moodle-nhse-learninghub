@@ -16,14 +16,14 @@
 
 namespace theme_nhse\output;
 
-//use block_contents;
 use context_course;
+use navigation_node;
+
+//use block_contents;
 //use custom_menu;
 //use custom_menu_item;
 //use html_writer;
 //use moodle_url;
-use navigation_node;
-//use theme_boost\boostnavbar;
 
 defined('MOODLE_INTERNAL') || die;
 
@@ -96,13 +96,17 @@ class core_renderer extends \theme_boost\output\core_renderer
 
     public function other_info()
     {
-        $layout = $this->get_page()->pagelayout;
-        $pagetype = $this->get_page()->pagetype;
-        $title = $this->page_title();
+        if (debugging(null, DEBUG_DEVELOPER) and has_capability('moodle/site:config', \context_system::instance())) {
+            $layout   = $this->get_page()->pagelayout;
+            $pagetype = $this->get_page()->pagetype;
+            $title    = $this->page_title();
 
-        return "<span>Page title: {$title}<span><br>                
-                <span>Page layout: {$layout}</span><br>
-                <span>Page type: {$pagetype}</span>";
+            return "<span>Page title: {$title}<span><br>                
+                    <span>Page layout: {$layout}</span><br>
+                    <span>Page type: {$pagetype}</span>";
+        } else {
+            return '';
+        }
     }
 
     /**
