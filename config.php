@@ -18,8 +18,7 @@
  * Boost config.
  *
  * @package   theme_nhse
- * @author    Marcin Calka
- * @copyright 2023 NHS Leadership Academy
+ * @copyright NHS England
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 

@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/NHSLeadership/moodle-nhse.git"
+    "url": "git+https://github.com/TechnologyEnhancedLearning/moodle-nhse-learninghub"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/NHSLeadership/moodle-nhse/issues"
+    "url": "https://github.com/TechnologyEnhancedLearning/moodle-nhse-learninghub/issues"
   },
-  "homepage": "https://github.com/NHSLeadership/moodle-nhse#readme",
+  "homepage": "https://github.com/TechnologyEnhancedLearning/moodle-nhse-learninghub#readme",
   "dependencies": {
     "nhsuk-frontend": "^9.0.0",
     "sass": "^1.79.4"
