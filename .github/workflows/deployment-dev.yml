@@ -1,7 +1,9 @@
 name: Deploy theme to moodle dev
 
 on:
-  workflow_dispatch
+  push:
+    branches:
+      - addDeploymentWorkflow
 
 jobs:
   copy_files:
