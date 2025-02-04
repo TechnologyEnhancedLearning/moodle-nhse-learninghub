@@ -1,0 +1,29 @@
+name: Deploy theme to moodle dev
+
+on:
+  workflow_dispatch
+
+jobs:
+  copy_files:
+    name: Copy files from github to Azure storage
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: 'Az CLI login'
+        uses: azure/login@v1
+        with:
+          client-id: ${{ vars.AZURE_CLIENT_ID }}
+          tenant-id: ${{ vars.AZURE_TENANT_ID }}
+          subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Copy files
+        run: |
+          find . -type f \
+          -not -path "./.git/*" \
+          -not -path "./.github/*" \
+          -not -path "./.vs/*" \
+          -not -name ".gitattributes" \
+          -not -name ".gitignore" \
+          -exec az storage file upload --account-name ${{ vars.AZURE_STORAGE_ACCOUNT }} --share-name ${{ vars.AZURE_FILE_SHARE }} --source '{}' --path 'nhse/{}' \;
