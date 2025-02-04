@@ -27,7 +27,7 @@ jobs:
 
       - name: Copy files
         run: |
-          az storage file upload --account-name ${{ vars.AZURE_STORAGE_ACCOUNT }} --share-name ${{ vars.AZURE_FILE_SHARE }} --source 'lib.php' --path 'nhse/lib.php' --connection-string '${{ secrets.AZURE_STORAGE_ACCOUNT_CONNECTION_STRING }}'
+          az storage file upload-batch --account-name ${{ vars.AZURE_STORAGE_ACCOUNT }} --destination ${{ vars.AZURE_FILE_SHARE }}/nhse --source . --connection-string '${{ secrets.AZURE_STORAGE_ACCOUNT_CONNECTION_STRING }}'
           # find . -type f \
           # -not -path "./.git/*" \
           # -not -path "./.github/*" \
