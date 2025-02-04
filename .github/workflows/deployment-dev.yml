@@ -9,6 +9,7 @@ jobs:
   copy_files:
     name: Copy files from github to Azure storage
     runs-on: ubuntu-latest
+    environment: dev
 
     steps:
       - uses: actions/checkout@v3
