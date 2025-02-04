@@ -27,10 +27,11 @@ jobs:
 
       - name: Copy files
         run: |
-          find . -type f \
-          -not -path "./.git/*" \
-          -not -path "./.github/*" \
-          -not -path "./.vs/*" \
-          -not -name ".gitattributes" \
-          -not -name ".gitignore" \
-          -exec az storage file upload --account-name ${{ vars.AZURE_STORAGE_ACCOUNT }} --share-name ${{ vars.AZURE_FILE_SHARE }} --source '{}' --path 'nhse/{}' --connection-string '${{ secrets.AZURE_STORAGE_ACCOUNT_CONNECTION_STRING }}' \;
+          az storage file upload --account-name ${{ vars.AZURE_STORAGE_ACCOUNT }} --share-name ${{ vars.AZURE_FILE_SHARE }} --source 'lib.php' --path 'nhse/lib.php' --connection-string '${{ secrets.AZURE_STORAGE_ACCOUNT_CONNECTION_STRING }}'
+          # find . -type f \
+          # -not -path "./.git/*" \
+          # -not -path "./.github/*" \
+          # -not -path "./.vs/*" \
+          # -not -name ".gitattributes" \
+          # -not -name ".gitignore" \
+          # -exec az storage file upload --account-name ${{ vars.AZURE_STORAGE_ACCOUNT }} --share-name ${{ vars.AZURE_FILE_SHARE }} --source '{}' --path 'nhse/{}' --connection-string '${{ secrets.AZURE_STORAGE_ACCOUNT_CONNECTION_STRING }}' \;
