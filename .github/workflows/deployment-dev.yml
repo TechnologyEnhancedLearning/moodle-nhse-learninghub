@@ -33,4 +33,4 @@ jobs:
           -not -path "./.vs/*" \
           -not -name ".gitattributes" \
           -not -name ".gitignore" \
-          -exec az storage file upload --account-name ${{ vars.AZURE_STORAGE_ACCOUNT }} --share-name ${{ vars.AZURE_FILE_SHARE }} --source '{}' --path 'nhse/{}' \;
+          -exec az storage file upload --account-name ${{ vars.AZURE_STORAGE_ACCOUNT }} --share-name ${{ vars.AZURE_FILE_SHARE }} --source '{}' --path 'nhse/{}' --account-key ${{ secrets.AZURE_STORAGE_ACCOUNT_KEY }} \;
