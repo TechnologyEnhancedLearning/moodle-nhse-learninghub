@@ -5,6 +5,10 @@ on:
     branches:
       - addDeploymentWorkflow
 
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
   copy_files:
     name: Copy files from github to Azure storage
