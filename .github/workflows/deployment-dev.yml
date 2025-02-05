@@ -3,7 +3,7 @@ name: Deploy theme to moodle dev
 on:
   push:
     branches:
-      - addDeploymentWorkflow
+      - CI
 
 permissions:
   id-token: write
@@ -27,7 +27,6 @@ jobs:
 
       - name: Copy files
         run: |
-          # az storage file upload-batch --account-name ${{ vars.AZURE_STORAGE_ACCOUNT }} --destination ${{ vars.AZURE_FILE_SHARE }}/nhse --source . --connection-string '${{ secrets.AZURE_STORAGE_ACCOUNT_CONNECTION_STRING }}'
           find . -type f \
           -not -path "./.git/*" \
           -not -path "./.github/*" \
