@@ -1,4 +1,4 @@
-name: Deploy theme to moodle dev
+name: Deploy theme to dev moodle
 
 on:
   push:
