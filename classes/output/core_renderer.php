@@ -31,7 +31,7 @@ defined('MOODLE_INTERNAL') || die;
  * Renderers to align Moodle's HTML with that expected by Bootstrap
  *
  * @package    theme_nhse
- * @copyright  2019 NHS Leadership Academy
+ * @copyright  NHS England
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class core_renderer extends \theme_boost\output\core_renderer
@@ -101,7 +101,7 @@ class core_renderer extends \theme_boost\output\core_renderer
             $pagetype = $this->get_page()->pagetype;
             $title    = $this->page_title();
 
-            return "<span>Page title: {$title}<span><br>                
+            return "<span>Page title: {$title}<span><br>
                     <span>Page layout: {$layout}</span><br>
                     <span>Page type: {$pagetype}</span>";
         } else {

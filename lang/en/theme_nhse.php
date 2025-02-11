@@ -18,7 +18,7 @@
  * Language file.
  *
  * @package   theme_nhse
- * @copyright 2023 NHS Leadership Academy
+ * @copyright NHS England
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -40,7 +40,7 @@ $string['choosereadme']                                = 'The NHSE is a modern h
 $string['configtitle']                                 = 'NHSE';
 $string['copyright']                                   = 'Copyright notice';
 $string['copyright_desc']                              = 'Anything you add here will be prepended with &copy; and the year';
-$string['copyright_default']                           = 'NHS Leadership Academy';
+$string['copyright_default']                           = 'NHS England';
 $string['cookiesnotice']                               = 'Read our cookies notice';
 $string['cookiesenabled']                              = 'Cookies must be enabled in your browser';
 $string['currentinparentheses']                        = '(current)';
@@ -51,9 +51,9 @@ $string['footnote']                                    = 'The footer note text';
 $string['footnotedesc']                                = 'In this field you can add links, text about the course or your organisation and generic links such as privacy, contact information etc. You can add html in here. This will be the first column in the footer';
 $string['footerblock']                                 = 'Footer block';
 $string['footerblink']                                 = 'Footer block link';
-$string['footerblink1default']                         = '<a href="https://www.leadershipacademy.nhs.uk/privacy/">Privacy</a><br /><a href="https://www.leadershipacademy.nhs.uk/accessibility/">Accessibility</a>';
-$string['footerblink2default']                         = '<a href="mailto:digital@leadershipacademy.nhs.uk">Email our Helpdesk</a><br /><a href="/login/logout.php">Logout</a>';
-$string['footerblink3default']                         = '<a href="https://www.leadershipacademy.nhs.uk/privacy/">Privacy</a>';
+$string['footerblink1default']                         = '<a href="https://learninghub.nhs.uk/policies/privacy-policy">Privacy</a><br /><a href="https://learninghub.nhs.uk/Home/Accessibility">Accessibility</a>';
+$string['footerblink2default']                         = '<a href="mailto:support@learninghub.nhs.uk">Email our Helpdesk</a><br /><a href="/login/logout.php">Logout</a>';
+$string['footerblink3default']                         = '<a href="https://learninghub.nhs.uk/policies/privacy-policy">Privacy</a>';
 $string['footerblink_desc']                            = 'You can configure your Footer Block Links here. If adding links, please enter one per line. Alternatively, you can add text in here.';
 $string['footerbtitle_desc']                           = 'Please give the footer block title either language key or text.For ex: lang:display or Display';
 $string['forgotpasswordtext']                          = 'Instructions to recover password';
