@@ -1,24 +1,24 @@
 {
-  "name": "nhse",
+  "name": "nhse-tel-moodle-theme",
   "version": "1.0.0",
-  "description": "",
+  "description": "A custom Moodle theme using the NHS England TEL frontend",
   "main": "index.js",
   "directories": {
     "test": "tests"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/NHSLeadership/moodle-nhse.git"
+    "url": "git+https://github.com/TechnologyEnhancedLearning/moodle-nhse-learninghub.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/NHSLeadership/moodle-nhse/issues"
+    "url": "https://github.com/TechnologyEnhancedLearning/moodle-nhse-learninghub/issues"
   },
-  "homepage": "https://github.com/NHSLeadership/moodle-nhse#readme",
+  "homepage": "https://github.com/TechnologyEnhancedLearning/moodle-nhse-learninghub",
   "dependencies": {
-    "nhsuk-frontend": "^9.0.0",
+    "@technology-enhanced-learning/nhse-tel-frontend": "^0.0.1",
     "sass": "^1.79.4"
   },
   "scripts": {
