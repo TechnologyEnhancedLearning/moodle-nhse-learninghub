@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/TechnologyEnhancedLearning/moodle-nhse-learninghub",
   "dependencies": {
-    "@technology-enhanced-learning/nhse-tel-frontend": "^0.0.1",
+    "nhse-tel-frontend": "^0.0.2",
     "sass": "^1.79.4"
   },
   "scripts": {
