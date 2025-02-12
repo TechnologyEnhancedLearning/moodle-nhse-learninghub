@@ -18,8 +18,7 @@
  * Theme functions.
  *
  * @package   theme_nhse
- * @author    Marcin Calka
- * @copyright 2023 NHS Leadership Academy
+ * @copyright NHS England
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -57,9 +56,9 @@ function theme_nhse_get_main_scss_content($theme) {
 //    $scss .= file_get_contents($CFG->dirroot . '/theme/boost/scss/moodle.scss');
 
     // Get main theme file and combine them together.
-    $scss .= "\n" . file_get_contents($CFG->dirroot . '/theme/nhse/css/nhse.min.css');
-    //$scss .= "\n" . file_get_contents($CFG->dirroot . '/theme/nhse/scss/nhsuk.scss');
-    //$scss .= "\n" . file_get_contents($CFG->dirroot . '/theme/nhse/scss/nhse.scss');
+    // $scss .= "\n" . file_get_contents($CFG->dirroot . '/theme/nhse/css/nhse.min.css');
+    $scss .= "\n" . file_get_contents($CFG->dirroot . '/theme/nhse/scss/nhsuk.scss');
+    $scss .= "\n" . file_get_contents($CFG->dirroot . '/theme/nhse/scss/nhse.scss');
 
     return $scss;
 }
