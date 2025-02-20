@@ -1,4 +1,4 @@
-## NHSE Moodle theme (Boost extension)
+## NHSE TEL Moodle theme (Boost extension)
 
 ### Requirements
 
