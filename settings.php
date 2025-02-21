@@ -16,7 +16,7 @@
 
 /**
  * @package   theme_nhse
- * @copyright 2016 Ryan Wyllie
+ * @copyright NHS England
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 

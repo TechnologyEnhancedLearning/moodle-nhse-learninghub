@@ -18,7 +18,7 @@
  * Theme NHSE
  *
  * @package   theme_nhse
- * @author    Marcin Calka
+ * @author    NHS England
  * @copyright 2024 NHS England
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -26,7 +26,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 // This is the version of the plugin.
-$plugin->version = 2024120202;
+$plugin->version = 2025022005;
 $plugin->release = '404.4.0';
 $plugin->maturity = MATURITY_BETA;
 
