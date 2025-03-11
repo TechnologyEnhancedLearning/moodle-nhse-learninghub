@@ -56,7 +56,7 @@
 }}
 <header class="nhsuk-header {{#navbarstyle}}nhsuk-header--{{navbarstyle}}{{/navbarstyle}}{{^navbarstyle}}nhsuk-header--default{{/navbarstyle}} sticky-top"
         role="banner">
-    <div class="nhsuk-header__container">
+    <div class="nhsuk-width-container nhsuk-header__container app-width-container">
 
         <div class="nhsuk-header__logo">
             <a class="nhsuk-header__link nhsuk-header__link--service" href="{{{ config.homeurl }}}" aria-label="{{{ sitename }}}">
@@ -75,11 +75,11 @@
         </div>
 
         <div class="nhsuk-header__content">
-        {{> theme_nhse/navbar }}
+        {{> theme_nhse/navbar_search }}
         </div>
     </div>
 
-    {{> theme_nhse/nav}}
+    {{!> theme_nhse/nav}}
 </header>
 
 {{> theme_boost/primary-drawer-mobile }}

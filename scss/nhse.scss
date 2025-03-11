@@ -346,14 +346,14 @@ body {
   margin: 0;
 }
 
-@media (max-width: 40.0525em) {
-  .nhsuk-header__container {
-    display: flex !important;
-    .nhsuk-header__logo {
-      padding-right: 12px;
-    }
-  }
-}
+// @media (max-width: 40.0525em) {
+//   .nhsuk-header__container {
+//     display: flex !important;
+//     .nhsuk-header__logo {
+//       padding-right: 12px;
+//     }
+//   }
+// }
 
 .header-maxwidth {
   max-width: 990px;
@@ -911,7 +911,7 @@ body {
 
 @media (min-width: 48.0625em) {
   .nhsuk-search__input {
-    width: 180px;
+    width: 16.25rem;
   }
 
   .nhsuk-search__submit {
