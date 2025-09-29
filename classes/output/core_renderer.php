@@ -104,7 +104,7 @@ class core_renderer extends \theme_boost\output\core_renderer
             $admin_link->url = new \moodle_url('/admin/search.php'); // Use the observed URL
             $admin_link->hasnotification = false;
             $admin_link->notificationcount = 0;
-            $admin_link->openInNewTab = false; // Or true, if you prefer it opens in a new tab
+            $admin_link->openInNewTab = false; 
 
             // Add this admin link to your customnavigation array
             // This ensures it gets rendered by your {{#customnavigation}} block in Mustache
@@ -180,6 +180,7 @@ class core_renderer extends \theme_boost\output\core_renderer
                 if (!isset($item['visible']) || $item['visible'] === true) {
                     $processed_item = new \stdClass();
                     $processed_item->title = $item['title'] ?? 'Untitled'; // Default title if missing
+                    $processed_item->openInNewTab = $item['openInNewTab'] ?? false; 
                     // Handle URLs - convert to moodle_url if internal, keep as string if external
                     if (isset($item['url']) && !empty($item['url'])) {
                         $item_url_path = $item['url']; // Store the raw URL from the API       
@@ -188,6 +189,7 @@ class core_renderer extends \theme_boost\output\core_renderer
                             $admin_url = get_config('theme_nhse', 'admin_url');
                             if (!empty($admin_url)) {
                                 $processed_item->url = $admin_url;
+                                $processed_item->openInNewTab = true;
                                 error_log("theme_nhse: Overriding 'Admin' URL with theme setting: {$processed_item->url}");
                             } else {
                                 // Fallback to original logic if theme setting is not configured
@@ -216,8 +218,7 @@ class core_renderer extends \theme_boost\output\core_renderer
                         error_log("theme_nhse: Item has empty or missing URL, defaulting to Moodle home.");
                     }
                     $processed_item->hasnotification = $item['hasNotification'] ?? false;
-                    $processed_item->notificationcount = $item['notificationCount'] ?? 0;
-                    $processed_item->openInNewTab = $item['openInNewTab'] ?? false; 
+                    $processed_item->notificationcount = $item['notificationCount'] ?? 0;                    
 
                     $processed_links[] = $processed_item;
                 } else {

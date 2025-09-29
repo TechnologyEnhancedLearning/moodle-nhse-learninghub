@@ -36,7 +36,7 @@
             {{!-- BEGIN: Custom Navigation items --}}
             {{#customnavigation}}
                 <li class="nhsuk-header__navigation-item nav-item" role="none"> {{!-- Added nhsuk-header__navigation-item and nav-item classes --}}
-                    <a class="nhsuk-header__navigation-link nav-link" href="{{url}}" role="menuitem"> {{!-- Added nhsuk-header__navigation-link and nav-link classes --}}
+                    <a class="nhsuk-header__navigation-link nav-link" href="{{url}}" role="menuitem" {{#openInNewTab}}target="_blank"{{/openInNewTab}}> {{!-- Added nhsuk-header__navigation-link and nav-link classes --}}
                         {{title}}
                         {{#hasnotification}}
                             <span class="nhsuk-tag nhsuk-tag--notification">{{notificationcount}}</span> {{!-- Used NHS.UK tag for consistency --}}

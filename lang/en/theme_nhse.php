@@ -24,6 +24,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['admin_url_setting']                           = 'LH Admin URL';
+$string['admin_url_setting_desc']                      = 'The full URL for the Learning Hub Admin page. This will be used to populate the Admin link URL.';
 $string['advancedsettings']                            = 'Advanced settings';
 $string['api_base_url_setting']                        = 'LH OpenAPI Base URL';
 $string['api_base_url_setting_desc']                   = 'The base URL for the Learning Hub OpenAPI (e.g., https://lh-openapi.dev.local). This will be used to fetch user navigation data.';
