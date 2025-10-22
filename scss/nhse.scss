@@ -1355,7 +1355,8 @@ body.simulated-fullscreen .d-flex.flex-row-reverse.mb-2 a.btn.btn-secondary[titl
   display: none !important;
 }
 
-.activity-icon, .page-header-image {
+.activity-icon,
+.page-header-image {
   display: none;
 }
 
@@ -1371,50 +1372,55 @@ body.simulated-fullscreen .d-flex.flex-row-reverse.mb-2 a.btn.btn-secondary[titl
 
 /* Prevent width of white area of course pages being limited in width - to match header */
 @media (min-width: 768px) {
-    body.limitedwidth.pagelayout-course #page.drawers .main-inner,
-    body.limitedwidth.pagelayout-mycourses #page.drawers .main-inner,
-    body.pagelayout-incourse #page.drawers .main-inner {
-        max-width: unset;
-    }
+
+  body.limitedwidth.pagelayout-course #page.drawers .main-inner,
+  body.limitedwidth.pagelayout-mycourses #page.drawers .main-inner,
+  body.pagelayout-incourse #page.drawers .main-inner {
+    max-width: unset;
+  }
 }
 
 /* Remove padding to maximise the width of the white area of course pages and match header */
 /* Rules to apply when the menu is NOT open */
 @media (min-width: 768px) {
-    body.pagelayout-course #page.drawers:not(.show-drawer-left),
-    body.pagelayout-mycourses #page.drawers:not(.show-drawer-left),
-    body.pagelayout-incourse #page.drawers:not(.show-drawer-left) {
-        padding-left: 0;
-    }
+
+  body.pagelayout-course #page.drawers:not(.show-drawer-left),
+  body.pagelayout-mycourses #page.drawers:not(.show-drawer-left),
+  body.pagelayout-incourse #page.drawers:not(.show-drawer-left) {
+    padding-left: 0;
+  }
 }
 
 /* Rule to remove padding-right always */
 @media (min-width: 768px) {
-    body.pagelayout-course #page.drawers,
-    body.pagelayout-mycourses #page.drawers,
-    body.pagelayout-incourse #page.drawers {
-        padding-right: 0;
-    }
+
+  body.pagelayout-course #page.drawers,
+  body.pagelayout-mycourses #page.drawers,
+  body.pagelayout-incourse #page.drawers {
+    padding-right: 0;
+  }
 }
 
 /* Limit width of content area to prevent wide text area on course pages */
 @media (min-width: 768px) {
-    body.limitedwidth.pagelayout-course #page-wrapper #page #page-content,
-    body.limitedwidth.pagelayout-mycourses #page-wrapper #page #page-content,
-    body.pagelayout-incourse #page-wrapper #page #page-content {
-        max-width: 830px;
-    }
-    /* No limit required when displaying SCORM content inline */
-    body#page-mod-scorm-player #page-wrapper #page #page-content {
-      max-width: unset;
-    }
+
+  body.limitedwidth.pagelayout-course #page-wrapper #page #page-content,
+  body.limitedwidth.pagelayout-mycourses #page-wrapper #page #page-content,
+  body.pagelayout-incourse #page-wrapper #page #page-content {
+    max-width: 830px;
+  }
+
+  /* No limit required when displaying SCORM content inline */
+  body#page-mod-scorm-player #page-wrapper #page #page-content {
+    max-width: unset;
+  }
 }
 
 /* Remove rounded corners on course page white content area */
 body.limitedwidth.pagelayout-course #page.drawers .main-inner,
 body.limitedwidth.pagelayout-mycourses #page.drawers .main-inner,
 body.pagelayout-incourse #page.drawers .main-inner {
-    border-radius: 0;
+  border-radius: 0;
 }
 
 .course-section .section-item {
@@ -1470,32 +1476,33 @@ a:not([class]):focus,
 
 /* Prevent table of certified users causing mobile view horizontal scrolling  */
 .mod_coursecertificate_issues_table table {
-    display: block;
-    overflow-x: auto;
+  display: block;
+  overflow-x: auto;
 }
 
 .drawer-toggles .drawer-toggler .btn:focus {
-    @include nhsuk-focused-button;
+  @include nhsuk-focused-button;
 }
 
 .drawerheader .aabtn.text-reset.d-flex.align-items-center.py-1.h-100.d-md-none,
 .drawerheader .drawerheadercontent {
-  display:none !important;
+  display: none !important;
 }
 
 .courseindex-item.d-flex:focus {
-  box-shadow:none;
+  box-shadow: none;
+
   a.courseindex-link {
     @include nhsuk-focused-text;
   }
 }
 
 .courseindex-section[role=treeitem]:not([aria-expanded=true]):focus {
-  box-shadow:none;
-  border-color:#fff0;
-  border-width: 0 0 0 3px ;
+  box-shadow: none;
+  border-color: #fff0;
+  border-width: 0 0 0 3px;
+
   .courseindex-section-title {
     @include nhsuk-focused-text;
   }
 }
-                   
