@@ -1506,3 +1506,11 @@ a:not([class]):focus,
     @include nhsuk-focused-text;
   }
 }
+
+a.sr-only.sr-only-focusable[href="#maincontent"]:focus {
+  @include nhsuk-focused-button;
+}
+
+.nhsuk-header__rhscontent .nhsuk-account__login--link:focus {
+  @include nhsuk-focused-text;
+}
