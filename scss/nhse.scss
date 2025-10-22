@@ -1480,6 +1480,7 @@ a:not([class]):focus,
   overflow-x: auto;
 }
 
+/* Removing style focus and adding nhsuk focus for left hand side menu button */
 .drawer-toggles .drawer-toggler .btn:focus {
   @include nhsuk-focused-button;
 }
@@ -1507,10 +1508,12 @@ a:not([class]):focus,
   }
 }
 
+/* skip link focus colour */
 a.sr-only.sr-only-focusable[href="#maincontent"]:focus {
   @include nhsuk-focused-button;
 }
 
+/* apply nhsuk focus to header account links */
 .nhsuk-header__rhscontent .nhsuk-account__login--link:focus {
   @include nhsuk-focused-text;
 }
