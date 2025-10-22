@@ -1474,3 +1474,28 @@ a:not([class]):focus,
     overflow-x: auto;
 }
 
+.drawer-toggles .drawer-toggler .btn:focus {
+    @include nhsuk-focused-button;
+}
+
+.drawerheader .aabtn.text-reset.d-flex.align-items-center.py-1.h-100.d-md-none,
+.drawerheader .drawerheadercontent {
+  display:none !important;
+}
+
+.courseindex-item.d-flex:focus {
+  box-shadow:none;
+  a.courseindex-link {
+    @include nhsuk-focused-text;
+  }
+}
+
+.courseindex-section[role=treeitem]:not([aria-expanded=true]):focus {
+  box-shadow:none;
+  border-color:#fff0;
+  border-width: 0 0 0 3px ;
+  .courseindex-section-title {
+    @include nhsuk-focused-text;
+  }
+}
+                   
