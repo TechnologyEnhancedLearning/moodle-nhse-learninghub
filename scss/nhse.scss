@@ -1526,3 +1526,8 @@ a.sr-only.sr-only-focusable[href="#maincontent"]:focus {
 .nhsuk-header__rhscontent .nhsuk-account__login--link:focus {
   @include nhsuk-focused-text;
 }
+
+/* focus colour on tab "more" items */
+.nav-tabs .nhsuk-header__navigation-link.dropdown-item:focus {
+  @include nhsuk-focused-text;
+}
