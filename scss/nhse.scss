@@ -1532,6 +1532,7 @@ a.sr-only.sr-only-focusable[href="#maincontent"]:focus {
   @include nhsuk-focused-text;
 }
 
+/* focus colour on activity completion buttons */
 .activity-item .activity-completion button.btn:focus,
 .activity-item .activity-completion button.btn.focus,
 .activity-item .activity-completion button.btn-success:focus,
