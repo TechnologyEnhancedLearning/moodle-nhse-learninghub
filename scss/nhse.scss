@@ -1468,8 +1468,6 @@ body.pagelayout-incourse #page.drawers .main-inner {
 a.focus.autolink,
 .aalink:focus,
 a.autolink:focus,
-#page-footer a:not([class]).focus,
-#page-footer a:not([class]):focus,
 .arrow_link.focus,
 .arrow_link:focus,
 a:not([class]).focus,
@@ -1481,6 +1479,17 @@ a:not([class]):focus,
   background-color: #ffeb3b;
   box-shadow: 0 -2px #ffeb3b, 0 4px #212b32;
   text-decoration: none;
+}
+
+// Force the underline onto the NHSUK footer links, overriding the design system's default 'text-decoration: none'.
+.nhsuk-footer__list-item-link {
+    text-decoration: underline !important;
+}
+
+// Remove the underline on hover and focus
+.nhsuk-footer__list-item-link:hover,
+.nhsuk-footer__list-item-link:focus {
+    text-decoration: none !important;
 }
 
 /* Prevent table of certified users causing mobile view horizontal scrolling  */
