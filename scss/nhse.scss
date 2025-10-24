@@ -1531,3 +1531,12 @@ a.sr-only.sr-only-focusable[href="#maincontent"]:focus {
 .nav-tabs .nhsuk-header__navigation-link.dropdown-item:focus {
   @include nhsuk-focused-text;
 }
+
+.activity-item .activity-completion button.btn:focus,
+.activity-item .activity-completion button.btn.focus,
+.activity-item .activity-completion button.btn-success:focus,
+.activity-item .activity-completion button.btn:focus,
+.activity-item .activity-completion a[role=button].btn:focus,
+.activity-item .activity-completion a[role=button].btn.focus {
+  @include nhsuk-focused-button;
+}
