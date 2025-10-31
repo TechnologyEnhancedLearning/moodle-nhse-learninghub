@@ -1481,15 +1481,19 @@ a:not([class]):focus,
   text-decoration: none;
 }
 
-// Force the underline onto the NHSUK footer links, overriding the design system's default 'text-decoration: none'.
-.nhsuk-footer__list-item-link {
-    text-decoration: underline !important;
+/*
+ * Ensure footer links are underlined to match LH styling
+ */
+#nhsuk-footer .nhsuk-footer__list-item-link {   
+    text-decoration: underline;
 }
 
-// Remove the underline on hover and focus
-.nhsuk-footer__list-item-link:hover,
-.nhsuk-footer__list-item-link:focus {
-    text-decoration: none !important;
+/*
+ * Match focus and hover state to LH styling
+ */
+#nhsuk-footer .nhsuk-footer__list-item-link:hover,
+#nhsuk-footer .nhsuk-footer__list-item-link:focus {
+    text-decoration: none;
 }
 
 /* Prevent table of certified users causing mobile view horizontal scrolling  */
