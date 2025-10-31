@@ -1572,6 +1572,8 @@ a.sr-only.sr-only-focusable[href="#maincontent"]:focus {
   }
 }
 
+/* removal of border around nested expanders and reducing vertical padding */
+
 .nhsuk-expander .activity.subsection.modtype_subsection > .activity-item {
     border: none; 
     margin: 0;
