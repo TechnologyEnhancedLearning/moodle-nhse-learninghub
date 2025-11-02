@@ -12,16 +12,18 @@
   box-sizing: border-box;
 }
 
-/**
- * For sticky header
- */
+/* ==========================================================================
+// FOR STICKY HEADER
+// ========================================================================== */
+
 body {
   height: auto;
 }
 
-/**
- * Extra colour mappings for Moodle
- */
+/* ==========================================================================
+// EXTRA COLOUR MAPPINGS FOR MOODLE
+// ========================================================================== */
+
 $btn-default-text: $color_nhsuk-black;
 $btn-default-background: $color_nhsuk-white;
 
@@ -40,9 +42,10 @@ $btn-secondary-border: $color_nhsuk-dark-blue;
 /* Custom components */
 @import "components/button/button";
 
-/**
- * Generic style tweaks
- */
+/* ==========================================================================
+// GENERIC STYLE TWEAKS
+// ========================================================================== */
+
 a {
   &.btn {
     &:focus {
@@ -137,9 +140,10 @@ ul {
   font-size: 15px;
 }
 
-/**
- * Button styles
- */
+/* ==========================================================================
+// BUTTON STYLES
+// ========================================================================== */
+
 .btn {
 
   &:not(.btn-icon,
@@ -197,9 +201,10 @@ ul {
   border-bottom-right-radius: 4px !important;
 }
 
-/**
- * Body styles
- */
+/* ==========================================================================
+// BODY STYLES
+// ========================================================================== */
+
 body {
   background-color: $nhsuk-form-element-background-color;
   background: none;
@@ -215,9 +220,9 @@ body {
   }
 }
 
-/**
- * Background variations
- */
+/* ==========================================================================
+// BACKGROUND VARIATIONS
+// ========================================================================== */
 
 .bg-dark {
   color: $btn-primary-text;
@@ -237,9 +242,9 @@ body {
   }
 }
 
-/**
- * Cards and box styles
- */
+/* ==========================================================================
+// CARDS AND BOX STYLES
+// ========================================================================== */
 
 .card {
   border: none;
@@ -273,9 +278,10 @@ body {
   }
 }
 
-/**
- * Drawer styles
- */
+/* ==========================================================================
+// DRAWER STYLES
+// ========================================================================== */
+
 .drawer {
   ul {
     font-size: 15px;
@@ -355,9 +361,9 @@ body {
   }
 }
 
-/**
- * Header styles
- */
+/* ==========================================================================
+// HEADER STYLES
+// ========================================================================== */
 .sticky-top {
   position: sticky;
   top: 0;
@@ -365,12 +371,15 @@ body {
 
 .nhsuk-header {
     background-color: #005eb8;
-    color: #fff;
+    color: $color_nhsuk-white;
     outline: 1px solid transparent;
 }
 
 .nhsuk-header__container {
   padding: 16px 0;
+  display: flex;
+  flex-wrap: wrap; 
+  align-items: center; 
 }
 
 .nhsuk-header__search-form {
@@ -418,7 +427,7 @@ body {
 .nhsuk-header__service-logo:visited,
 .nhsuk-header__service-name[href],
 .nhsuk-header__service-name[href]:visited {
-    color: #fff;
+    color: $color_nhsuk-white;
     text-decoration: under;
 }
 
@@ -431,7 +440,7 @@ body {
 .nhsuk-header__service-name[href]:hover,
 .nhsuk-header__service-name[href]:hover:visited
 {
-  color: #fff;
+  color: $color_nhsuk-white;
   text-decoration: none;
 }
 
@@ -472,7 +481,7 @@ body {
     flex-shrink: 0;
     height: 1.5rem;
     width: 1.5rem;
-    fill: #fff;
+    fill: $color_nhsuk-white;
 }
 
 @media (min-width: 40.0625em) {
@@ -500,18 +509,12 @@ body {
   }
 
   .nhsuk-account__login--link {
-    color: #fff;
+    color: $color_nhsuk-white;
   }
 
 
 
-// Set the main container as the Flex Parent
-.nhsuk-header__container {
-    // Ensure padding: 16px 0; is kept from original SCSS
-    display: flex;
-    flex-wrap: wrap; 
-    align-items: center; 
-}
+
 
 
 
@@ -628,14 +631,6 @@ body {
 
 }
 
-
-
-
-
-
-
-
-
 @media (max-width: 40.0525em) { /* Use your smallest screen breakpoint */
     .nhsuk-header__edit-switch { 
         /* Ensure it's not set to flex-grow: 1, which would stretch it */
@@ -651,13 +646,6 @@ body {
         margin-right: 0; 
     }
 }
-
-
-
-
-
-
-
 
 @media (min-width: 768px) {
   .header-maxwidth {
@@ -866,9 +854,9 @@ body {
   height: 100%;
 }
 
-/**
- * Header navigation
- */
+/* ==========================================================================
+// HEADER NAVIGATION
+// ========================================================================== */
 .nhsuk-header--white {
   .nhsuk-header__navigation-link {
     color: $color_nhsuk-white;
@@ -890,9 +878,9 @@ body {
   }
 }
 
-/**
- * Header navigation tabs only
- */
+/* ==========================================================================
+// HEADER NAVIGATION TABS
+// ========================================================================== */
 .nav-tabs {
   .nhsuk-header__navigation-link {
     color: $color_nhsuk-blue;
@@ -931,9 +919,9 @@ body {
   }
 }
 
-/**
- * Header navigation light variation
- */
+/* ==========================================================================
+// HEADER NAVIGATION LIGHT VERSION
+// ========================================================================== */
 
 .nhsuk-header__navigation {
   overflow: visible;
@@ -972,6 +960,9 @@ body {
   }
 }
 
+
+
+
 .nhsuk-tag {
   top: 0.5rem;
   right: -0.625rem;
@@ -979,7 +970,7 @@ body {
   line-height: 1.125rem;
   font-weight: 900;
   background: #d5281b;
-  color: #fff;
+  color: $color_nhsuk-white;
   min-width: 1.125rem;
   text-align: center;
   border-radius: 0.5625rem;
@@ -1310,44 +1301,37 @@ nhsuk-header__search-input.nhsuk-input {
 
 .nhsuk-header__search-submit:active, .nhsuk-header__search-submit:hover {
     background-color: #004b93;
-    border-color: #fff;
-    color: #fff;
+    border-color: $color_nhsuk-white;
+    color: $color_nhsuk-white;
 }
 
 
-@media (max-width: 61.8125rem) {
-    
-    // --- STEP 1: Logo & Controls (Row 1) ---
+@media (max-width: 61.8125rem) {    
     
     // Logo: Retains space-consuming flex: 1 0 0 from global settings, but is guaranteed 
-    // to be first in the visual flow. We don't need to re-declare flex here.
+    // to be first in the visual flow. 
     .nhsuk-header__service {
         order: 0; 
     }
     
-    // Account: Sits next to the Logo, pushed right.
+    // Account: Sits next to the Logo, pushed right
     .nhsuk-header__account {
         order: 1;
-        margin-left: auto; // Crucial for pushing controls right
-        // margin-right: 12px; // Add spacing if needed
+        margin-left: auto; // For pushing controls right        
         flex-basis: auto; // Prevents "really wide" issue
-        flex-grow: 0; // Crucial: Prevents this from consuming space
-    }
+        flex-grow: 0; // Prevents this from consuming space
+    }    
     
-    // Edit Mode: Sits next to Account.
+    // Edit mode control: Sits to the right of account
     .nhsuk-header__edit-switch {
         order: 2;
-        // margin-left: 0; 
-        // margin-right: 1.5rem; // Use gap if available, or set margin to create spacing
         flex-basis: auto;
-        flex-grow: 0; // Crucial: Prevents this from consuming space
-    }
-
-    // --- STEP 2: Search (Row 2) ---
+        flex-grow: 0; // Prevents this from consuming space
+    } 
 
     // Search: Given the highest order, forcing it to drop.
     .nhsuk-header__search {
-        order: 3; // Highest order, guaranteeing it's the element that drops.
+        order: 3; // Highest order
         
         // Ensure it uses the available space on the new line, or set it to 100%
         flex-grow: 1; 
@@ -1359,13 +1343,12 @@ nhsuk-header__search-input.nhsuk-input {
     }
 
     .nhsuk-header__search-form {
-        /* CRITICAL FIX: Use the longhand property and !important if needed, to override the framework's margin: 16px 0 0 */
+        /* Override the framework's margin: 16px 0 0 */
         margin-top: 0 !important; 
         
-        /* It's good practice to zero out all vertical margins on the child to consolidate control on the parent */
-        margin-bottom: 0 !important; 
+        /* Zero out all vertical margins on the child to consolidate control on the parent */
+        margin-bottom: 0 !important;         
         
-        /* You may need to reset other margins that were part of the framework's shorthand */
         margin-right: auto;
         margin-left: auto;
     }
@@ -1382,9 +1365,10 @@ nhsuk-header__search-input.nhsuk-input {
   }
 }
 
-/**
- * Double-sized Checkboxes
- */
+/* ==========================================================================
+// DOUBLE SIZED CHECKBOXES
+// ========================================================================== */
+
 input[type=checkbox] {
   -ms-transform: scale(2);
   /* IE */
@@ -1532,9 +1516,10 @@ ol {
   padding-left: 32px;
 }
 
-/**
- * Calendar styles
- */
+/* ==========================================================================
+// CALENDAR STYLES
+// ========================================================================== */
+
 .maincalendar {
   .calendarmonth {
     ul {
@@ -1578,9 +1563,13 @@ td {
   display: none;
 }
 
+/* ==========================================================================
+// AUTOSUGGESTION RELATED SCSS
+// ========================================================================== */
+
 .autosuggestion-menu {
   padding: 16px 16px 0px 16px;
-  background-color: #fff;
+  background-color: $color_nhsuk-white;
   border-bottom: 1px solid #d8dde0;
   border-radius: 0px 0px 4px 4px;
   border-left: 1px solid #d8dde0;
@@ -1617,7 +1606,6 @@ td {
 }
 
 @media (min-width: 40.0625em) {
-
   ol>li,
   ul>li,
   .nhsuk-list>li {
@@ -1641,6 +1629,10 @@ td {
   padding-left: 24px;
   margin: 0px;
 }
+
+/* ==========================================================================
+// ENROLLMENT INDEX PAGE 
+// ========================================================================== */
 
 #page-enrol-index #region-main #maincontent+h2 {
   display: none;
@@ -1672,6 +1664,10 @@ td {
 #page-enrol-index .mform {
   padding-left: 0px;
 }
+
+/* ==========================================================================
+// SCORM FULL SCREEN 
+// ========================================================================== */
 
 /* simulated full screen for displaying content on mobile devices */
 
@@ -1721,6 +1717,10 @@ body.simulated-fullscreen .d-flex.flex-row-reverse.mb-2 a.btn.btn-secondary[titl
 .nhsuk-pagination__link .nhsuk-icon {
   fill: #005eb8;
 }
+
+/* ==========================================================================
+// ADJUST WIDTH AND RADIUS OF WHITE CONTENT AREA
+// ========================================================================== */
 
 /* Prevent width of white area of course pages being limited in width - to match header */
 @media (min-width: 768px) {    
@@ -1782,7 +1782,9 @@ body.pagelayout-incourse #page.drawers .main-inner {
 
 
 
-
+/* ==========================================================================
+// EXPANDERS
+// ========================================================================== */
 
 .course-section .section-item {
   padding: 0px;
@@ -1815,23 +1817,10 @@ body.pagelayout-incourse #page.drawers .main-inner {
   background-color: transparent;
 }
 
-// override boost theme focus styles with NHSUK focus styles
-.aalink.focus,
-a.focus.autolink,
-.aalink:focus,
-a.autolink:focus,
-.arrow_link.focus,
-.arrow_link:focus,
-a:not([class]).focus,
-a:not([class]):focus,
-.activityinstance>a.focus,
-.activityinstance>a:focus {
-  outline: 4px solid #fff0;
-  color: #212b32;
-  background-color: #ffeb3b;
-  box-shadow: 0 -2px #ffeb3b, 0 4px #212b32;
-  text-decoration: none;
-}
+
+/* ==========================================================================
+// FOOTER STYLING
+// ========================================================================== */
 
 // Force the underline onto the NHSUK footer links, overriding the design system's default 'text-decoration: none'.
 .nhsuk-footer__list-item-link {
@@ -1844,10 +1833,36 @@ a:not([class]):focus,
     text-decoration: none !important;
 }
 
+/* ==========================================================================
+// PREVENT HORIZONTAL SCROLLING ON TABLE OF CERTIFIED USERS
+// ========================================================================== */
+
 /* Prevent table of certified users causing mobile view horizontal scrolling  */
 .mod_coursecertificate_issues_table table {
   display: block;
   overflow-x: auto;
+}
+
+/* ==========================================================================
+// FOCUS STYLES
+// ========================================================================== */
+
+// override boost theme focus styles with NHSUK focus styles
+.aalink.focus,
+a.focus.autolink,
+.aalink:focus,
+a.autolink:focus,
+.arrow_link.focus,
+.arrow_link:focus,
+a:not([class]).focus,
+a:not([class]):focus,
+.activityinstance>a.focus,
+.activityinstance>a:focus {
+  outline: 4px solid $color_nhsuk-white;
+  color: #212b32;
+  background-color: $nhsuk-focus-colour;
+  box-shadow: 0 -2px $nhsuk-focus-colour, 0 4px #212b32;
+  text-decoration: none;
 }
 
 /* Removing style focus and adding nhsuk focus for left hand side menu button */
@@ -1870,7 +1885,7 @@ a:not([class]):focus,
 
 .courseindex-section[role=treeitem]:not([aria-expanded=true]):focus {
   box-shadow: none;
-  border-color: #fff0;
+  border-color: $color_nhsuk-white;
   border-width: 0 0 0 3px;
 
   .courseindex-section-title {
