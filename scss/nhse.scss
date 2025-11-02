@@ -363,21 +363,22 @@ body {
   top: 0;
 }
 
+.nhsuk-header {
+    background-color: #005eb8;
+    color: #fff;
+    outline: 1px solid transparent;
+}
+
 .nhsuk-header__container {
   padding: 16px 0;
 }
 
 .nhsuk-header__search-form {
-  margin: 0;
+    display: flex;
+    height: 100%;
+    overflow: visible;
 }
 
-.nhsuk-header__rhscontent {
-
-  // Styles specifically for the nhsuk-header__rhscontent element
-  display: flex;
-  align-items: center;
-  justify-content: flex-end; // Example: Align content to the right
-  // Add other styles as needed (padding, etc.)
 
   .border-left,
   .border-start {
@@ -402,6 +403,91 @@ body {
     padding-right: 1.5rem;
   }
 
+  .nhsuk-header__account {
+    background-color: #004b93;
+    border: 1px solid #004b93;
+    border-radius: 4px;     
+    overflow: hidden;
+}
+
+.nhsuk-header__account-button,
+.nhsuk-header__account-button:visited,
+.nhsuk-header__account-link,
+.nhsuk-header__account-link:visited,
+.nhsuk-header__service-logo,
+.nhsuk-header__service-logo:visited,
+.nhsuk-header__service-name[href],
+.nhsuk-header__service-name[href]:visited {
+    color: #fff;
+    text-decoration: under;
+}
+
+.nhsuk-header__account-button:hover,
+.nhsuk-header__account-button:hover:visited,
+.nhsuk-header__account-link:hover,
+.nhsuk-header__account-link:hover:visited,
+.nhsuk-header__service-logo:hover,
+.nhsuk-header__service-logo:hover:visited,
+.nhsuk-header__service-name[href]:hover,
+.nhsuk-header__service-name[href]:hover:visited
+{
+  color: #fff;
+  text-decoration: none;
+}
+
+.nhsuk-header__account-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1px;
+    list-style: none;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+}
+
+@media (min-width: 40.0625em) {
+  .nhsuk-header__account-item {
+      font-size: 16px;
+      font-size: 1rem;
+      line-height: 1.5;
+  }
+}
+
+.nhsuk-header__account-item {
+    display: flex;
+    flex-grow: 1;
+    font-size: 14px;
+    font-size: .875rem;
+    font-weight: 400;
+    gap: 8px;
+    line-height: 1.71429;
+    margin: 0;
+    outline: 1px solid #005eb8;
+    overflow-wrap: anywhere;
+    padding: 8px 12px;
+}
+
+.nhsuk-header__account .nhsuk-icon--user {
+    flex-shrink: 0;
+    height: 1.5rem;
+    width: 1.5rem;
+    fill: #fff;
+}
+
+@media (min-width: 40.0625em) {
+    .nhsuk-icon {
+        height: 2rem;
+        width: 2rem;
+    }
+}
+
+.nhsuk-icon {
+    height: 1.5rem;
+    width: 1.5rem;
+    fill: currentcolor;
+}
+
   .nhsuk-account__login {
     font-size: 0.875rem;
     float: right;
@@ -417,16 +503,160 @@ body {
     color: #fff;
   }
 
+
+
+// Set the main container as the Flex Parent
+.nhsuk-header__container {
+    // Ensure padding: 16px 0; is kept from original SCSS
+    display: flex;
+    flex-wrap: wrap; 
+    align-items: center; 
 }
 
-// @media (max-width: 40.0525em) {
-//   .nhsuk-header__container {
-//     display: flex !important;
-//     .nhsuk-header__logo {
-//       padding-right: 12px;
-//     }
-//   }
-// }
+
+
+.nhsuk-header__service {
+  display: flex;
+}
+
+.nhsuk-header__service, .nhsuk-header__service-logo {
+    gap: 8px 16px;
+    margin-right: auto;
+}
+
+.nhsuk-header__service-logo:only-child {
+  display: flex;
+}
+
+.nhsuk-header__logo {
+  min-width: 100px;
+}
+
+.nhsuk-header .nhsuk-header__service-name {
+  padding-left:0;
+}
+
+@media (min-width: 40.0625em) {
+  .nhsuk-header__service-name {        
+    font-size: 1.1875rem;
+    line-height: 1.1;
+  }
+}
+
+.nhsuk-header__service-name {
+    display: inline-flex;
+    flex-direction: column;
+    flex-grow: 0;
+    font-size: 16px;    
+    font-weight: 400;
+    justify-content: center;
+    line-height: 1.1;
+    margin-right: auto;
+    // max-width: 54ch;
+    // text-wrap: balance;
+    white-space: nowrap;
+}
+
+
+
+// Ensure all right-hand elements are tightly packed on desktop and mobile:
+.nhsuk-header__search,
+.nhsuk-header__account
+ {
+    // Add spacing between elements on desktop, but allow mobile overrides
+    margin-left: 16px;
+    flex-shrink: 0;
+}
+
+.nhsuk-header__edit-switch {
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+// Change font size for the toggle text that reads Edit mode
+.editmode-switch-form label {
+    font-size: 14px;
+}
+
+// Change the colour of the toggle switch inner circle
+.editmode-switch-form .custom-switch .custom-control-label::after {  
+  background-color: #004b93;
+}
+
+@media (max-width: 767.98px) {
+    /* Use the form class for better specificity */
+    .editmode-switch-form label {
+        /* REVERSE THE HIDING PROPERTIES */
+        position: static; /* Reverts position from absolute */
+        width: auto;     /* Allows the label to take its content width */
+        height: auto;    /* Allows the label to take its content height */
+        padding: 0;      /* Keep padding standard or set to needed value */
+        margin: 0;       /* Keep margin standard or set to needed value */
+        overflow: visible; /* Allows content to display */
+        clip: auto;      /* Allows the element to be visible */
+        white-space: normal; /* Allows text to wrap */
+        border: 0;
+    }
+}
+// -----------------------------------------------------------------------------
+// MOBILE-FIRST (Small Screens)
+// -----------------------------------------------------------------------------
+
+
+
+// Apply this globally, outside of any media queries.
+.nhsuk-header__service {
+    flex: 1 0 0; // flex-grow: 1, flex-shrink: 0, flex-basis: 0. This is the space consumer.
+    order: 0;
+    margin-right: 1.5rem;
+}
+
+// Ensure the Search element is next in the flow on desktop
+.nhsuk-header__search {
+    order: 1; // Default desktop order
+}
+// Account and Edit Mode should follow on desktop
+.nhsuk-header__account {
+    order: 2;
+}
+.nhsuk-header__edit-switch {
+    order: 3;
+
+    .navbar .divider {
+        display: block;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+@media (max-width: 40.0525em) { /* Use your smallest screen breakpoint */
+    .nhsuk-header__edit-switch { 
+        /* Ensure it's not set to flex-grow: 1, which would stretch it */
+        flex-grow: 0; 
+        
+        /* This is the key: pushes the element to the right */
+        margin-left: auto; 
+        
+        /* Optional: Add vertical spacing from the row above */
+        //margin-top: 1rem; 
+        
+        /* Optional: Remove any right margin that might be pushing it off screen */
+        margin-right: 0; 
+    }
+}
+
+
+
+
+
+
 
 
 @media (min-width: 768px) {
@@ -453,6 +683,15 @@ body {
       padding-top: 3px;
     }
   }
+}
+
+.nhsuk-header__navigation-link {
+  padding:0;
+}
+
+.nhsuk-header__menu-toggle {
+  border-bottom: 0;
+  border-top: 0;    
 }
 
 /**
@@ -1029,6 +1268,112 @@ body {
   .nhsuk-search__submit {
     padding: 0 8px 0;
   }
+}
+
+nhsuk-header__search-input.nhsuk-input {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+@media (min-width: 40.0625em) {
+    .nhsuk-header__search-input.nhsuk-input {
+        font-size: 16px;
+        //font-size: 1rem;
+        line-height: 1.5;
+    }
+}
+
+.nhsuk-header__search-input.nhsuk-input {
+    border: 1px solid transparent;
+    border-radius: 4px 0 0 4px;
+    font-size: 16px;   
+    height: 40px;
+    line-height: 1.71429;
+    margin-right: -1px;
+    padding-left: 12px;
+    padding-right: 12px;    
+    width:16.25rem;
+}
+
+.nhsuk-header__search-submit {
+    background-color: #edf4fa;
+    border: 1px solid transparent;
+    border-radius: 0 4px 4px 0;
+    color: #005eb8;
+    cursor: pointer;
+    flex-shrink: 0;
+    height: 40px;
+    line-height: 1;
+    margin: 0;
+    width: 44px;
+}
+
+.nhsuk-header__search-submit:active, .nhsuk-header__search-submit:hover {
+    background-color: #004b93;
+    border-color: #fff;
+    color: #fff;
+}
+
+
+@media (max-width: 61.8125rem) {
+    
+    // --- STEP 1: Logo & Controls (Row 1) ---
+    
+    // Logo: Retains space-consuming flex: 1 0 0 from global settings, but is guaranteed 
+    // to be first in the visual flow. We don't need to re-declare flex here.
+    .nhsuk-header__service {
+        order: 0; 
+    }
+    
+    // Account: Sits next to the Logo, pushed right.
+    .nhsuk-header__account {
+        order: 1;
+        margin-left: auto; // Crucial for pushing controls right
+        // margin-right: 12px; // Add spacing if needed
+        flex-basis: auto; // Prevents "really wide" issue
+        flex-grow: 0; // Crucial: Prevents this from consuming space
+    }
+    
+    // Edit Mode: Sits next to Account.
+    .nhsuk-header__edit-switch {
+        order: 2;
+        // margin-left: 0; 
+        // margin-right: 1.5rem; // Use gap if available, or set margin to create spacing
+        flex-basis: auto;
+        flex-grow: 0; // Crucial: Prevents this from consuming space
+    }
+
+    // --- STEP 2: Search (Row 2) ---
+
+    // Search: Given the highest order, forcing it to drop.
+    .nhsuk-header__search {
+        order: 3; // Highest order, guaranteeing it's the element that drops.
+        
+        // Ensure it uses the available space on the new line, or set it to 100%
+        flex-grow: 1; 
+        flex-basis: 100%; // Optional: Forces it to span full width on its new line.
+        
+        margin-top: 1rem; // Add necessary vertical spacing
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .nhsuk-header__search-form {
+        /* CRITICAL FIX: Use the longhand property and !important if needed, to override the framework's margin: 16px 0 0 */
+        margin-top: 0 !important; 
+        
+        /* It's good practice to zero out all vertical margins on the child to consolidate control on the parent */
+        margin-bottom: 0 !important; 
+        
+        /* You may need to reset other margins that were part of the framework's shorthand */
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .nhsuk-header__search-input.nhsuk-input { 
+      width: 100%;   
+    }
+    
 }
 
 #navbuttons {
