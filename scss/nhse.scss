@@ -1609,6 +1609,13 @@ td {
   text-decoration: underline;
 }
 
+.autosuggest-wrapper {
+    position: relative;
+    /* Forces the wrapper to take up all available horizontal space in the flex container */
+    flex-grow: 1; 
+    flex-shrink: 0; 
+}
+
 @media (min-width: 40.0625em) {
 
   ol>li,
