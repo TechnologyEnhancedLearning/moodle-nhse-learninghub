@@ -223,3 +223,8 @@ $THEME->usescourseindex = getenv("USES_COURSE_INDEX");
 $THEME->activityheaderconfig = [
     'notitle' => false
 ];
+
+// Override the arrows with empty strings to remove them from the data source.
+// This will cause $OUTPUT->larrow() and $OUTPUT->rarrow() to return nothing.
+$THEME->larrow = '';
+$THEME->rarrow = '';

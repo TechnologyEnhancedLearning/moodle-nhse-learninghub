@@ -38,7 +38,6 @@ define(['jquery'], function($) {
                                         originalTermForUrl: item.concept, // Used for the actualHref for concepts
                                         type: 'Concepts', // Matches 'Concepts' from .NET GetUrl searchType
                                         payload: item._click.payload, // Pass the whole payload for tracking URL
-                                        // originalItem: item // Keep original item for deeper inspection if needed
                                     });
                                 });
                             }
@@ -48,10 +47,9 @@ define(['jquery'], function($) {
                                 decodedResult.resources_documents.documents.forEach(item => {
                                     allSuggestions.push({
                                         displayTitle: item.title,
-                                        targetReferenceId: item.resourceReferenceId, // Use ResourceReferenceId as per .NET GetUrl
+                                        targetReferenceId: item.resource_reference_id, // Use ResourceReferenceId as per .NET GetUrl
                                         type: 'Resource', // Matches 'Resource' from .NET GetUrl searchType
-                                        payload: item._click.payload,
-                                        // originalItem: item
+                                        payload: item._click.payload
                                     });
                                 });
                             }
@@ -63,8 +61,7 @@ define(['jquery'], function($) {
                                         displayTitle: item.name, // Use 'name' for catalogues
                                         targetReference: item.url, // Use item.Url as per .NET GetUrl
                                         type: 'Catalogues', // Matches 'Catalogues' from .NET GetUrl searchType
-                                        payload: item._click.payload,
-                                        // originalItem: item
+                                        payload: item._click.payload
                                     });
                                 });
                             }
@@ -83,10 +80,9 @@ define(['jquery'], function($) {
 
                                 // Determine actualTargetUrl SVG path, and dimensions based on type, mimicking the .NET GetUrl logic
                                 if (item.type === 'Resource') {
-                                    if (item.targetReferenceId > 0) {
+                                    if (item.targetReferenceId && item.targetReferenceId > 0) {
                                         actualTargetUrl = `/Resource/${item.targetReferenceId}`;
-                                    } else {
-                                        // Fallback, though .NET only had ResourceReferenceId > 0
+                                    } else {                                        
                                         actualTargetUrl = `/Search/results?term=${encodeURIComponent(item.displayTitle)}`;
                                     }
                                     typeClass = 'autosugg-resource';
@@ -96,10 +92,9 @@ define(['jquery'], function($) {
                                     svgWidth = '16';
                                     svgHeight = '12';
                                 } else if (item.type === 'Catalogues') {
-                                    if (item.targetReference && item.targetReference.length > 0) {
+                                    if (item.targetReference) {
                                         actualTargetUrl = `/Catalogue/${item.targetReference}`;
                                     } else {
-                                        // Fallback if reference missing
                                         actualTargetUrl = `/Search/results?term=${encodeURIComponent(item.displayTitle)}`;
                                     }
                                     typeClass = 'autosugg-catalogue';
