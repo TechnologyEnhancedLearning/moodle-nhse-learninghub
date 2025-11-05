@@ -1061,18 +1061,6 @@ body {
     color: $btn-primary-text;
   }
 
-  .primary-navigation {
-    .navigation {
-      .nav-link {
-        box-shadow: none;
-        -moz-outline-style: none;
-        height: auto;
-        border-top: 0;
-        outline: 0;
-      }
-    }
-  }
-
   .navbar-brand {
     color: $btn-primary-text;
   }
@@ -1864,8 +1852,8 @@ a:not([class]):focus,
 .activityinstance>a:focus {
   outline: 4px solid $color_nhsuk-white;
   color: #212b32;
-  background-color: $nhsuk-focus-colour;
-  box-shadow: 0 -2px $nhsuk-focus-colour, 0 4px #212b32;
+  background-color: #ffeb3b;
+  box-shadow: 0 -2px #ffeb3b, 0 4px #212b32;
   text-decoration: none;
 }
 
