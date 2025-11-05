@@ -1373,6 +1373,7 @@ body.simulated-fullscreen .d-flex.flex-row-reverse.mb-2 a.btn.btn-secondary[titl
 /* Prevent width of white area of course pages being limited in width - to match header */
 @media (min-width: 768px) {    
     body.pagelayout-base #page.drawers .main-inner,
+    body.limitedwidth.pagelayout-frontpage #page.drawers .main-inner,
     body.limitedwidth.pagelayout-coursecategory #page.drawers .main-inner,
     body.limitedwidth.pagelayout-course #page.drawers .main-inner,
     body.limitedwidth.pagelayout-mycourses #page.drawers .main-inner,
@@ -1385,6 +1386,7 @@ body.simulated-fullscreen .d-flex.flex-row-reverse.mb-2 a.btn.btn-secondary[titl
 /* Rules to apply when the menu is NOT open */
 @media (min-width: 768px) {
     body.pagelayout-base #page.drawers:not(.show-drawer-left),
+    body.pagelayout-frontpage #page.drawers:not(.show-drawer-left),
     body.pagelayout-coursecategory #page.drawers:not(.show-drawer-left),
     body.pagelayout-course #page.drawers:not(.show-drawer-left),
     body.pagelayout-mycourses #page.drawers:not(.show-drawer-left),
@@ -1396,6 +1398,7 @@ body.simulated-fullscreen .d-flex.flex-row-reverse.mb-2 a.btn.btn-secondary[titl
 /* Rule to remove padding-right always */
 @media (min-width: 768px) {
     body.pagelayout-base #page.drawers,
+    body.pagelayout-frontpage #page.drawers,
     body.pagelayout-coursecategory #page.drawers,
     body.pagelayout-course #page.drawers,
     body.pagelayout-mycourses #page.drawers,
@@ -1407,6 +1410,7 @@ body.simulated-fullscreen .d-flex.flex-row-reverse.mb-2 a.btn.btn-secondary[titl
 /* Limit width of content area to prevent wide text area on course pages */
 @media (min-width: 768px) {
     body.pagelayout-base #page-wrapper #page #page-content,
+    body.limitedwidth.pagelayout-frontpage #page-wrapper #page #page-content,
     body.limitedwidth.pagelayout-coursecategory #page-wrapper #page #page-content,
     body.limitedwidth.pagelayout-course #page-wrapper #page #page-content,
     body.limitedwidth.pagelayout-mycourses #page-wrapper #page #page-content,
@@ -1421,6 +1425,7 @@ body.simulated-fullscreen .d-flex.flex-row-reverse.mb-2 a.btn.btn-secondary[titl
 
 /* Remove rounded corners on course page white content area */
 body.pagelayout-base #page.drawers .main-inner,
+body.limitedwidth.pagelayout-frontpage #page.drawers .main-inner,
 body.limitedwidth.pagelayout-coursecategory #page.drawers .main-inner,
 body.limitedwidth.pagelayout-course #page.drawers .main-inner,
 body.limitedwidth.pagelayout-mycourses #page.drawers .main-inner,
