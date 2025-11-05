@@ -1822,15 +1822,19 @@ body.pagelayout-incourse #page.drawers .main-inner {
 // FOOTER STYLING
 // ========================================================================== */
 
-// Force the underline onto the NHSUK footer links, overriding the design system's default 'text-decoration: none'.
-.nhsuk-footer__list-item-link {
-    text-decoration: underline !important;
+/*
+ * Ensure footer links are underlined to match LH styling
+ */
+#nhsuk-footer .nhsuk-footer__list-item-link {   
+    text-decoration: underline;
 }
 
-// Remove the underline on hover and focus
-.nhsuk-footer__list-item-link:hover,
-.nhsuk-footer__list-item-link:focus {
-    text-decoration: none !important;
+/*
+ * Match focus and hover state to LH styling
+ */
+#nhsuk-footer .nhsuk-footer__list-item-link:hover,
+#nhsuk-footer .nhsuk-footer__list-item-link:focus {
+    text-decoration: none;
 }
 
 /* ==========================================================================
@@ -1916,4 +1920,41 @@ a.sr-only.sr-only-focusable[href="#maincontent"]:focus {
 .activity-item .activity-completion a[role=button].btn:focus,
 .activity-item .activity-completion a[role=button].btn.focus {
   @include nhsuk-focused-button;
+}
+
+/* make the expander button respond to it's direct parent, not any parent. Stops nested expander plus/minus buttons from misbehaving */
+
+.nhsuk-expander[open] .nhsuk-expander {
+
+  &:not([open]) .nhsuk-details__summary-text::before {
+    background: url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__plus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' fill='%23005eb8'%3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M12 8v8M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A") left -2px center no-repeat;
+  }
+
+  &:not([open]) .nhsuk-details__summary:focus .nhsuk-details__summary-text::before {
+    background: url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__plus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' fill='%23002f5c'%3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M12 8v8M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A") left -2px center no-repeat;
+  }
+
+  &[open] .nhsuk-details__summary-text::before {
+    background: url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__minus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' fill='%23005eb8'%3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A") left -2px center no-repeat;
+  }
+
+  &[open] .nhsuk-details__summary:focus .nhsuk-details__summary-text::before {
+    background: $nhsuk-focus-color url("data:image/svg+xml,%3Csvg class='nhsuk-icon nhsuk-icon__minus' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' aria-hidden='true'%3E%3Ccircle cx='12' cy='12' r='10' fill='%23002f5c'%3E%3C/circle%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M8 12h8'%3E%3C/path%3E%3C/svg%3E%0A") left -2px center no-repeat;
+  }
+}
+
+/* removal of border around nested expanders and reducing vertical padding */
+
+.nhsuk-expander .activity.subsection.modtype_subsection > .activity-item {
+    border: none; 
+    margin: 0;
+}
+
+.nhsuk-expander .activity.subsection.modtype_subsection > .activity-item .section-item {
+    margin-top:0;
+    margin-bottom:0;
+}
+
+.nhsuk-expander .nhsuk-details.nhsuk-expander {
+  margin-bottom: 0;
 }
