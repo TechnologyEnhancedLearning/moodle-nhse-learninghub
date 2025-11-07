@@ -1487,6 +1487,26 @@ a:not([class]):focus,
 }
 
 /*
+ * Ensure header account links match LH styling
+ */
+
+.nhsuk-account__login .nhsuk-header__account-link {
+    text-decoration: underline;
+}
+
+.nhsuk-account__login .nhsuk-header__account-link:hover, .nhsuk-account__login .nhsuk-header__account-link:focus {
+    text-decoration: none;
+}
+
+.nhsuk-account__login .nhsuk-header__account-link:focus {
+    background-color: #ffeb3b;
+    box-shadow: 0 -2px #ffeb3b, 0 4px #212b32;
+    color: #212b32;
+    outline: 4px solid #fff0;
+    text-decoration: none;
+}
+
+/*
  * Ensure footer links are underlined to match LH styling
  */
 #nhsuk-footer .nhsuk-footer__list-item-link {   
