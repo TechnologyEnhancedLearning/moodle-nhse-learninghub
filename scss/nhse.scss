@@ -380,6 +380,7 @@ body {
   display: flex;
   flex-wrap: wrap; 
   align-items: center; 
+  row-gap: 1rem;
 }
 
 .nhsuk-header__search-form {
@@ -419,6 +420,10 @@ body {
     overflow: hidden;
 }
 
+.nhsuk-header__service-name {
+  color: inherit; 
+}
+
 .nhsuk-header__account-button,
 .nhsuk-header__account-button:visited,
 .nhsuk-header__account-link,
@@ -428,7 +433,7 @@ body {
 .nhsuk-header__service-name[href],
 .nhsuk-header__service-name[href]:visited {
     color: $color_nhsuk-white;
-    text-decoration: under;
+    text-decoration: underline;
 }
 
 .nhsuk-header__account-button:hover,
@@ -442,6 +447,51 @@ body {
 {
   color: $color_nhsuk-white;
   text-decoration: none;
+}
+
+.nhsuk-header .nhsuk-header__service-logo:focus {
+    box-shadow: 0 0 0 4px #ffeb3b, 0 0 0 8px #212b32;
+    outline: 4px solid transparent;
+}
+
+.nhsuk-header__account-button:focus,
+.nhsuk-header__account-button:focus:visited,
+.nhsuk-header__account-link:focus,
+.nhsuk-header__account-link:focus:visited,
+.nhsuk-header__service-logo:focus,
+.nhsuk-header__service-logo:focus:visited,
+.nhsuk-header__service-name[href]:focus,
+.nhsuk-header__service-name[href]:focus:visited {
+    box-shadow: inset 0 -4px #212b32;
+    color: #212b32;
+}
+
+.nhsuk-header__account-button:focus,
+.nhsuk-header__account-button:focus .nhsuk-icon,
+.nhsuk-header__account-button:focus:visited,
+.nhsuk-header__account-button:focus:visited .nhsuk-icon,
+.nhsuk-header__account-link:focus,
+.nhsuk-header__account-link:focus .nhsuk-icon,
+.nhsuk-header__account-link:focus:visited,
+.nhsuk-header__account-link:focus:visited .nhsuk-icon,
+.nhsuk-header__service-logo:focus,
+.nhsuk-header__service-logo:focus .nhsuk-icon,
+.nhsuk-header__service-logo:focus:visited,
+.nhsuk-header__service-logo:focus:visited .nhsuk-icon,
+.nhsuk-header__service-name[href]:focus,
+.nhsuk-header__service-name[href]:focus .nhsuk-icon,
+.nhsuk-header__service-name[href]:focus:visited,
+.nhsuk-header__service-name[href]:focus:visited .nhsuk-icon {
+    color: #212b32;
+    fill: #212b32;
+}
+
+.nhsuk-header__account-button, .nhsuk-header__account-link {
+    display: flex;
+    gap: 8px;
+    margin: -8px -12px;
+    overflow-wrap: anywhere;
+    padding: 8px 12px;
 }
 
 .nhsuk-header__account-list {
@@ -572,7 +622,8 @@ body {
 }
 
 .nhsuk-header__edit-switch {
-  margin-left: auto;
+  // margin-left: auto;
+  margin-left: 16px;
   flex-shrink: 0;
 }
 
@@ -611,7 +662,7 @@ body {
 .nhsuk-header__service {
     flex: 1 0 0; // flex-grow: 1, flex-shrink: 0, flex-basis: 0. This is the space consumer.
     order: 0;
-    margin-right: 1.5rem;
+    // margin-right: 1.5rem;
 }
 
 // Ensure the Search element is next in the flow on desktop
@@ -644,6 +695,7 @@ body {
         
         /* Optional: Remove any right margin that might be pushing it off screen */
         margin-right: 0; 
+
     }
 }
 
@@ -677,10 +729,35 @@ body {
   padding:0;
 }
 
+.nhsuk-header .nhsuk-header__navigation-link:focus {
+    box-shadow: inset 0 -4px #212b32;
+    border-bottom:0;
+}
+
 .nhsuk-header__menu-toggle {
   border-bottom: 0;
   border-top: 0;    
 }
+
+.nhsuk-header__drop-down .nhsuk-header__navigation-link {
+  padding-left: 16px;
+  border:none;
+}
+
+.nhsuk-header__edit-switch {
+  background-color: #004b93;
+  border: 1px solid #004b93;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.nhsuk-header__edit-switch .navbar {
+  background-color: unset;
+}
+
+
+
+
 
 /**
  * Page and headings
@@ -1293,13 +1370,33 @@ nhsuk-header__search-input.nhsuk-input {
     color: $color_nhsuk-white;
 }
 
+.nhsuk-header__search-submit:focus:not(:active),
+.nhsuk-header__search-submit:focus:not(:active):hover {
+    background-color: #ffeb3b;
+    border-color: transparent;
+    box-shadow: 0 4px 0 0 #212b32;
+    color: #212b32;
+    outline: 4px solid transparent;
+    outline-offset: 4px;
+}
 
-@media (max-width: 61.8125rem) {    
+
+.nhsuk-header__search-submit:focus:not(:active),
+.nhsuk-header__search-submit:focus:not(:active) .nhsuk-icon,
+.nhsuk-header__search-submit:focus:not(:active):hover,
+.nhsuk-header__search-submit:focus:not(:active):hover .nhsuk-icon {
+    color: #212b32;
+    fill: #212b32;
+}
+
+
+@media (max-width: 65rem) {    
     
     // Logo: Retains space-consuming flex: 1 0 0 from global settings, but is guaranteed 
     // to be first in the visual flow. 
     .nhsuk-header__service {
         order: 0; 
+        flex-shrink: 1;
     }
     
     // Account: Sits next to the Logo, pushed right
