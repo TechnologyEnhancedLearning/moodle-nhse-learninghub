@@ -370,58 +370,58 @@ body {
 }
 
 .nhsuk-header {
-    background-color: #005eb8;
-    color: $color_nhsuk-white;
-    outline: 1px solid transparent;
+  background-color: #005eb8;
+  color: $color_nhsuk-white;
+  outline: 1px solid transparent;
 }
 
 .nhsuk-header__container {
   padding: 16px 0;
   display: flex;
-  flex-wrap: wrap; 
-  align-items: center; 
+  flex-wrap: wrap;
+  align-items: center;
   row-gap: 1rem;
 }
 
 .nhsuk-header__search-form {
-    display: flex;
-    height: 100%;
-    overflow: visible;
+  display: flex;
+  height: 100%;
+  overflow: visible;
 }
 
 
-  .border-left,
-  .border-start {
-    border-left: none !important;
-  }
+.border-left,
+.border-start {
+  border-left: none !important;
+}
 
-  .custom-control-input:checked~.custom-control-label::before {
-    color: $btn-primary-text;
-    background-color: $btn-default-background;
-    border-color: $btn-default-background;
-  }
+.custom-control-input:checked~.custom-control-label::before {
+  color: $btn-primary-text;
+  background-color: $btn-default-background;
+  border-color: $btn-default-background;
+}
 
-  .custom-control-input:checked~.custom-control-label::after {
-    background-color: $btn-primary-background;
-  }
+.custom-control-input:checked~.custom-control-label::after {
+  background-color: $btn-primary-background;
+}
 
-  .text-primary {
-    color: $btn-secondary-text !important;
-  }
+.text-primary {
+  color: $btn-secondary-text !important;
+}
 
-  .nhsuk-header__content {
-    padding-right: 1.5rem;
-  }
+.nhsuk-header__content {
+  padding-right: 1.5rem;
+}
 
-  .nhsuk-header__account {
-    background-color: #004b93;
-    border: 1px solid #004b93;
-    border-radius: 4px;     
-    overflow: hidden;
+.nhsuk-header__account {
+  background-color: #004b93;
+  border: 1px solid #004b93;
+  border-radius: 4px;
+  overflow: hidden;
 }
 
 .nhsuk-header__service-name {
-  color: inherit; 
+  color: inherit;
 }
 
 .nhsuk-header__account-button,
@@ -432,8 +432,8 @@ body {
 .nhsuk-header__service-logo:visited,
 .nhsuk-header__service-name[href],
 .nhsuk-header__service-name[href]:visited {
-    color: $color_nhsuk-white;
-    text-decoration: underline;
+  color: $color_nhsuk-white;
+  text-decoration: underline;
 }
 
 .nhsuk-header__account-button:hover,
@@ -443,15 +443,14 @@ body {
 .nhsuk-header__service-logo:hover,
 .nhsuk-header__service-logo:hover:visited,
 .nhsuk-header__service-name[href]:hover,
-.nhsuk-header__service-name[href]:hover:visited
-{
+.nhsuk-header__service-name[href]:hover:visited {
   color: $color_nhsuk-white;
   text-decoration: none;
 }
 
 .nhsuk-header .nhsuk-header__service-logo:focus {
-    box-shadow: 0 0 0 4px #ffeb3b, 0 0 0 8px #212b32;
-    outline: 4px solid transparent;
+  box-shadow: 0 0 0 4px #ffeb3b, 0 0 0 8px #212b32;
+  outline: 4px solid transparent;
 }
 
 .nhsuk-header__account-button:focus,
@@ -462,8 +461,8 @@ body {
 .nhsuk-header__service-logo:focus:visited,
 .nhsuk-header__service-name[href]:focus,
 .nhsuk-header__service-name[href]:focus:visited {
-    box-shadow: inset 0 -4px #212b32;
-    color: #212b32;
+  box-shadow: inset 0 -4px #212b32;
+  color: #212b32;
 }
 
 .nhsuk-header__account-button:focus,
@@ -482,85 +481,86 @@ body {
 .nhsuk-header__service-name[href]:focus .nhsuk-icon,
 .nhsuk-header__service-name[href]:focus:visited,
 .nhsuk-header__service-name[href]:focus:visited .nhsuk-icon {
-    color: #212b32;
-    fill: #212b32;
+  color: #212b32;
+  fill: #212b32;
 }
 
-.nhsuk-header__account-button, .nhsuk-header__account-link {
-    display: flex;
-    gap: 8px;
-    margin: -8px -12px;
-    overflow-wrap: anywhere;
-    padding: 8px 12px;
+.nhsuk-header__account-button,
+.nhsuk-header__account-link {
+  display: flex;
+  gap: 8px;
+  margin: -8px -12px;
+  overflow-wrap: anywhere;
+  padding: 8px 12px;
 }
 
 .nhsuk-header__account-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1px;
-    list-style: none;
-    margin: 0;
-    overflow: hidden;
-    padding: 0;
-    position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1px;
+  list-style: none;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
 }
 
 @media (min-width: 40.0625em) {
   .nhsuk-header__account-item {
-      font-size: 16px;
-      font-size: 1rem;
-      line-height: 1.5;
+    font-size: 16px;
+    font-size: 1rem;
+    line-height: 1.5;
   }
 }
 
 .nhsuk-header__account-item {
-    display: flex;
-    flex-grow: 1;
-    font-size: 14px;
-    font-size: .875rem;
-    font-weight: 400;
-    gap: 8px;
-    line-height: 1.71429;
-    margin: 0;
-    outline: 1px solid #005eb8;
-    overflow-wrap: anywhere;
-    padding: 8px 12px;
+  display: flex;
+  flex-grow: 1;
+  font-size: 14px;
+  font-size: .875rem;
+  font-weight: 400;
+  gap: 8px;
+  line-height: 1.71429;
+  margin: 0;
+  outline: 1px solid #005eb8;
+  overflow-wrap: anywhere;
+  padding: 8px 12px;
 }
 
 .nhsuk-header__account .nhsuk-icon--user {
-    flex-shrink: 0;
-    height: 1.5rem;
-    width: 1.5rem;
-    fill: $color_nhsuk-white;
+  flex-shrink: 0;
+  height: 1.5rem;
+  width: 1.5rem;
+  fill: $color_nhsuk-white;
 }
 
 @media (min-width: 40.0625em) {
-    .nhsuk-icon {
-        height: 2rem;
-        width: 2rem;
-    }
+  .nhsuk-icon {
+    height: 2rem;
+    width: 2rem;
+  }
 }
 
 .nhsuk-icon {
-    height: 1.5rem;
-    width: 1.5rem;
-    fill: currentcolor;
+  height: 1.5rem;
+  width: 1.5rem;
+  fill: currentcolor;
 }
 
-  .nhsuk-account__login {
-    font-size: 0.875rem;
-    float: right;
-    position: relative;
-    z-index: 2;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1.5rem;
-  }
+.nhsuk-account__login {
+  font-size: 0.875rem;
+  float: right;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+}
 
-  .nhsuk-account__login--link {
-    color: $color_nhsuk-white;
-  }
+.nhsuk-account__login--link {
+  color: $color_nhsuk-white;
+}
 
 
 
@@ -572,9 +572,10 @@ body {
   display: flex;
 }
 
-.nhsuk-header__service, .nhsuk-header__service-logo {
-    gap: 8px 16px;
-    margin-right: auto;
+.nhsuk-header__service,
+.nhsuk-header__service-logo {
+  gap: 8px 16px;
+  margin-right: auto;
 }
 
 .nhsuk-header__service-logo:only-child {
@@ -586,39 +587,38 @@ body {
 }
 
 .nhsuk-header .nhsuk-header__service-name {
-  padding-left:0;
+  padding-left: 0;
 }
 
 @media (min-width: 40.0625em) {
-  .nhsuk-header__service-name {        
+  .nhsuk-header__service-name {
     font-size: 1.1875rem;
     line-height: 1.1;
   }
 }
 
 .nhsuk-header__service-name {
-    display: inline-flex;
-    flex-direction: column;
-    flex-grow: 0;
-    font-size: 16px;    
-    font-weight: 400;
-    justify-content: center;
-    line-height: 1.1;
-    margin-right: auto;
-    // max-width: 54ch;
-    // text-wrap: balance;
-    white-space: nowrap;
+  display: inline-flex;
+  flex-direction: column;
+  flex-grow: 0;
+  font-size: 16px;
+  font-weight: 400;
+  justify-content: center;
+  line-height: 1.1;
+  margin-right: auto;
+  // max-width: 54ch;
+  // text-wrap: balance;
+  white-space: nowrap;
 }
 
 
 
 // Ensure all right-hand elements are tightly packed on desktop and mobile:
 .nhsuk-header__search,
-.nhsuk-header__account
- {
-    // Add spacing between elements on desktop, but allow mobile overrides
-    margin-left: 16px;
-    flex-shrink: 0;
+.nhsuk-header__account {
+  // Add spacing between elements on desktop, but allow mobile overrides
+  margin-left: 16px;
+  flex-shrink: 0;
 }
 
 .nhsuk-header__edit-switch {
@@ -629,29 +629,39 @@ body {
 
 // Change font size for the toggle text that reads Edit mode
 .editmode-switch-form label {
-    font-size: 14px;
+  font-size: 14px;
 }
 
 // Change the colour of the toggle switch inner circle
-.editmode-switch-form .custom-switch .custom-control-label::after {  
+.editmode-switch-form .custom-switch .custom-control-label::after {
   background-color: #004b93;
 }
 
 @media (max-width: 767.98px) {
-    /* Use the form class for better specificity */
-    .editmode-switch-form label {
-        /* REVERSE THE HIDING PROPERTIES */
-        position: static; /* Reverts position from absolute */
-        width: auto;     /* Allows the label to take its content width */
-        height: auto;    /* Allows the label to take its content height */
-        padding: 0;      /* Keep padding standard or set to needed value */
-        margin: 0;       /* Keep margin standard or set to needed value */
-        overflow: visible; /* Allows content to display */
-        clip: auto;      /* Allows the element to be visible */
-        white-space: normal; /* Allows text to wrap */
-        border: 0;
-    }
+
+  /* Use the form class for better specificity */
+  .editmode-switch-form label {
+    /* REVERSE THE HIDING PROPERTIES */
+    position: static;
+    /* Reverts position from absolute */
+    width: auto;
+    /* Allows the label to take its content width */
+    height: auto;
+    /* Allows the label to take its content height */
+    padding: 0;
+    /* Keep padding standard or set to needed value */
+    margin: 0;
+    /* Keep margin standard or set to needed value */
+    overflow: visible;
+    /* Allows content to display */
+    clip: auto;
+    /* Allows the element to be visible */
+    white-space: normal;
+    /* Allows text to wrap */
+    border: 0;
+  }
 }
+
 // -----------------------------------------------------------------------------
 // MOBILE-FIRST (Small Screens)
 // -----------------------------------------------------------------------------
@@ -660,43 +670,47 @@ body {
 
 // Apply this globally, outside of any media queries.
 .nhsuk-header__service {
-    flex: 1 0 0; // flex-grow: 1, flex-shrink: 0, flex-basis: 0. This is the space consumer.
-    order: 0;
-    // margin-right: 1.5rem;
+  flex: 1 0 0; // flex-grow: 1, flex-shrink: 0, flex-basis: 0. This is the space consumer.
+  order: 0;
+  // margin-right: 1.5rem;
 }
 
 // Ensure the Search element is next in the flow on desktop
 .nhsuk-header__search {
-    order: 1; // Default desktop order
+  order: 1; // Default desktop order
 }
+
 // Account and Edit Mode should follow on desktop
 .nhsuk-header__account {
-    order: 2;
+  order: 2;
 }
+
 .nhsuk-header__edit-switch {
-    order: 3;
+  order: 3;
 
-    .navbar .divider {
-        display: block;
-    }
+  .navbar .divider {
+    display: block;
+  }
 
 }
 
-@media (max-width: 40.0525em) { /* Use your smallest screen breakpoint */
-    .nhsuk-header__edit-switch { 
-        /* Ensure it's not set to flex-grow: 1, which would stretch it */
-        flex-grow: 0; 
-        
-        /* This is the key: pushes the element to the right */
-        margin-left: auto; 
-        
-        /* Optional: Add vertical spacing from the row above */
-        //margin-top: 1rem; 
-        
-        /* Optional: Remove any right margin that might be pushing it off screen */
-        margin-right: 0; 
+@media (max-width: 40.0525em) {
 
-    }
+  /* Use your smallest screen breakpoint */
+  .nhsuk-header__edit-switch {
+    /* Ensure it's not set to flex-grow: 1, which would stretch it */
+    flex-grow: 0;
+
+    /* This is the key: pushes the element to the right */
+    margin-left: auto;
+
+    /* Optional: Add vertical spacing from the row above */
+    //margin-top: 1rem; 
+
+    /* Optional: Remove any right margin that might be pushing it off screen */
+    margin-right: 0;
+
+  }
 }
 
 @media (min-width: 768px) {
@@ -726,22 +740,22 @@ body {
 }
 
 .nhsuk-header__navigation-link {
-  padding:0;
+  padding: 0;
 }
 
 .nhsuk-header .nhsuk-header__navigation-link:focus {
-    box-shadow: inset 0 -4px #212b32;
-    border-bottom:0;
+  box-shadow: inset 0 -4px #212b32;
+  border-bottom: 0;
 }
 
 .nhsuk-header__menu-toggle {
   border-bottom: 0;
-  border-top: 0;    
+  border-top: 0;
 }
 
 .nhsuk-header__drop-down .nhsuk-header__navigation-link {
   padding-left: 16px;
-  border:none;
+  border: none;
 }
 
 .nhsuk-header__edit-switch {
@@ -1332,52 +1346,53 @@ nhsuk-header__search-input.nhsuk-input {
 }
 
 @media (min-width: 40.0625em) {
-    .nhsuk-header__search-input.nhsuk-input {
-        font-size: 16px;
-        //font-size: 1rem;
-        line-height: 1.5;
-    }
+  .nhsuk-header__search-input.nhsuk-input {
+    font-size: 16px;
+    //font-size: 1rem;
+    line-height: 1.5;
+  }
 }
 
 .nhsuk-header__search-input.nhsuk-input {
-    border: 1px solid transparent;
-    border-radius: 4px 0 0 4px;
-    font-size: 16px;   
-    height: 40px;
-    line-height: 1.71429;
-    margin-right: -1px;
-    padding-left: 12px;
-    padding-right: 12px;    
-    width:16.25rem;
+  border: 1px solid transparent;
+  border-radius: 4px 0 0 4px;
+  font-size: 16px;
+  height: 40px;
+  line-height: 1.71429;
+  margin-right: -1px;
+  padding-left: 12px;
+  padding-right: 12px;
+  width: 16.25rem;
 }
 
 .nhsuk-header__search-submit {
-    background-color: #edf4fa;
-    border: 1px solid transparent;
-    border-radius: 0 4px 4px 0;
-    color: #005eb8;
-    cursor: pointer;
-    flex-shrink: 0;
-    height: 40px;
-    line-height: 1;
-    margin: 0;
-    width: 44px;
+  background-color: #edf4fa;
+  border: 1px solid transparent;
+  border-radius: 0 4px 4px 0;
+  color: #005eb8;
+  cursor: pointer;
+  flex-shrink: 0;
+  height: 40px;
+  line-height: 1;
+  margin: 0;
+  width: 44px;
 }
 
-.nhsuk-header__search-submit:active, .nhsuk-header__search-submit:hover {
-    background-color: #004b93;
-    border-color: $color_nhsuk-white;
-    color: $color_nhsuk-white;
+.nhsuk-header__search-submit:active,
+.nhsuk-header__search-submit:hover {
+  background-color: #004b93;
+  border-color: $color_nhsuk-white;
+  color: $color_nhsuk-white;
 }
 
 .nhsuk-header__search-submit:focus:not(:active),
 .nhsuk-header__search-submit:focus:not(:active):hover {
-    background-color: #ffeb3b;
-    border-color: transparent;
-    box-shadow: 0 4px 0 0 #212b32;
-    color: #212b32;
-    outline: 4px solid transparent;
-    outline-offset: 4px;
+  background-color: #ffeb3b;
+  border-color: transparent;
+  box-shadow: 0 4px 0 0 #212b32;
+  color: #212b32;
+  outline: 4px solid transparent;
+  outline-offset: 4px;
 }
 
 
@@ -1385,69 +1400,139 @@ nhsuk-header__search-input.nhsuk-input {
 .nhsuk-header__search-submit:focus:not(:active) .nhsuk-icon,
 .nhsuk-header__search-submit:focus:not(:active):hover,
 .nhsuk-header__search-submit:focus:not(:active):hover .nhsuk-icon {
-    color: #212b32;
-    fill: #212b32;
+  color: #212b32;
+  fill: #212b32;
 }
 
 
-@media (max-width: 65rem) {    
-    
-    // Logo: Retains space-consuming flex: 1 0 0 from global settings, but is guaranteed 
-    // to be first in the visual flow. 
-    .nhsuk-header__service {
-        order: 0; 
-        flex-shrink: 1;
-    }
-    
-    // Account: Sits next to the Logo, pushed right
-    .nhsuk-header__account {
-        order: 1;
-        margin-left: auto; // For pushing controls right        
-        flex-basis: auto; // Prevents "really wide" issue
-        flex-grow: 0; // Prevents this from consuming space
-    }    
-    
-    // Edit mode control: Sits to the right of account
-    .nhsuk-header__edit-switch {
-        order: 2;
-        flex-basis: auto;
-        flex-grow: 0; // Prevents this from consuming space
-    } 
+@media (max-width: 65rem) {
 
-    // Search: Given the highest order, forcing it to drop.
-    .nhsuk-header__search {
-        order: 3; // Highest order
-        
-        // Ensure it uses the available space on the new line, or set it to 100%
-        flex-grow: 1; 
-        flex-basis: 100%; // Optional: Forces it to span full width on its new line.
-        
-        margin-top: 1rem; // Add necessary vertical spacing
-        margin-left: 0;
-        margin-right: 0;
-    }
+  // Logo: Retains space-consuming flex: 1 0 0 from global settings, but is guaranteed 
+  // to be first in the visual flow. 
+  .nhsuk-header__service {
+    order: 0;
+    flex-shrink: 1;
+  }
 
-    .nhsuk-header__search-form {
-        /* Override the framework's margin: 16px 0 0 */
-        margin-top: 0 !important; 
-        
-        /* Zero out all vertical margins on the child to consolidate control on the parent */
-        margin-bottom: 0 !important;         
-        
-        margin-right: auto;
-        margin-left: auto;
-    }
+  // Account: Sits next to the Logo, pushed right
+  .nhsuk-header__account {
+    order: 1;
+    margin-left: auto; // For pushing controls right        
+    flex-basis: auto; // Prevents "really wide" issue
+    flex-grow: 0; // Prevents this from consuming space
+  }
 
-    .nhsuk-header__search-input.nhsuk-input { 
-      width: 100%;   
-    }
-    
+  // Edit mode control: Sits to the right of account
+  .nhsuk-header__edit-switch {
+    order: 2;
+    flex-basis: auto;
+    flex-grow: 0; // Prevents this from consuming space
+  }
+
+  // Search: Given the highest order, forcing it to drop.
+  .nhsuk-header__search {
+    order: 3; // Highest order
+
+    // Ensure it uses the available space on the new line, or set it to 100%
+    flex-grow: 1;
+    flex-basis: 100%; // Optional: Forces it to span full width on its new line.
+
+    margin-top: 1rem; // Add necessary vertical spacing
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .nhsuk-header__search-form {
+    /* Override the framework's margin: 16px 0 0 */
+    margin-top: 0 !important;
+
+    /* Zero out all vertical margins on the child to consolidate control on the parent */
+    margin-bottom: 0 !important;
+
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .nhsuk-header__search-input.nhsuk-input {
+    width: 100%;
+  }
+
 }
 
 #navbuttons {
   input[type="submit"] {
     @extend .nhsuk-button--small;
   }
+}
+
+
+/* 1. APPLY NHS FOCUS STYLE TO THE PARENT CONTAINER (The Fix) */
+/* Targets the parent div when the input inside is focused (via :has or JS helper class) */
+.nhsuk-header__edit-switch:has(.custom-control-input:focus),
+.nhsuk-header__edit-switch.is-focused {
+
+  /* FIX FOR LAYOUT SHIFT: Compensates for the 4px border being added */
+  /* Only compensate vertically to prevent content above/below from shifting. */
+  margin-top: -4px !important;
+  margin-bottom: -4px !important;
+
+  /* Ensure horizontal margins are zero to maintain gap with adjacent elements (like the account link) */
+  margin-left: 16px !important;
+  margin-right: 0 !important;
+
+  /* FOCUS STYLES: NHS Black Border (4px) and Yellow Halo (4px) */
+  //border: 4px solid #212b32 !important; 
+  box-shadow: 0 0 0 4px #ffeb3b !important;
+
+  /* Cleanup */
+  outline: none !important;
+}
+
+/* 2. NEUTRALIZE DEFAULT FOCUS ON NESTED SWITCH ELEMENTS */
+/* This prevents the visible switch track or handle from showing a double focus ring. */
+.nhsuk-header__edit-switch .custom-control-input:focus,
+.nhsuk-header__edit-switch .custom-control-input:focus~.custom-control-label,
+.nhsuk-header__edit-switch .custom-control-input:focus~.custom-control-label::before {
+  box-shadow: none !important;
+  outline: none !important;
+  border-color: initial !important;
+  border-width: initial !important;
+}
+
+
+/* 1. Override the enabled (checked) state background to neutral */
+.nhsuk-header__edit-switch .custom-control-input:checked~.custom-control-label::before {
+  /* Set to a neutral color, e.g., white or light grey */
+  background-color: #fff !important;
+  border-color: #fff !important;
+  /* Ensure the track border color is also neutral */
+}
+
+/* 2. Override the active state background to neutral */
+.nhsuk-header__edit-switch .custom-control-input:not(:disabled):active~.custom-control-label::before {
+  /* Set to a neutral color, matching the checked state above */
+  background-color: #fff !important;
+  border-color: #fff !important;
+  /* Ensure the track border color is also neutral */
+}
+
+/* 3. Ensure the default state (unchecked) background is neutral */
+.nhsuk-header__edit-switch .custom-control-label::before {
+  background-color: #fff !important;
+  border-color: #fff !important;
+  /* Ensure the track border color is also neutral */
+}
+
+/* 1. Disabled/Default State (Ensures initial color is #004b93) */
+/* This is the base color for the handle */
+.editmode-switch-form .custom-switch .custom-control-label::after {
+  background-color: #004b93 !important;
+}
+
+/* 2. Enabled State Override (Ensures color stays #004b93 when checked) */
+/* This overrides the Bootstrap rule that turns it white (#fff) */
+.editmode-switch-form .custom-switch .custom-control-input:checked~.custom-control-label::after {
+  background-color: #004b93 !important;
 }
 
 /* ==========================================================================
@@ -1684,13 +1769,14 @@ td {
 }
 
 .autosuggest-wrapper {
-    position: relative;
-    /* Forces the wrapper to take up all available horizontal space in the flex container */
-    flex-grow: 1; 
-    flex-shrink: 0; 
+  position: relative;
+  /* Forces the wrapper to take up all available horizontal space in the flex container */
+  flex-grow: 1;
+  flex-shrink: 0;
 }
 
 @media (min-width: 40.0625em) {
+
   ol>li,
   ul>li,
   .nhsuk-list>li {
@@ -1808,56 +1894,61 @@ body.simulated-fullscreen .d-flex.flex-row-reverse.mb-2 a.btn.btn-secondary[titl
 // ========================================================================== */
 
 /* Prevent width of white area of course pages being limited in width - to match header */
-@media (min-width: 768px) {    
-    body.pagelayout-base #page.drawers .main-inner,
-    body.limitedwidth.pagelayout-frontpage #page.drawers .main-inner,
-    body.limitedwidth.pagelayout-coursecategory #page.drawers .main-inner,
-    body.limitedwidth.pagelayout-course #page.drawers .main-inner,
-    body.limitedwidth.pagelayout-mycourses #page.drawers .main-inner,
-    body.pagelayout-incourse #page.drawers .main-inner {
-        max-width: unset;
-    }
+@media (min-width: 768px) {
+
+  body.pagelayout-base #page.drawers .main-inner,
+  body.limitedwidth.pagelayout-frontpage #page.drawers .main-inner,
+  body.limitedwidth.pagelayout-coursecategory #page.drawers .main-inner,
+  body.limitedwidth.pagelayout-course #page.drawers .main-inner,
+  body.limitedwidth.pagelayout-mycourses #page.drawers .main-inner,
+  body.pagelayout-incourse #page.drawers .main-inner {
+    max-width: unset;
+  }
 }
 
 /* Remove padding to maximise the width of the white area of course pages and match header */
 /* Rules to apply when the menu is NOT open */
 @media (min-width: 768px) {
-    body.pagelayout-base #page.drawers:not(.show-drawer-left),
-    body.pagelayout-frontpage #page.drawers:not(.show-drawer-left),
-    body.pagelayout-coursecategory #page.drawers:not(.show-drawer-left),
-    body.pagelayout-course #page.drawers:not(.show-drawer-left),
-    body.pagelayout-mycourses #page.drawers:not(.show-drawer-left),
-    body.pagelayout-incourse #page.drawers:not(.show-drawer-left) {
-        padding-left: 0;
-    }
+
+  body.pagelayout-base #page.drawers:not(.show-drawer-left),
+  body.pagelayout-frontpage #page.drawers:not(.show-drawer-left),
+  body.pagelayout-coursecategory #page.drawers:not(.show-drawer-left),
+  body.pagelayout-course #page.drawers:not(.show-drawer-left),
+  body.pagelayout-mycourses #page.drawers:not(.show-drawer-left),
+  body.pagelayout-incourse #page.drawers:not(.show-drawer-left) {
+    padding-left: 0;
+  }
 }
 
 /* Rule to remove padding-right always */
 @media (min-width: 768px) {
-    body.pagelayout-base #page.drawers,
-    body.pagelayout-frontpage #page.drawers,
-    body.pagelayout-coursecategory #page.drawers,
-    body.pagelayout-course #page.drawers,
-    body.pagelayout-mycourses #page.drawers,
-    body.pagelayout-incourse #page.drawers {
-        padding-right: 0;
-    }
+
+  body.pagelayout-base #page.drawers,
+  body.pagelayout-frontpage #page.drawers,
+  body.pagelayout-coursecategory #page.drawers,
+  body.pagelayout-course #page.drawers,
+  body.pagelayout-mycourses #page.drawers,
+  body.pagelayout-incourse #page.drawers {
+    padding-right: 0;
+  }
 }
 
 /* Limit width of content area to prevent wide text area on course pages */
 @media (min-width: 768px) {
-    body.pagelayout-base #page-wrapper #page #page-content,
-    body.limitedwidth.pagelayout-frontpage #page-wrapper #page #page-content,
-    body.limitedwidth.pagelayout-coursecategory #page-wrapper #page #page-content,
-    body.limitedwidth.pagelayout-course #page-wrapper #page #page-content,
-    body.limitedwidth.pagelayout-mycourses #page-wrapper #page #page-content,
-    body.pagelayout-incourse #page-wrapper #page #page-content {
-        max-width: 830px;
-    }
-    /* No limit required when displaying SCORM content inline */
-    body#page-mod-scorm-player #page-wrapper #page #page-content {
-      max-width: unset;
-    }
+
+  body.pagelayout-base #page-wrapper #page #page-content,
+  body.limitedwidth.pagelayout-frontpage #page-wrapper #page #page-content,
+  body.limitedwidth.pagelayout-coursecategory #page-wrapper #page #page-content,
+  body.limitedwidth.pagelayout-course #page-wrapper #page #page-content,
+  body.limitedwidth.pagelayout-mycourses #page-wrapper #page #page-content,
+  body.pagelayout-incourse #page-wrapper #page #page-content {
+    max-width: 830px;
+  }
+
+  /* No limit required when displaying SCORM content inline */
+  body#page-mod-scorm-player #page-wrapper #page #page-content {
+    max-width: unset;
+  }
 }
 
 /* Remove rounded corners on course page white content area */
@@ -1915,8 +2006,8 @@ body.pagelayout-incourse #page.drawers .main-inner {
 /*
  * Ensure footer links are underlined to match LH styling
  */
-#nhsuk-footer .nhsuk-footer__list-item-link {   
-    text-decoration: underline;
+#nhsuk-footer .nhsuk-footer__list-item-link {
+  text-decoration: underline;
 }
 
 /*
@@ -1924,7 +2015,7 @@ body.pagelayout-incourse #page.drawers .main-inner {
  */
 #nhsuk-footer .nhsuk-footer__list-item-link:hover,
 #nhsuk-footer .nhsuk-footer__list-item-link:focus {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 /* ==========================================================================
@@ -2035,14 +2126,14 @@ a.sr-only.sr-only-focusable[href="#maincontent"]:focus {
 
 /* removal of border around nested expanders and reducing vertical padding */
 
-.nhsuk-expander .activity.subsection.modtype_subsection > .activity-item {
-    border: none; 
-    margin: 0;
+.nhsuk-expander .activity.subsection.modtype_subsection>.activity-item {
+  border: none;
+  margin: 0;
 }
 
-.nhsuk-expander .activity.subsection.modtype_subsection > .activity-item .section-item {
-    margin-top:0;
-    margin-bottom:0;
+.nhsuk-expander .activity.subsection.modtype_subsection>.activity-item .section-item {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .nhsuk-expander .nhsuk-details.nhsuk-expander {
