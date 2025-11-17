@@ -2182,6 +2182,17 @@ a.nav-link:focus, a.nav-link:active {
     text-decoration: none !important;
 }
 
+/* More button on navigation botton border focus style */
+button.nhsuk-header__menu-toggle.nav-link:focus {
+
+  border-bottom-width: 4px !important; /* Forces the required 4px bottom border */
+    
+    /* FIX FOR SHIFTING: Maintain 4px space at the top using a transparent border */
+    border-top: 4px solid transparent !important;
+    border-bottom-color: #212b32 !important; /* Sets the color of the 4px bottom border */
+    border-style: solid !important;
+}
+
 /* ---------------------------------------------------------------------------------- */
 /* COURSE MANAGEMENT CHECKBOX STYLING
 /* ---------------------------------------------------------------------------------- */
