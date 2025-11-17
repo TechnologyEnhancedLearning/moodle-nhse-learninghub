@@ -427,11 +427,7 @@ body {
 .nhsuk-header__account-button,
 .nhsuk-header__account-button:visited,
 .nhsuk-header__account-link,
-.nhsuk-header__account-link:visited,
-.nhsuk-header__service-logo,
-.nhsuk-header__service-logo:visited,
-.nhsuk-header__service-name[href],
-.nhsuk-header__service-name[href]:visited {
+.nhsuk-header__account-link:visited {
   color: $color_nhsuk-white;
   text-decoration: underline;
 }
@@ -439,7 +435,19 @@ body {
 .nhsuk-header__account-button:hover,
 .nhsuk-header__account-button:hover:visited,
 .nhsuk-header__account-link:hover,
-.nhsuk-header__account-link:hover:visited,
+.nhsuk-header__account-link:hover:visited {
+  color: $color_nhsuk-white;
+  text-decoration: none;
+}
+
+.nhsuk-header__service-logo,
+.nhsuk-header__service-logo:visited,
+.nhsuk-header__service-name[href],
+.nhsuk-header__service-name[href]:visited {
+  color: $color_nhsuk-white;
+  text-decoration: none;
+}
+
 .nhsuk-header__service-logo:hover,
 .nhsuk-header__service-logo:hover:visited,
 .nhsuk-header__service-name[href]:hover,
@@ -590,12 +598,7 @@ body {
   padding-left: 0;
 }
 
-@media (min-width: 40.0625em) {
-  .nhsuk-header__service-name {
-    font-size: 1.1875rem;
-    line-height: 1.1;
-  }
-}
+
 
 .nhsuk-header__service-name {
   display: inline-flex;
@@ -609,6 +612,13 @@ body {
   // max-width: 54ch;
   // text-wrap: balance;
   white-space: nowrap;
+}
+
+@media (min-width: 40.0625em) {
+  .nhsuk-header__service-name {
+    font-size: 1.1875rem;
+    line-height: 1.1;
+  }
 }
 
 
@@ -2138,4 +2148,36 @@ a.sr-only.sr-only-focusable[href="#maincontent"]:focus {
 
 .nhsuk-expander .nhsuk-details.nhsuk-expander {
   margin-bottom: 0;
+}
+
+
+/* Neutralizes the generic Bootstrap blue focus ring */
+.nav-link:focus {
+    box-shadow: none !important;
+    /* You may need to add outline: none !important; here if the blue ring persists */
+}
+
+
+
+
+/* Applies the final, non-shifting NHS visual focus/active style to navigation links */
+a.nav-link:focus, a.nav-link:active {
+    /* --- 1. OVERRIDE THE CONFLICTING BORDER RESET --- */
+    border-width: 0 !important;
+    border-bottom-width: 4px !important; /* Forces the required 4px bottom border */
+    
+    /* FIX FOR SHIFTING: Maintain 4px space at the top using a transparent border */
+    border-top: 4px solid transparent !important;
+    
+    /* --- 2. APPLY NHS FOCUS VISUALS --- */
+    background-color: #ffeb3b !important;
+    border-bottom-color: #212b32 !important; /* Sets the color of the 4px bottom border */
+    border-style: solid !important;
+    
+    color: #212b32 !important;
+    
+    /* --- 3. CLEANUP --- */
+    box-shadow: none !important; 
+    outline: none !important;
+    text-decoration: none !important;
 }
