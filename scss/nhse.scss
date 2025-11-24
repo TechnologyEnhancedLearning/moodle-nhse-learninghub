@@ -288,20 +288,6 @@ body {
   }
 }
 
-.drawer-toggles {
-  .drawer-toggler {
-    top: calc(140px + 0.7rem)
-  }
-}
-
-@media (max-width: 991.98px) {
-  .drawer-toggles {
-    .drawer-toggler {
-      top: calc(99vh - (60px * 2.5))
-    }
-  }
-}
-
 .drawercontent {
   height: calc(100% - 124px);
 
@@ -1438,6 +1424,14 @@ body.pagelayout-incourse #page.drawers .main-inner {
   border-radius: 0;
 }
 
+/* Course page content area padding to allow room for left hand side menu toggle */
+body.limitedwidth.pagelayout-course #page-wrapper #page .main-inner,
+body.pagelayout-incourse #page-wrapper #page .main-inner,
+body.pagelayout-report #page-wrapper #page .main-inner {
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+}
+
 
 
 
@@ -1515,6 +1509,11 @@ a:not([class]):focus,
 /* Removing style focus and adding nhsuk focus for left hand side menu button */
 .drawer-toggles .drawer-toggler .btn:focus {
   @include nhsuk-focused-button;
+}
+
+/* Prevent boost CSS affecting the toggle button position */
+#page .drawer-toggles .drawer-toggler {
+    top: unset; /* prevent static CSS from interfering */
 }
 
 .drawerheader .aabtn.text-reset.d-flex.align-items-center.py-1.h-100.d-md-none,
