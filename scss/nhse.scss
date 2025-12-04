@@ -350,10 +350,6 @@ body {
 /* ==========================================================================
 // HEADER STYLES
 // ========================================================================== */
-.sticky-top {
-  position: sticky;
-  top: 0;
-}
 
 .nhsuk-header {
   background-color: #005eb8;
@@ -426,6 +422,10 @@ body {
   text-decoration: none;
 }
 
+.nhsuk-header__service-logo {
+  position: relative;
+}
+
 .nhsuk-header__service-logo,
 .nhsuk-header__service-logo:visited,
 .nhsuk-header__service-name[href],
@@ -440,6 +440,22 @@ body {
 .nhsuk-header__service-name[href]:hover:visited {
   color: $color_nhsuk-white;
   text-decoration: none;
+}
+
+.nhsuk-header .nhsuk-header__service-logo:not(:focus):hover,
+.nhsuk-header .nhsuk-header__service-logo:not(:focus):hover .nhsuk-header__service-name,
+.nhsuk-header .nhsuk-header__service-name[href]:not(:focus):hover {
+  text-decoration: underline;
+}
+
+.nhsuk-header__service-logo:has(svg):not(:focus):hover:before {
+  border-bottom: .1rem solid;
+  content: "";
+  display: inline;
+  height: 40px;
+  position: absolute;
+  top: .2rem;
+  width: 100px;
 }
 
 .nhsuk-header .nhsuk-header__service-logo:focus {
@@ -1047,8 +1063,23 @@ body {
   }
 }
 
+.nhsuk-header__notification-dot {
+  position: absolute;
+  top: 0.2rem;
+  left: 1.55rem;
+  font-size: 0.6875rem;
+  line-height: 1.125rem;
+  font-weight: 900;
+  background: #d5281b;
+  color: #fff;
+  min-width: 1.125rem;
+  height: 1.125rem;
+  text-align: center;
+  border-radius: 0.5625rem;
+  padding: 0.0625rem 0.1875rem 0;
+}
 
-
+/*
 
 .nhsuk-tag {
   top: 0.5rem;
@@ -1063,7 +1094,7 @@ body {
   border-radius: 0.5625rem;
   padding: 0.0625rem 0.1875rem 0;
 }
-
+*/
 
 .nhsuk-breadcrumb__list {
   .nhsuk-breadcrumb__item {
@@ -1607,6 +1638,13 @@ label input[type=checkbox] {
   }
 }
 
+/* left justify navigation links */
+@media (min-width: 56.25em) {
+  .nhsuk-header__navigation-list {
+    justify-content: normal;
+  }
+}
+
 .nhsuk-header__navigation-item {
   border-top: none;
 }
@@ -1897,7 +1935,8 @@ body.simulated-fullscreen .d-flex.flex-row-reverse.mb-2 a.btn.btn-secondary[titl
   body.limitedwidth.pagelayout-coursecategory #page.drawers .main-inner,
   body.limitedwidth.pagelayout-course #page.drawers .main-inner,
   body.limitedwidth.pagelayout-mycourses #page.drawers .main-inner,
-  body.pagelayout-incourse #page.drawers .main-inner {
+  body.pagelayout-incourse #page.drawers .main-inner,
+  body.pagelayout-admin #page.drawers .main-inner {
     max-width: unset;
   }
 }
@@ -1911,7 +1950,8 @@ body.simulated-fullscreen .d-flex.flex-row-reverse.mb-2 a.btn.btn-secondary[titl
   body.pagelayout-coursecategory #page.drawers:not(.show-drawer-left),
   body.pagelayout-course #page.drawers:not(.show-drawer-left),
   body.pagelayout-mycourses #page.drawers:not(.show-drawer-left),
-  body.pagelayout-incourse #page.drawers:not(.show-drawer-left) {
+  body.pagelayout-incourse #page.drawers:not(.show-drawer-left),
+  body.pagelayout-admin #page.drawers:not(.show-drawer-left) {
     padding-left: 0;
   }
 }
@@ -1924,7 +1964,8 @@ body.simulated-fullscreen .d-flex.flex-row-reverse.mb-2 a.btn.btn-secondary[titl
   body.pagelayout-coursecategory #page.drawers,
   body.pagelayout-course #page.drawers,
   body.pagelayout-mycourses #page.drawers,
-  body.pagelayout-incourse #page.drawers {
+  body.pagelayout-incourse #page.drawers,
+  body.pagelayout-admin #page.drawers {
     padding-right: 0;
   }
 }
@@ -1953,7 +1994,8 @@ body.limitedwidth.pagelayout-frontpage #page.drawers .main-inner,
 body.limitedwidth.pagelayout-coursecategory #page.drawers .main-inner,
 body.limitedwidth.pagelayout-course #page.drawers .main-inner,
 body.limitedwidth.pagelayout-mycourses #page.drawers .main-inner,
-body.pagelayout-incourse #page.drawers .main-inner {
+body.pagelayout-incourse #page.drawers .main-inner,
+body.pagelayout-admin #page.drawers .main-inner {
   border-radius: 0;
 }
 
@@ -1961,16 +2003,16 @@ body.pagelayout-incourse #page.drawers .main-inner {
 body.limitedwidth.pagelayout-course #page-wrapper #page .main-inner,
 body.pagelayout-incourse #page-wrapper #page .main-inner,
 body.pagelayout-report #page-wrapper #page .main-inner {
-    padding-left: 3.5rem;
-    padding-right: 3.5rem;
+  padding-left: 3.5rem;
+  padding-right: 3.5rem;
 }
 
 /* Course page content area padding to allow room for left hand side menu toggle */
 body.limitedwidth.pagelayout-course #page-wrapper #page .main-inner,
 body.pagelayout-incourse #page-wrapper #page .main-inner,
 body.pagelayout-report #page-wrapper #page .main-inner {
-    padding-left: 3.5rem;
-    padding-right: 3.5rem;
+  padding-left: 3.5rem;
+  padding-right: 3.5rem;
 }
 
 
@@ -2036,7 +2078,8 @@ body.pagelayout-report #page-wrapper #page .main-inner {
 }
 
 .nhsuk-footer .nhsuk-width-container {
-  margin-left: 16px;  /* or 32px for larger screens */
+  margin-left: 16px;
+  /* or 32px for larger screens */
   margin-right: 16px;
 }
 
@@ -2065,8 +2108,10 @@ body.pagelayout-report #page-wrapper #page .main-inner {
 }
 
 .nhsuk-footer .nhsuk-footer__list {
-  float: none; /* cancel v9 float */
-  width: auto;  /* allow list to take full width */
+  float: none;
+  /* cancel v9 float */
+  width: auto;
+  /* allow list to take full width */
   padding-right: 0;
   padding-bottom: 0;
 }
@@ -2153,7 +2198,8 @@ a:not([class]):focus,
 
 /* Prevent boost CSS affecting the toggle button position */
 #page .drawer-toggles .drawer-toggler {
-    top: unset; /* prevent static CSS from interfering */
+  top: unset;
+  /* prevent static CSS from interfering */
 }
 
 .drawerheader .aabtn.text-reset.d-flex.align-items-center.py-1.h-100.d-md-none,
@@ -2244,44 +2290,49 @@ a.sr-only.sr-only-focusable[href="#maincontent"]:focus {
 
 /* Neutralizes the generic Bootstrap blue focus ring */
 .nav-link:focus {
-    box-shadow: none !important;
-    /* You may need to add outline: none !important; here if the blue ring persists */
+  box-shadow: none !important;
+  /* You may need to add outline: none !important; here if the blue ring persists */
 }
 
 
 
 
 /* Applies the final, non-shifting NHS visual focus/active style to navigation links */
-a.nav-link:focus, a.nav-link:active {
-    /* --- 1. OVERRIDE THE CONFLICTING BORDER RESET --- */
-    border-width: 0 !important;
-    border-bottom-width: 4px !important; /* Forces the required 4px bottom border */
-    
-    /* FIX FOR SHIFTING: Maintain 4px space at the top using a transparent border */
-    border-top: 4px solid transparent !important;
-    
-    /* --- 2. APPLY NHS FOCUS VISUALS --- */
-    background-color: #ffeb3b !important;
-    border-bottom-color: #212b32 !important; /* Sets the color of the 4px bottom border */
-    border-style: solid !important;
-    
-    color: #212b32 !important;
-    
-    /* --- 3. CLEANUP --- */
-    box-shadow: none !important; 
-    outline: none !important;
-    text-decoration: none !important;
+a.nav-link:focus,
+a.nav-link:active {
+  /* --- 1. OVERRIDE THE CONFLICTING BORDER RESET --- */
+  border-width: 0 !important;
+  border-bottom-width: 4px !important;
+  /* Forces the required 4px bottom border */
+
+  /* FIX FOR SHIFTING: Maintain 4px space at the top using a transparent border */
+  border-top: 4px solid transparent !important;
+
+  /* --- 2. APPLY NHS FOCUS VISUALS --- */
+  background-color: #ffeb3b !important;
+  border-bottom-color: #212b32 !important;
+  /* Sets the color of the 4px bottom border */
+  border-style: solid !important;
+
+  color: #212b32 !important;
+
+  /* --- 3. CLEANUP --- */
+  box-shadow: none !important;
+  outline: none !important;
+  text-decoration: none !important;
 }
 
 /* More button on navigation botton border focus style */
 button.nhsuk-header__menu-toggle.nav-link:focus {
 
-  border-bottom-width: 4px !important; /* Forces the required 4px bottom border */
-    
-    /* FIX FOR SHIFTING: Maintain 4px space at the top using a transparent border */
-    border-top: 4px solid transparent !important;
-    border-bottom-color: #212b32 !important; /* Sets the color of the 4px bottom border */
-    border-style: solid !important;
+  border-bottom-width: 4px !important;
+  /* Forces the required 4px bottom border */
+
+  /* FIX FOR SHIFTING: Maintain 4px space at the top using a transparent border */
+  border-top: 4px solid transparent !important;
+  border-bottom-color: #212b32 !important;
+  /* Sets the color of the 4px bottom border */
+  border-style: solid !important;
 }
 
 /* ---------------------------------------------------------------------------------- */
@@ -2335,6 +2386,6 @@ button.nhsuk-header__menu-toggle.nav-link:focus {
   background-color: #fff;
 }
 
-#page-course-management #page-content .custom-control-input:checked ~ .custom-control-label::after {
+#page-course-management #page-content .custom-control-input:checked~.custom-control-label::after {
   background-color: initial;
 }
