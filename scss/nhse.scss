@@ -1746,6 +1746,6 @@ a.sr-only.sr-only-focusable[href="#maincontent"]:focus {
 /* QUESTIONNAIRE PLUGIN HIDE GRAPHS IN FEEDBACK SECTION
 /* ---------------------------------------------------------------------------------- */
 
-.mod_questionnaire_reportpage.generalbox .box canvas {
+.mod_questionnaire_reportpage.generalbox #cvs2 {
     display: none;
 }
