@@ -1740,3 +1740,12 @@ a.sr-only.sr-only-focusable[href="#maincontent"]:focus {
 #page-course-management #page-content .custom-control-input:checked ~ .custom-control-label::after {
   background-color: initial;
 }
+
+
+/* ---------------------------------------------------------------------------------- */
+/* QUESTIONNAIRE PLUGIN HIDE GRAPHS IN FEEDBACK SECTION
+/* ---------------------------------------------------------------------------------- */
+
+.mod_questionnaire_reportpage.generalbox #cvs2 {
+    display: none;
+}
