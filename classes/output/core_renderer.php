@@ -290,8 +290,14 @@ class core_renderer extends \theme_boost\output\core_renderer
                     error_log("theme_nhse: Notification API returned unexpected format for URL: " . $notification_url . " Raw Response: " . $response);
                 }
 
-                $notification_count = 4;
+                $display_notification_count = $notification_count;
+                if ($notification_count > 9) {
+                    $display_notification_count = '9+';
+                }
+                
                 $context->notification_count = $notification_count;
+                $context->display_notification_count = $display_notification_count; // The "9+" or number string
+                
                 error_log("theme_nhse: Fetched unread notification count: {$context->notification_count}");
                 
              } catch (\Exception $e) {
