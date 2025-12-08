@@ -1784,8 +1784,9 @@ td {
   overflow-y: auto;
   position: absolute;
   width: 100%;
-  z-index: 1;
+  z-index: 20;
   margin-bottom: 0;
+  top:100%;
 }
 
 .autosuggestion-option .autosuggestion-icon {
