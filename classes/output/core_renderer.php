@@ -59,6 +59,7 @@ class core_renderer extends \theme_boost\output\core_renderer
 
         $context = new \stdClass();
         $context->customnavigation = []; // Default to empty array in case of API issues
+        $context->notification_count = 0; // Initialize notification count for the template
 
         // Fetch token for current user
         $token = null; // Initialize to null
@@ -128,44 +129,52 @@ class core_renderer extends \theme_boost\output\core_renderer
             error_log("theme_nhse: User not logged in, skipping OIDC token fetch.");
         }
 
-        // --- The rest of your existing API call logic ---
-        $api_endpoint_path = 'User/GetLHUserNavigation';
-        $url = $api_base_url . $api_endpoint_path;
+        // Ensure we have an access token before trying to call *any* API
+        if (empty($accesstoken)) {
+             error_log("theme_nhse: Access token is missing, skipping all protected API calls.");
+             return $context;
+        }
 
+        // Define the CURL options once
+        $curloptions = [
+            'HTTPHEADER' => [
+                'Authorization: Bearer ' . $accesstoken,
+                'Accept: application/json'
+            ]
+        ];
+
+        // --- The rest of your existing API call logic ---
+        $navigation_api_path = 'User/GetLHUserNavigation';
+        $navigation_url = $api_base_url . $navigation_api_path;
+        $navigation_result = null;
 
         
          try 
          {
             $curl = new \curl();
-             // Set Authorization header
-            $options = [
-                'HTTPHEADER' => [
-                    'Authorization: Bearer ' . $accesstoken,
-                    'Accept: application/json'
-                ]
-            ];
-            $response = $curl->get($url, null, $options);
-            $result = json_decode($response, true);
+            $response = $curl->get($navigation_url, null, $curloptions);
+            $navigation_result = json_decode($response, true);
+            
+           
              // Log the raw response and the decoded result
             error_log("theme_nhse: API Response (raw): " . $response);
-            error_log("theme_nhse: API Response (decoded): " . print_r($result, true));
+            error_log("theme_nhse: API Response (decoded): " . print_r($navigation_result, true));
             // Check for JSON decoding errors
             if (json_last_error() !== JSON_ERROR_NONE) {
-                error_log("theme_nhse: JSON decoding error: " . json_last_error_msg());
+                error_log("theme_nhse: Navigation API JSON decoding error: " . json_last_error_msg());
             }
-          } catch (Exception $e) 
-          {
-            debugging('CURL error: ' . $e->getMessage(), DEBUG_DEVELOPER);
-            error_log("theme_nhse: CURL Exception caught for URL: " . $url . " Message: " . $e->getMessage());
+          } catch (\Exception $e) {          
+            debugging('CURL error (Navigation): ' . $e->getMessage(), DEBUG_DEVELOPER);
+            error_log("theme_nhse: CURL Exception caught for Navigation URL: " . $navigation_url . " Message: " . $e->getMessage());
           }
 
         // --- Conditional Block for Processing Response (after try-catch) ---
         // We use $result here, which will be null if there was an API error or JSON decoding issue.
-        if (is_array($result) && !empty($result)) {
+        if (is_array($navigation_result) && !empty($navigation_result)) {
             // JSON decoded successfully and is an array with content
-            error_log("theme_nhse: JSON decoded successfully. Processing " . count($result) . " items.");
+            error_log("theme_nhse: JSON decoded successfully. Processing " . count($navigation_result) . " items.");
             $processed_links = [];
-            foreach ($result as $item) {
+            foreach ($navigation_result as $item) {
                 // Check 'visible' property from API (only include if true or not set)
                 // Assuming 'visible' being absent or true means it should be shown
 
@@ -245,6 +254,57 @@ class core_renderer extends \theme_boost\output\core_renderer
             $json_error_msg = (json_last_error() !== JSON_ERROR_NONE) ? json_last_error_msg() : 'N/A';
             error_log("theme_nhse: Failed to process API response. Response was empty, not an array, or an error occurred. JSON Error: " . $json_error_msg);
             error_log("theme_nhse: Raw API response (if available): " . ($response ?: 'No response content'));
+        }
+
+
+        // --- 2. NEW CALL TO GET NOTIFICATION COUNT (GetUserUnreadNotificationCount) ---
+        // Only attempt this call if a user is logged in (already checked for $accesstoken)
+        if (isloggedin() && !empty($accesstoken)) {
+             $notification_api_path = 'UserNotification/GetUserUnreadNotificationCount/' . $USER->id; // Use $USER->id here
+             $notification_url = $api_base_url . $notification_api_path;
+             $notification_result = null;
+             
+             try {
+                // Reuse the same curl object and options
+                $response = $curl->get($notification_url, null, $curloptions);
+                // The API call is '.../{userid}', so the response is likely a simple integer count.
+                // However, API best practice suggests returning a JSON object/value. 
+                // We'll try to decode as JSON and assume a numeric count is returned, 
+                // or fall back to checking the raw response if that fails.
+
+                $decoded_response = json_decode($response);
+                
+                // Case 1: JSON decoded successfully and is a number or has a 'count' property
+                if (is_numeric($decoded_response)) {
+                    $notification_count = (int) $decoded_response;
+                } else if (is_object($decoded_response) && isset($decoded_response->count) && is_numeric($decoded_response->count)) {
+                     $notification_count = (int) $decoded_response->count;
+                } else if (is_object($decoded_response) && isset($decoded_response->unreadCount) && is_numeric($decoded_response->unreadCount)) {
+                    // Common alternative property name
+                    $notification_count = (int) $decoded_response->unreadCount;
+                } else if (is_numeric(trim($response))) {
+                    // Case 2: Response is a plain text number (less common for modern APIs, but a fallback)
+                    $notification_count = (int) trim($response);
+                } else {
+                    $notification_count = 0;
+                    error_log("theme_nhse: Notification API returned unexpected format for URL: " . $notification_url . " Raw Response: " . $response);
+                }
+
+                $display_notification_count = $notification_count;
+                if ($notification_count > 9) {
+                    $display_notification_count = '9+';
+                }
+                
+                $context->notification_count = $notification_count;
+                $context->display_notification_count = $display_notification_count; // The "9+" or number string
+                
+                error_log("theme_nhse: Fetched unread notification count: {$context->notification_count}");
+                
+             } catch (\Exception $e) {
+                 debugging('CURL error (Notifications): ' . $e->getMessage(), DEBUG_DEVELOPER);
+                 error_log("theme_nhse: CURL Exception caught for Notification URL: " . $notification_url . " Message: " . $e->getMessage());
+                 // $context->notification_count remains 0 on error
+             }
         }
 
         // NEW: Require your autosuggest JavaScript module
