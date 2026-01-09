@@ -6,6 +6,9 @@ define(['jquery'], function($) {
             // typically right below the search input field.
             const suggestionsList = $('#search-field_listbox');
 
+            // Create a hidden live region for screen readers to announce results
+            const liveRegion = $('<div class="sr-only" aria-live="polite"></div>').appendTo('body');
+
             // Hide the list initially
             suggestionsList.empty().hide();
 
@@ -15,6 +18,7 @@ define(['jquery'], function($) {
                 // Only perform search if query length is 2 or more characters
                 if (query.length < 2) {
                     suggestionsList.empty().hide(); // Clear and hide if query too short
+                    liveRegion.text("");
                     return;
                 }
 
@@ -82,7 +86,7 @@ define(['jquery'], function($) {
                                 if (item.type === 'Resource') {
                                     if (item.targetReferenceId && item.targetReferenceId > 0) {
                                         actualTargetUrl = `/Resource/${item.targetReferenceId}`;
-                                    } else {                                        
+                                    } else {
                                         actualTargetUrl = `/Search/results?term=${encodeURIComponent(item.displayTitle)}`;
                                     }
                                     typeClass = 'autosugg-resource';
@@ -161,20 +165,68 @@ define(['jquery'], function($) {
                             });
 
                             suggestionsList.show(); // Show the list after adding items
+                            liveRegion.text(allSuggestions.length + " suggestions found. Use up and down arrows to navigate.");
 
                         } else {
                             suggestionsList.empty().hide(); // Hide if no suggestions
+                            liveRegion.text("No suggestions found.");
                         }
                     }
                 });
             });
 
             // Added blur event to hide suggestions when input loses focus
+            /*
             searchInput.on('blur', function() {
                 // Use a small timeout to allow click events on suggestions to register
                 setTimeout(function() {
                     suggestionsList.empty().hide();
                 }, 200);
+            });
+            */
+
+            // 2. ARROW NAVIGATION: From Input to List
+            searchInput.on('keydown', function(e) {
+                const items = suggestionsList.find('a');
+                if (items.length > 0 && e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    items.first().focus();
+                }
+            });
+
+            // 3. ARROW NAVIGATION: Within the List
+            suggestionsList.on('keydown', 'a', function(e) {
+                const items = suggestionsList.find('a');
+                const index = items.index(this);
+
+                if (e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    // Explicit if/else to satisfy ESLint
+                    if (index + 1 < items.length) {
+                        items.eq(index + 1).focus();
+                    } else {
+                        items.first().focus();
+                    }
+                } else if (e.key === 'ArrowUp') {
+                    e.preventDefault();
+                   // Explicit if/else to satisfy ESLint
+                    if (index > 0) {
+                        items.eq(index - 1).focus();
+                    } else {
+                        searchInput.focus();
+                    }
+                } else if (e.key === 'Escape') {
+                    suggestionsList.empty().hide();
+                    searchInput.focus();
+                }
+            });
+
+            // Updated Focus/Blur logic for Accessibility
+            $(document).on('focusin click', function(e) {
+                // If the click or focus is NOT on the input AND NOT on a suggestion
+                if (!searchInput.is(e.target) && !suggestionsList.has(e.target).length) {
+                    suggestionsList.empty().hide();
+                }
             });
 
             // Added focus event to potentially re-show suggestions if query is still valid

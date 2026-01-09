@@ -3,7 +3,7 @@
  */
 .nhsuk-button--small {
   @extend .nhsuk-button;
-  box-shadow: 0 2px 0 $nhsuk-box-shadow-color;
+  box-shadow: 0 2px 0 core.$nhsuk-button-shadow-colour;
   font-size: 0.95rem;
   margin-bottom: 2px;
   margin-right: 5px;

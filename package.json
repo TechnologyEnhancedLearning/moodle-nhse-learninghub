@@ -18,11 +18,11 @@
   },
   "homepage": "https://github.com/TechnologyEnhancedLearning/moodle-nhse-learninghub#readme",
   "dependencies": {
-    "nhse-tel-frontend": "^0.0.2",
+    "nhsuk-frontend": "^10.0.0",
     "sass": "^1.79.4"
   },
   "scripts": {
-    "build": "sass scss/nhse.scss:css/nhse.min.css --style compressed --verbose",
-    "watch": "sass --watch scss/nhse.scss:css/nhse.min.css --style compressed"
+  "build": "sass scss/nhse.scss:css/nhse.min.css --style compressed --verbose --load-path node_modules",
+  "watch": "sass --watch scss/nhse.scss:css/nhse.min.css --style compressed --load-path node_modules"
   }
 }

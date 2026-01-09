@@ -35,6 +35,14 @@
         <li class="nhsuk-header__account-item">
             <a class="nhsuk-header__account-link" href="/login/logout.php?sesskey={{sessionKey}}">Log out</a>    
         </li>   
+
+        {{#output.edit_switch}}
+        <li class="nhsuk-header__account-item nhsuk-header__edit-switch-item">
+            <div class="moodle-edit-switch-wrapper">
+                {{{ . }}}
+            </div>
+        </li>
+        {{/output.edit_switch}}
     </ul>
 </div>
 {{/is_user_logged_in}} {{! End of the conditional block }}

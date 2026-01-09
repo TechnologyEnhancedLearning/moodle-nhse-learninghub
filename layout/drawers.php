@@ -63,6 +63,19 @@ if (!$courseindex) {
 $bodyattributes = $OUTPUT->body_attributes($extraclasses);
 // $forceblockdraweropen = $OUTPUT->firstview_fakeblocks();
 
+// Manually inject the required class into the compiled string.
+$required_class = 'nhsuk-frontend-supported';
+
+if (strpos($bodyattributes, 'class="') !== false) {
+    // If a class attribute already exists, insert the new class before the closing quote.
+    $bodyattributes = str_replace('class="', 'class="' . $required_class . ' ', $bodyattributes);
+} else {
+    // If no class attribute exists, find the first attribute (e.g., id="...")
+    // and insert the class attribute immediately after it.
+    // This is a simple append for safety, assuming the body attributes start with id="...".
+    $bodyattributes .= ' class="' . $required_class . '"';
+}
+
 $secondarynavigation = false;
 $overflow = '';
 if ($PAGE->has_secondary_navigation()) {
@@ -107,8 +120,14 @@ $templatecontext = [
     'addblockbutton' => $addblockbutton
 ];
 
-// Include NHSUK Frontend js file
-$PAGE->requires->js(new moodle_url($CFG->wwwroot . '/theme/nhse/node_modules/nhse-tel-frontend/dist/nhsuk.min.js'));
+// Load custom initialization module as an ES Module.
+$init_url = new moodle_url($CFG->wwwroot . '/theme/nhse/javascript/nhsuk-init-module.js');
+
+// This forces the necessary type="module" attribute and correctly loads the initializer.
+echo '<script src="' . $init_url . '" type="module"></script>'; 
+
+// Example of the final line that must follow:
+// echo $OUTPUT->render_from_template('theme_nhse/drawers', $templatecontext);
 
 error_log('Current PAGE URL: ' . $PAGE->url->out());
 if (strpos($PAGE->url->out(), '/mod/scorm/player.php') !== false) {
