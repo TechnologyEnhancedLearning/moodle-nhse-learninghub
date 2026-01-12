@@ -1,0 +1,37 @@
+/* ==========================================================================
+// SCORM FULL SCREEN 
+// ========================================================================== */
+
+/* simulated full screen for displaying content on mobile devices */
+
+body.simulated-fullscreen header,
+body.simulated-fullscreen footer,
+body.simulated-fullscreen .secondary-navigation,
+body.simulated-fullscreen .nhsuk-pagination,
+body.simulated-fullscreen .drawer-toggles,
+body.simulated-fullscreen .activity-header {
+  display: none !important;
+}
+
+/* Make sure main SCORM content fills the viewport */
+body.simulated-fullscreen #scormpage {
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+
+/* Remove page-wrapper padding in simulated fullscreen */
+body.simulated-fullscreen #page-wrapper #page .main-inner {
+  padding: 0 !important;
+}
+
+/* Remove drawer padding in simulated fullscreen */
+body.simulated-fullscreen #page.drawers .main-inner {
+  padding: 0 !important;
+}
+
+/* Hide Moodle's default Exit activity button in simulated fullscreen */
+body.simulated-fullscreen .d-flex.flex-row-reverse.mb-2 a.btn.btn-secondary[title="Exit activity"] {
+  display: none !important;
+}

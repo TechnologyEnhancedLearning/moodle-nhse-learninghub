@@ -1,0 +1,64 @@
+/* ==========================================================================*/
+// BUTTON STYLES
+// ==========================================================================*/
+
+.btn {
+  &:not(.btn-icon,
+    .btn-close,
+    .btn-link,
+    .btn-open,
+    .search-icon,
+    .navbar .dropdown-toggle,
+    .icon-no-margin) {
+    @extend .nhsuk-button--small;
+    box-shadow: 0 2px 0 core.$nhsuk-button-shadow-colour;
+  }
+
+  &.disabled {
+    @extend .nhsuk-button--disabled !optional;
+    box-shadow: 0 2px 0 core.$nhsuk-button-shadow-colour;
+  }
+
+  &.active,
+  &.visited {
+    @extend .nhsuk-button--reverse;
+    box-shadow: 0 2px 0 core.$nhsuk-button-shadow-colour;
+  }
+
+  &.text-primary {
+    color: $btn-secondary-text !important;
+  }
+}
+
+.bg-secondary {
+  color: core.$nhsuk-reverse-button-text-color !important;
+}
+
+.btn {
+  &.btn-secondary,
+  &.btn-outline-secondary {
+    @extend .nhsuk-button--small;
+    @extend .nhsuk-button--secondary;
+    box-shadow: 0 2px 0 core.$nhsuk-button-shadow-colour;
+
+    &:visited {
+      color: core.$nhsuk-reverse-button-color;
+    }
+  }
+}
+
+.btn-group>.btn:not(:first-child),
+.btn-group>.btn:not(:last-child):not(.dropdown-toggle),
+.btn-group>.btn-group:not(:first-child)>.btn,
+.btn-group>.btn-group:not(:last-child)>.btn {
+  border-top-left-radius: 4px !important;
+  border-top-right-radius: 4px !important;
+  border-bottom-left-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+}
+
+#navbuttons {
+  input[type="submit"] {
+    @extend .nhsuk-button--small;
+  }
+}
