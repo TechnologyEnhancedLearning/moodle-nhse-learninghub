@@ -260,11 +260,11 @@ body {
 }
 
 .bg-light {
-  color: core.$color_nhsuk-grey-1;
+  color: core.nhsuk-colour("grey-1");
   background-color: $btn-default-background !important;
 
   >* {
-    color: core.$color_nhsuk-grey-1 !important;
+    color: core.nhsuk-colour("grey-1") !important;
   }
 }
 
@@ -277,10 +277,10 @@ body {
   border-radius: 0;
   -moz-border-radius: 0;
   margin: 0;
-  background-color: core.$color_nhsuk-grey-5;
+  background-color: core.nhsuk-colour("grey-5");
 
   &.course-card {
-    background-color: core.$color_nhsuk-white;
+    background-color: core.nhsuk-colour("white");
   }
 }
 
@@ -296,7 +296,7 @@ body {
 
 .dashboard-card-deck {
   .dashboard-card {
-    background-color: core.$color_nhsuk-white;
+    background-color: core.nhsuk-colour("white");
 
     .dashboard-card-img {
       border-radius: 0;
@@ -347,7 +347,7 @@ body {
   color: core.$nhsuk-text-color;
 
   li {
-    background-color: core.$color_nhsuk-white;
+    background-color: core.nhsuk-colour("white");
     margin: 0;
     margin-bottom: 10px;
   }
@@ -378,8 +378,9 @@ body {
 // ========================================================================== */
 
 .nhsuk-header {
-  background-color: #005eb8;
-  color: core.$color_nhsuk-white;
+
+  background-color: core.nhsuk-colour("blue");
+  color: core.nhsuk-colour("white");
   outline: 1px solid transparent;
 }
 
@@ -433,7 +434,7 @@ body {
 .nhsuk-header__account-button:visited,
 .nhsuk-header__account-link,
 .nhsuk-header__account-link:visited {
-  color: core.$color_nhsuk-white;
+  color: core.nhsuk-colour("white");
   text-decoration: underline;
 }
 
@@ -441,7 +442,7 @@ body {
 .nhsuk-header__account-button:hover:visited,
 .nhsuk-header__account-link:hover,
 .nhsuk-header__account-link:hover:visited {
-  color: core.$color_nhsuk-white;
+  color: core.nhsuk-colour("white");
   text-decoration: none;
 }
 
@@ -453,7 +454,7 @@ body {
 .nhsuk-header__service-logo:visited,
 .nhsuk-header__service-name[href],
 .nhsuk-header__service-name[href]:visited {
-  color: core.$color_nhsuk-white;
+  color: core.nhsuk-colour("white");
   text-decoration: none;
 }
 
@@ -461,7 +462,7 @@ body {
 .nhsuk-header__service-logo:hover:visited,
 .nhsuk-header__service-name[href]:hover,
 .nhsuk-header__service-name[href]:hover:visited {
-  color: core.$color_nhsuk-white;
+  color: core.nhsuk-colour("white");
   text-decoration: none;
 }
 
@@ -482,7 +483,7 @@ body {
 }
 
 .nhsuk-header .nhsuk-header__service-logo:focus {
-  box-shadow: 0 0 0 4px #ffeb3b, 0 0 0 8px #212b32;
+  box-shadow: 0 0 0 4px core.nhsuk-colour("yellow"), 0 0 0 8px core.nhsuk-colour("black");
   outline: 4px solid transparent;
 }
 
@@ -494,8 +495,8 @@ body {
 .nhsuk-header__service-logo:focus:visited,
 .nhsuk-header__service-name[href]:focus,
 .nhsuk-header__service-name[href]:focus:visited {
-  box-shadow: inset 0 -4px #212b32;
-  color: #212b32;
+  box-shadow: inset 0 -4px core.nhsuk-colour("black");
+  color: core.nhsuk-colour("black");
 }
 
 .nhsuk-header__account-button:focus,
@@ -514,8 +515,8 @@ body {
 .nhsuk-header__service-name[href]:focus .nhsuk-icon,
 .nhsuk-header__service-name[href]:focus:visited,
 .nhsuk-header__service-name[href]:focus:visited .nhsuk-icon {
-  color: #212b32;
-  fill: #212b32;
+  color: core.nhsuk-colour("black");
+  fill: core.nhsuk-colour("black");
 }
 
 .nhsuk-header__account-button,
@@ -544,7 +545,7 @@ body {
   flex-shrink: 0;
   height: 1.5rem;
   width: 1.5rem;
-  fill: core.$color_nhsuk-white;
+  fill: core.nhsuk-colour("white");
 }
 
 @media (min-width: 40.0625em) {
@@ -572,7 +573,7 @@ body {
 }
 
 .nhsuk-account__login--link {
-  color: core.$color_nhsuk-white;
+  color: core.nhsuk-colour("white");
 }
 
 .nhsuk-header__edit-switch { 
@@ -678,7 +679,7 @@ body {
 }
 
 .nhsuk-header .nhsuk-header__navigation-link:focus {
-  box-shadow: inset 0 -4px #212b32;
+  box-shadow: inset 0 -4px core.nhsuk-colour("black");
   border-bottom: 0;
 }
 
@@ -1012,7 +1013,7 @@ body {
   .coursebox {
     @extend .nhsuk-card__content;
     border-radius: 0;
-    border-top: 1px solid core.$color_nhsuk-grey-4;
+    border-top: 1px solid core.nhsuk-colour("grey-4");
 
     &>.info {
       @extend .nhsuk-card--care__heading;
@@ -1037,7 +1038,7 @@ body {
 .reportbuilder-toggle-card {
   .toggle-card-button {
     i.toggle-card-icon {
-      color: core.$color_nhsuk-white;
+      color: core.nhsuk-colour("white");
     }
   }
 }
@@ -1067,20 +1068,20 @@ body {
 // ========================================================================== */
 .nhsuk-header--white {
   .nhsuk-header__navigation-link {
-    color: core.$color_nhsuk-white;
+    color: core.nhsuk-colour("white");
     white-space: nowrap;
 
     &:visited {
-      color: core.$color_nhsuk-white;
+      color: core.nhsuk-colour("white");
     }
 
     &.active {
-      border-bottom: 4px solid core.$color_nhsuk-white;
+      border-bottom: 4px solid core.nhsuk-colour("white");
     }
 
     &:checked {
-      color: core.$color_nhsuk-black;
-      border-bottom: 4px solid core.$color_nhsuk-black;
+      color: core.nhsuk-colour("black");
+      border-bottom: 4px solid core.nhsuk-colour("black");
     }
 
   }
@@ -1092,7 +1093,7 @@ body {
 .nav-tabs {
   // Tab links (anchors)
   a.nhsuk-header__navigation-link {
-    color: core.$color_nhsuk-blue;
+    color: core.nhsuk-colour("blue");
     border-bottom: 0;
     padding: 12px 12px;
 
@@ -1102,38 +1103,38 @@ body {
     }
 
     &:visited {
-      color: core.$color_nhsuk-blue;
+      color: core.nhsuk-colour("blue");
     }
 
     &.active {
-      background-color: core.$color_nhsuk-blue;
-      color: core.$color_nhsuk-white;
+      background-color: core.nhsuk-colour("blue");
+      color: core.nhsuk-colour("white");
     }
 
     &:hover {
-      background-color: core.$color_nhsuk-blue;
-      color: core.$color_nhsuk-white;
+      background-color: core.nhsuk-colour("blue");
+      color: core.nhsuk-colour("white");
     }
 
     &:checked {
-      background-color: core.$color_nhsuk-blue;
-      color: core.$color_nhsuk-white;
+      background-color: core.nhsuk-colour("blue");
+      color: core.nhsuk-colour("white");
     }
   }
 
   // Buttons (exclude padding)
   button.nhsuk-header__navigation-link {
-    color: core.$color_nhsuk-blue;
+    color: core.nhsuk-colour("blue");
     border-bottom: 0;
 
     &.active {
-      background-color: core.$color_nhsuk-blue;
-      color: core.$color_nhsuk-white;
+      background-color: core.nhsuk-colour("blue");
+      color: core.nhsuk-colour("white");
     }
 
     &:hover {
-      background-color: core.$color_nhsuk-blue;
-      color: core.$color_nhsuk-white;
+      background-color: core.nhsuk-colour("blue");
+      color: core.nhsuk-colour("white");
     }
 
     &:focus {
@@ -1168,7 +1169,7 @@ body {
 */
 
 .nhsuk-header--white {
-  background-color: core.$color_nhsuk-white;
+  background-color: core.nhsuk-colour("white");
 
   .nhsuk-header__navigation {
     color: $btn-default-text;
@@ -1185,16 +1186,16 @@ body {
 
   .nhsuk-header__navigation-link {
     &:visited {
-      color: core.$color_nhsuk-black;
+      color: core.nhsuk-colour("black");
     }
 
     &.active {
-      border-bottom: 4px solid core.$color_nhsuk-blue;
+      border-bottom: 4px solid core.nhsuk-colour("blue");
     }
 
     &:checked {
-      color: core.$color_nhsuk-white;
-      border-bottom: 4px solid core.$color_nhsuk-white;
+      color: core.nhsuk-colour("white");
+      border-bottom: 4px solid core.nhsuk-colour("white");
     }
 
   }
@@ -1208,7 +1209,7 @@ body {
   line-height: 1.125rem;
   font-weight: 900;
   background: #d5281b;
-  color: #fff;
+  color: core.nhsuk-colour("white");
   min-width: 1.125rem;
   height: 1.125rem;
   text-align: center;
@@ -1556,7 +1557,7 @@ body {
 /* Targets the parent div when the input inside is focused (via :has or JS helper class) */
 .nhsuk-header__edit-switch-item:has(.custom-control-input:focus),
 .nhsuk-header__edit-switch-item.is-focused { 
-  box-shadow: inset 0 0 0 4px #ffeb3b !important;   
+  box-shadow: inset 0 0 0 4px core.nhsuk-colour("yellow") !important;   
   border: none !important;
   outline: none !important;
 }
@@ -1576,23 +1577,23 @@ body {
 /* 1. Override the enabled (checked) state background to neutral */
 .nhsuk-header__edit-switch-item .custom-control-input:checked~.custom-control-label::before {
   /* Set to a neutral color, e.g., white or light grey */
-  background-color: #fff !important;
-  border-color: #fff !important;
+  background-color: core.nhsuk-colour("white") !important;
+  border-color: core.nhsuk-colour("white") !important;
   /* Ensure the track border color is also neutral */
 }
 
 /* 2. Override the active state background to neutral */
 .nhsuk-header__edit-switch-item .custom-control-input:not(:disabled):active~.custom-control-label::before {
   /* Set to a neutral color, matching the checked state above */
-  background-color: #fff !important;
-  border-color: #fff !important;
+  background-color: core.nhsuk-colour("white") !important;
+  border-color: core.nhsuk-colour("white") !important;
   /* Ensure the track border color is also neutral */
 }
 
 /* 3. Ensure the default state (unchecked) background is neutral */
 .nhsuk-header__edit-switch-item .custom-control-label::before {
-  background-color: #fff !important;
-  border-color: #fff !important;
+  background-color: core.nhsuk-colour("white") !important;
+  border-color: core.nhsuk-colour("white") !important;
   /* Ensure the track border color is also neutral */
 }
 
@@ -1661,12 +1662,12 @@ label input[type=checkbox] {
   }
 
   .collapse.show {
-    background-color: core.$color_nhsuk-blue;
+    background-color: core.nhsuk-colour("blue");
     right: 0;
   }
 
   .collapsing {
-    background-color: core.$color_nhsuk-blue;
+    background-color: core.nhsuk-colour("blue");
     right: 0;
   }
 
@@ -1829,11 +1830,11 @@ td {
   padding: 0; 
   padding-top: 4px;
   padding-bottom: 4px; 
-  background-color: core.$color_nhsuk-white;
-  border: 1px solid #d8dde0;
+  background-color: core.nhsuk-colour("white");
+  border: 1px solid core.nhsuk-colour("grey-4");
   border-top: none;
   border-radius: 0px 0px 4px 4px;
-  box-shadow: 0px 2px 3px 0px #d8dde0;
+  box-shadow: 0px 2px 3px 0px core.nhsuk-colour("grey-4");
   list-style: none;
   overflow-x: hidden;
   overflow-y: auto;
@@ -1861,12 +1862,12 @@ td {
   display: block; /* Make link fill the LI */
   padding: 10px 16px; /* 3. Add padding here instead */
   text-decoration: none;
-  border-bottom: 1px solid #d8dde0;
-  color: #005eb8;
+  border-bottom: 1px solid core.nhsuk-colour("grey-4");
+  color: core.nhsuk-colour("blue");
 }
 
 .autosuggestion-option .autosuggestion-icon {
-    fill: #aeb7bd !important;
+    fill: core.nhsuk-colour("grey-4") !important;
     float: left;
     height: 20px;
     margin: 2px 8px 0 0;
@@ -1876,10 +1877,10 @@ td {
 /* Style the link when it is focused OR hovered */
 .autosuggestion-option a:focus,
 .autosuggestion-option a:hover {
-    background-color: #ffeb3b; /* Yellow background */
+    background-color: core.nhsuk-colour("yellow"); /* Yellow background */
     /* 4. The thick bottom border now sits inside the focus area */
     /* 1. Remove the border entirely to stop the height change */
-    box-shadow: 0 4px 0 0 #212b32;
+    box-shadow: 0 4px 0 0 core.nhsuk-colour("black");
     
     /* Pull this item to the front so the shadow sits over the border of the item below */
     z-index: 5;
@@ -1891,7 +1892,7 @@ td {
     padding-bottom: 10px; 
 
     .autosuggestion-icon {
-        fill: #212b32 !important; /* Changes icon color to dark grey/black */
+        fill: core.nhsuk-colour("black") !important; /* Changes icon color to dark grey/black */
     }
 }
 
@@ -1907,7 +1908,7 @@ td {
 .autosuggestion-option a:focus .autosuggestion-link,
 .autosuggestion-option a:hover .autosuggestion-link {
     font-weight: bold;
-    color: #212b32;    
+    color: core.nhsuk-colour("black");    
     text-decoration: none;
 }
 
@@ -2002,7 +2003,7 @@ body.simulated-fullscreen .d-flex.flex-row-reverse.mb-2 a.btn.btn-secondary[titl
 }
 
 .nhsuk-pagination__link .nhsuk-icon {
-  fill: #005eb8;
+  fill: core.nhsuk-colour("blue");
 }
 
 /* ==========================================================================
@@ -2150,7 +2151,7 @@ body.pagelayout-report #page-wrapper #page .main-inner {
 
 .nhsuk-footer {
   background-color: #d8dde0;
-  border-top: 4px solid #005eb8;
+  border-top: 4px solid core.nhsuk-colour("blue");
 }
 
 .nhsuk-footer {
@@ -2270,10 +2271,10 @@ a:not([class]).focus,
 a:not([class]):focus,
 .activityinstance>a.focus,
 .activityinstance>a:focus {
-  outline: 4px solid core.$color_nhsuk-white;
-  color: #212b32;
-  background-color: #ffeb3b;
-  box-shadow: 0 -2px #ffeb3b, 0 4px #212b32;
+  outline: 4px solid core.nhsuk-colour("white");
+  color: core.nhsuk-colour("black");
+  background-color: core.nhsuk-colour("yellow");
+  box-shadow: 0 -2px core.nhsuk-colour("yellow"), 0 4px core.nhsuk-colour("black");
   text-decoration: none;
 }
 
@@ -2303,7 +2304,7 @@ a:not([class]):focus,
 
 .courseindex-section[role=treeitem]:not([aria-expanded=true]):focus {
   box-shadow: none;
-  border-color: core.$color_nhsuk-white;
+  border-color: core.nhsuk-colour("white");
   border-width: 0 0 0 3px;
 
   .courseindex-section-title {
@@ -2395,13 +2396,12 @@ a.nav-link:active {
   border-top: 4px solid transparent !important;
 
   /* --- 2. APPLY NHS FOCUS VISUALS --- */
-  background-color: #ffeb3b !important;
-  border-bottom-color: #212b32 !important;
+  background-color: core.nhsuk-colour("yellow") !important;
+  border-bottom-color: core.nhsuk-colour("black") !important;
   /* Sets the color of the 4px bottom border */
   border-style: solid !important;
 
-  color: #212b32 !important;
-
+  color: core.nhsuk-colour("black") !important;
   /* --- 3. CLEANUP --- */
   box-shadow: none !important;
   outline: none !important;
@@ -2416,7 +2416,7 @@ button.nhsuk-header__menu-toggle.nav-link:focus {
 
   /* FIX FOR SHIFTING: Maintain 4px space at the top using a transparent border */
   border-top: 4px solid transparent !important;
-  border-bottom-color: #212b32 !important;
+  border-bottom-color: core.nhsuk-colour("black") !important;
   /* Sets the color of the 4px bottom border */
   border-style: solid !important;
 }
@@ -2444,9 +2444,9 @@ button.nhsuk-header__menu-toggle.nav-link:focus {
 
 #page-course-management #page-content .custom-control-input:focus~.custom-control-label::before {
   border-width: 4px !important;
-  border-color: #212b32 !important;
+  border-color: core.nhsuk-colour("black") !important;
   border-style: solid !important;
-  box-shadow: 0 0 0 4px #ffeb3b !important;
+  box-shadow: 0 0 0 4px core.nhsuk-colour("yellow") !important;
   outline: none !important;
   outline: 4px solid transparent !important;
   outline-offset: 1px !important;
@@ -2469,7 +2469,7 @@ button.nhsuk-header__menu-toggle.nav-link:focus {
 }
 
 #page-course-management #page-content .custom-control-input:checked~.custom-control-label::before {
-  background-color: #fff;
+  background-color: core.nhsuk-colour("white");
 }
 
 #page-course-management #page-content .custom-control-input:checked~.custom-control-label::after {
@@ -2496,14 +2496,14 @@ button.nhsuk-header__menu-toggle.nav-link:focus {
 }
 
 .nav-tabs button.nhsuk-header__navigation-link {
-    color: #005eb8;
+    color: core.nhsuk-colour("blue");
     border-bottom: 0;
     padding: 12px 12px;
 }
 
 .nav-tabs button.nhsuk-header__navigation-link:hover {
-    background-color: #005eb8 !important;
-    color: #fff !important;
+    background-color: core.nhsuk-colour("blue") !important;
+    color: core.nhsuk-colour("white") !important;
 }
 
 
