@@ -29,17 +29,16 @@ $header-account-bg: #004b93;
 
 // Buttons
 
-$btn-default-text: core.$color_nhsuk-black;
-$btn-default-background:core.$color_nhsuk-white;
+$btn-default-text: core.nhsuk-colour("black");
+$btn-default-background:core.nhsuk-colour("white");
 
-$btn-primary-text: core.$color_nhsuk-white;
-$btn-primary-background: core.$color_nhsuk-blue;
-$btn-primary-border: core.$color_nhsuk-blue;
+$btn-primary-text: core.nhsuk-colour("white");
+$btn-primary-background: core.nhsuk-colour("blue");
+$btn-primary-border: core.nhsuk-colour("blue");
 
-$btn-secondary-text:core.$color_nhsuk-white;
-$btn-secondary-background: core.$color_nhsuk-dark-blue;
-$btn-secondary-border: core.$color_nhsuk-dark-blue;
-
+$btn-secondary-text:core.nhsuk-colour("white");
+$btn-secondary-background: core.nhsuk-colour("dark-blue");
+$btn-secondary-border: core.nhsuk-colour("dark-blue");
 /* Import NHSE scss directory partials */
 @import "nhse/courseindex";
 @import "nhse/media";
@@ -154,7 +153,7 @@ ol {
 ul {
   &.course-list {
     padding-left: 0;
-    border-left: calc(1px + 5px) solid core.$color_nhsuk-blue;
+    border-left: calc(1px + 5px) solid core.nhsuk-colour("blue");
   }
 }
 
