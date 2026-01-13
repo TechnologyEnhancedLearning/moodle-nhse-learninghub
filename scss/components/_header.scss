@@ -347,6 +347,26 @@ button.nhsuk-header__menu-toggle.nav-link:focus {
   flex-grow: 0;
 }
 
+.nhsuk-header__account-item {
+  font-size: 0.875rem;
+  line-height: 1.71429;
+}
+
+.nhsuk-header__edit-switch-item .moodle-edit-switch-wrapper {
+  border-bottom: 1px solid transparent;
+}
+
+@media (min-width: 40.0625em) {
+  .nhsuk-header__account-item {
+    font-size: 16px;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  .nhsuk-header__edit-switch-item .moodle-edit-switch-wrapper {
+    border-bottom: none;
+  }
+}
+
 /* 1. Reset the library's unwanted margin */
 .nhsuk-header__account-item:nth-last-child(2) {
     margin-right: 0 !important;
