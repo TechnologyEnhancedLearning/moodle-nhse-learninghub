@@ -62,3 +62,10 @@
     @extend .nhsuk-button--small;
   }
 }
+
+.nhsuk-button--secondary::after,
+.btn.btn-secondary::after,
+.btn.btn-outline-secondary::after,
+.nhsuk-button--secondary-solid::after {
+  box-shadow: none !important;
+}
