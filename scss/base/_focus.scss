@@ -141,3 +141,36 @@ a.nav-link:active {
   outline: none !important;
   text-decoration: none !important;
 }
+
+
+// Prevent global style applying for dropdown buttons preventing the yellow and black appearance
+
+.dropdown-item,
+.dropdown-item:visited {
+  box-shadow: none !important;
+}
+
+
+.btn.dropdown-toggle,
+.btn-outline-secondary.dropdown-toggle {
+  box-shadow: none !important; // No shadow by default
+}
+
+.btn.dropdown-toggle:focus,
+.btn-outline-secondary.dropdown-toggle:focus {
+  border: 2px solid #212b32 !important;
+  box-shadow: inset 0 0 0 2px #212b32 !important;
+  outline: 4px solid #ffeb3b !important;
+  outline-offset: 0 !important;
+  background-color: transparent !important;
+  text-decoration: none !important;
+}
+
+.simplesearchform .form-control:focus {
+  color: #212b32;
+  background-color: #fff;
+  border: 2px solid #212b32 !important;
+  box-shadow: inset 0 0 0 2px #212b32 !important;
+  outline: 4px solid #ffeb3b !important;
+  outline-offset: 0 !important;
+}
