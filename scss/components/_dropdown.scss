@@ -1,0 +1,38 @@
+/* --------------------------------------------------------------------------------*/
+/* Overwrite the CSS being applied by the NHS UK Frontend to the toggle buttons
+/* --------------------------------------------------------------------------------*/
+
+/* ==============================
+   Standardize all Moodle dropdown-toggle buttons
+   ============================== */
+
+/* Target all dropdown toggles, including JS widgets */
+.btn.dropdown-toggle,
+.initialswidget.btn.dropdown-toggle {
+    padding: 0.375rem 0.75rem !important;   /* consistent padding */
+    border-radius: 0.25rem !important;      /* uniform corners */
+    font-size: 0.875rem !important;         /* match standard Moodle font size */
+    line-height: 1.5 !important;            /* vertical alignment */
+    display: inline-flex !important;        /* flex layout for alignment */
+    align-items: center !important;         /* vertical centering */
+    justify-content: flex-start !important; /* text left-aligned */
+    position: relative !important;          /* ensure pseudo-elements positioned correctly */
+}
+
+/* Ensure the dropdown arrow (::after) is consistently displayed */
+.btn.dropdown-toggle::after,
+.initialswidget.btn.dropdown-toggle::after {
+    content: "" !important;                /* restore Moodle arrow */
+    display: inline-block !important;       /* override NHS block */
+    vertical-align: 0.255em !important;     /* consistent vertical alignment */
+    font-size: 9px !important;              /* arrow size */
+    width: 9px !important;                  /* arrow width */
+    margin-left: 4px !important;            /* spacing from text */
+    border: 0 !important;                   /* remove NHS border */
+    position: static !important;            /* cancel NHS absolute positioning */
+    top: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    border-radius: 0 !important;            /* reset NHS radius */
+}

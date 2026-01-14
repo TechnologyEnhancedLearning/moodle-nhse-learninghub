@@ -55,7 +55,8 @@
     }
 }}
 <header class="nhsuk-header {{#navbarstyle}}nhsuk-header--{{navbarstyle}}{{/navbarstyle}}{{^navbarstyle}}nhsuk-header--default{{/navbarstyle}}"
-        role="banner">
+        role="banner"
+        data-module="nhsuk-header">
     <div class="nhsuk-width-container nhsuk-header__container app-width-container">
 
         <div class="nhsuk-header__service">
@@ -68,23 +69,17 @@
 
                 <span class="nhsuk-header__service-name">{{{ sitename }}}</span>
             </a>
-        </div>
-
-        
+        </div>     
 
         <div class="nhsuk-header__search">
             {{> theme_nhse/navbar_search }}
-        </div>
+        </div>       
 
         <nav class="nhsuk-header__account">
             {{> theme_nhse/navbar_account }}
-        </nav>        
+        </nav>
 
-        <div class="nhsuk-header__edit-switch">
-            <nav class="navbar">
-                {{{ output.edit_switch }}}
-            </nav>
-        </div>       
+ 
  
     </div>
 

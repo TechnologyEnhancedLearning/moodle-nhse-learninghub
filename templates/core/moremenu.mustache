@@ -46,7 +46,7 @@
     }
 }}
 <div class="nhsuk-navigation-container">
-    <nav class="nhsuk-navigation" id="page-navigation" role="navigation" aria-label="Page navigation">
+    <nav class="nhsuk-navigation" id="page-navigation" aria-label="Page navigation">
         <ul id="moremenu-{{moremenuid}}-{{navbarstyle}}"
             class="nhsuk-header__navigation-list nav more-nav {{navbarstyle}}"
             role="{{#istablist}}tablist{{/istablist}}{{^istablist}}menubar{{/istablist}}">
@@ -63,23 +63,21 @@
 
             <!-- Required by Moodle -->
             <li role="none" class="nhsuk-header__navigation-item nav-item dropdown dropdownmoremenu d-none" data-region="morebutton">
-                <a class="dropdown-toggle nav-link {{#isactive}}active{{/isactive}}" href="#"
-                   id="moremenu-dropdown-{{moremenuid}}"
-                   role="{{#istablist}}tab{{/istablist}}{{^istablist}}menuitem{{/istablist}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="-1">
-                    {{#str}}moremenu, core{{/str}}
-                </a>
+               <button class="nhsuk-header__navigation-link dropdown-toggle" 
+                role="menuitem"
+                id="moremenu-dropdown-{{moremenuid}}" 
+                data-toggle="dropdown" 
+                aria-haspopup="true" 
+                aria-expanded="false"
+                tabindex="-1">
+            More
+            <svg class="nhsuk-icon nhsuk-icon__chevron-down" ...>...</svg>
+        </button>
                 <ul class="dropdown-menu dropdown-menu-left" data-region="moredropdown" aria-labelledby="moremenu-dropdown-{{moremenuid}}" role="menu">
                 </ul>
             </li>
 
-            <li class="nhsuk-header__navigation-item nhsuk-mobile-menu-container">
-                <button class="nhsuk-header__menu-toggle nhsuk-header__navigation-link" id="toggle-page-menu" aria-expanded="false">
-                    {{#str}}moremenu, core{{/str}}...
-                    <svg class="nhsuk-icon nhsuk-icon__chevron-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                        <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
-                    </svg>
-                </button>
-            </li>
+
         </ul>
     </nav>
 </div>

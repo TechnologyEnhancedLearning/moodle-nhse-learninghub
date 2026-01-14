@@ -1,0 +1,223 @@
+
+/**
+ * Page and headings
+ */
+
+#page-wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  #page {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px;
+
+    &.nhsuk-width-container {
+      max-width: 1200px;
+    }
+
+    .main-inner {
+      padding: 1.5rem 1.5rem;
+      width: 100%;
+    }
+  }
+
+  svg {
+    max-height: 50px;
+  }
+}
+
+
+
+/**
+ * Max width except reportbuilder
+ */
+#page-admin-reportbuilder,
+#page-admin-reportbuilder-edit {
+  height: 100%;
+
+  #page-wrapper {
+    #page {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+}
+
+#page {
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+
+  &.drawers {
+    margin-top: 0;
+
+    .main-inner {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  a {
+    &:not([class]) {
+      text-decoration: underline;
+
+      &:focus {
+        @include core.nhsuk-focused-text;
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  #page {
+    &.drawers {
+      &.show-drawer-left {
+        padding-left: 286px;
+        margin-left: 0;
+      }
+
+      &.show-drawer-right {
+        padding-right: 316px;
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.pagelayout-admin,
+.pagelayout-mycourses,
+.pagelayout-mydashboard {
+  #page-wrapper {
+    #page {
+      padding-top: 0;
+    }
+  }
+}
+
+.pagelayout-login,
+.pagelayout-popup,
+.pagelayout-embedded,
+.pagelayout-redirect {
+  #page-wrapper {
+    #page {
+      padding-top: 60px;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  #page.drawers {
+    .main-inner {
+      padding: 1.5rem 1.5rem;
+      width: 100%;
+    }
+
+    div[role="main"] {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}
+
+#region-main {
+  height: auto;
+}
+
+
+/* ==========================================================================
+// ADJUST WIDTH AND RADIUS OF WHITE CONTENT AREA
+// ========================================================================== */
+
+/* Prevent width of white area of course pages being limited in width - to match header */
+@media (min-width: 768px) {
+
+  body.pagelayout-base #page.drawers .main-inner,
+  body.limitedwidth.pagelayout-frontpage #page.drawers .main-inner,
+  body.limitedwidth.pagelayout-coursecategory #page.drawers .main-inner,
+  body.limitedwidth.pagelayout-course #page.drawers .main-inner,
+  body.limitedwidth.pagelayout-mycourses #page.drawers .main-inner,
+  body.pagelayout-incourse #page.drawers .main-inner,
+  body.pagelayout-admin #page.drawers .main-inner,
+  body.pagelayout-report #page.drawers .main-inner {    
+    max-width: unset;
+  }
+}
+
+/* Remove padding to maximise the width of the white area of course pages and match header */
+/* Rules to apply when the menu is NOT open */
+@media (min-width: 768px) {
+
+  body.pagelayout-base #page.drawers:not(.show-drawer-left),
+  body.pagelayout-frontpage #page.drawers:not(.show-drawer-left),
+  body.pagelayout-coursecategory #page.drawers:not(.show-drawer-left),
+  body.pagelayout-course #page.drawers:not(.show-drawer-left),
+  body.pagelayout-mycourses #page.drawers:not(.show-drawer-left),
+  body.pagelayout-incourse #page.drawers:not(.show-drawer-left),
+  body.pagelayout-admin #page.drawers:not(.show-drawer-left),
+  body.pagelayout-report #page.drawers:not(.show-drawer-left) {
+    padding-left: 0;
+  }
+}
+
+/* Rule to remove padding-right always */
+@media (min-width: 768px) {
+
+  body.pagelayout-base #page.drawers,
+  body.pagelayout-frontpage #page.drawers,
+  body.pagelayout-coursecategory #page.drawers,
+  body.pagelayout-course #page.drawers,
+  body.pagelayout-mycourses #page.drawers,
+  body.pagelayout-incourse #page.drawers,
+  body.pagelayout-admin #page.drawers,
+  body.pagelayout-report #page.drawers {
+    padding-right: 0;
+  }
+}
+
+/* Limit width of content area to prevent wide text area on course pages */
+@media (min-width: 768px) {
+
+  body.pagelayout-base #page-wrapper #page #page-content,
+  body.limitedwidth.pagelayout-frontpage #page-wrapper #page #page-content,
+  body.limitedwidth.pagelayout-coursecategory #page-wrapper #page #page-content,
+  body.limitedwidth.pagelayout-course #page-wrapper #page #page-content,
+  body.limitedwidth.pagelayout-mycourses #page-wrapper #page #page-content,
+  body.pagelayout-incourse #page-wrapper #page #page-content {
+    max-width: 830px;
+  }
+
+  /* No limit required when displaying SCORM content inline */
+  body#page-mod-scorm-player #page-wrapper #page #page-content {
+    max-width: unset;
+  }
+}
+
+/* Remove rounded corners on course page white content area */
+body.pagelayout-base #page.drawers .main-inner,
+body.limitedwidth.pagelayout-frontpage #page.drawers .main-inner,
+body.limitedwidth.pagelayout-coursecategory #page.drawers .main-inner,
+body.limitedwidth.pagelayout-course #page.drawers .main-inner,
+body.limitedwidth.pagelayout-mycourses #page.drawers .main-inner,
+body.pagelayout-incourse #page.drawers .main-inner,
+body.pagelayout-admin #page.drawers .main-inner,
+body.pagelayout-report #page.drawers .main-inner {
+  border-radius: 0;
+}
+
+/* Course page content area padding to allow room for left hand side menu toggle */
+body.limitedwidth.pagelayout-course #page-wrapper #page .main-inner,
+body.pagelayout-incourse #page-wrapper #page .main-inner,
+body.pagelayout-report #page-wrapper #page .main-inner {
+  padding-left: 3.5rem;
+  padding-right: 3.5rem;
+}
+
+/* Course page content area padding to allow room for left hand side menu toggle */
+body.limitedwidth.pagelayout-course #page-wrapper #page .main-inner,
+body.pagelayout-incourse #page-wrapper #page .main-inner,
+body.pagelayout-report #page-wrapper #page .main-inner {
+  padding-left: 3.5rem;
+  padding-right: 3.5rem;
+}

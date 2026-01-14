@@ -228,3 +228,10 @@ $THEME->activityheaderconfig = [
 // This will cause $OUTPUT->larrow() and $OUTPUT->rarrow() to return nothing.
 $THEME->larrow = '';
 $THEME->rarrow = '';
+
+// 🚨 NEW FIX: Load the NHS Frontend initialization module using the Moodle API.
+// This guarantees the script is placed correctly in the <head> *after* the DTD,
+// fixing the DTD failure and the resulting CSS inconsistency.
+if (!empty($PAGE)) {
+    $PAGE->requires->js_module('theme_nhse/nhsuk-init-module', 'theme_nhse');
+}

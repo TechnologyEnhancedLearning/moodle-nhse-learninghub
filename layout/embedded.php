@@ -35,7 +35,13 @@ $templatecontext = [
     'fakeblocks' => $fakeblockshtml,
 ];
 
-// Include NHSUK Frontend js file
-$PAGE->requires->js(new moodle_url($CFG->wwwroot . '/theme/nhse/node_modules/nhse-tel-frontend/dist/nhsuk.min.js'));
+// Load custom initialization module as an ES Module.
+$init_url = new moodle_url($CFG->wwwroot . '/theme/nhse/javascript/nhsuk-init-module.js');
+
+// This forces the necessary type="module" attribute and correctly loads the initializer.
+echo '<script src="' . $init_url . '" type="module"></script>'; 
+
+// Example of the final line that must follow:
+// echo $OUTPUT->render_from_template('theme_nhse/drawers', $templatecontext);
 
 echo $OUTPUT->render_from_template('theme_nhse/embedded', $templatecontext);
