@@ -221,3 +221,10 @@ body.pagelayout-report #page-wrapper #page .main-inner {
   padding-left: 3.5rem;
   padding-right: 3.5rem;
 }
+
+/* Prevent vertical gap when viewing SCORM resources */
+#page-mod-scorm-player #scormpage,
+#page-mod-scorm-player #tocbox,
+#page-mod-scorm-player #scormpage #scorm_content {
+  height: auto !important;
+}
