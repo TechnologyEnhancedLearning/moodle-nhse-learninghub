@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // --- New: Get the target section link from the breadcrumbs ---
     let targetSectionLink = null;
     if (window.location.pathname.includes('/mod/scorm/player.php')) {
-        const breadcrumbItems = document.querySelectorAll('.nhsuk-breadcrumb__list .nhsuk-breadcrumb__item a');
+        const breadcrumbItems = document.querySelectorAll('.nhsuk-breadcrumb__list .nhsuk-breadcrumb__list-item a');
         for (let i = 0; i < breadcrumbItems.length; i++) {
             const link = breadcrumbItems[i];
             if (link.href.includes('/course/section.php?id=')) {
