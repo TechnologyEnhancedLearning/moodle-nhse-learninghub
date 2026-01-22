@@ -44,10 +44,6 @@ h6 {
   color: core.$nhsuk-text-color !important;
 }
 
-.nhsuk-breadcrumb__item {
-  font-size: 15px;
-}
-
 ul {
   @extend .nhsuk-list;
   @extend .nhsuk-list-with-placeholder !optional;
