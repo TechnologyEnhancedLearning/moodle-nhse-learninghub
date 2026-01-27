@@ -157,6 +157,8 @@ document.addEventListener('DOMContentLoaded', function () {
         fullScreenButton.style.marginRight = '10px';
         fullScreenButton.style.wordSpacing = 'normal';
         fullScreenButton.id = 'scorm-fullscreen-button';
+        fullScreenButton.setAttribute('href', 'javascript:void(0)'); 
+        fullScreenButton.setAttribute('role', 'button'); 
 
         // Create the white box container for fullscreen buttons
         const fullscreenButtonContainer = document.createElement('div');
@@ -182,6 +184,8 @@ document.addEventListener('DOMContentLoaded', function () {
         exitFullscreenButton.textContent = 'Exit full screen';
         exitFullscreenButton.style.wordSpacing = 'normal';
         exitFullscreenButton.id = 'scorm-exit-fullscreen-button';
+        exitFullscreenButton.setAttribute('href', 'javascript:void(0)'); 
+        exitFullscreenButton.setAttribute('role', 'button'); 
 
         // Create custom "Exit activity" button (shown in fullscreen)
         const exitActivityButton = document.createElement('a');
@@ -191,7 +195,6 @@ document.addEventListener('DOMContentLoaded', function () {
         exitActivityButton.style.wordSpacing = 'normal';
         exitActivityButton.id = 'scorm-exit-activity-button';
         exitActivityButton.innerHTML = svgIconCode + 'Exit activity';
-
 
         // Append the exit buttons to the white box container
         fullscreenButtonContainer.appendChild(exitFullscreenButton);
@@ -286,7 +289,8 @@ document.addEventListener('DOMContentLoaded', function () {
         };
         
         
-        fullScreenButton.addEventListener('click', function () {
+        fullScreenButton.addEventListener('click', function (e) {
+            e.preventDefault(); 
             if (!isFullScreen) { // Currently not in fullscreen
                 if (isMobile()) {
                     enterSimulatedFullscreen();
@@ -301,7 +305,8 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         // Event listener for the "Exit full screen" button within the white box
-        exitFullscreenButton.addEventListener('click', function () {
+        exitFullscreenButton.addEventListener('click', function (e) {
+            e.preventDefault();
              if (fullscreenMode === "native") {
                 exitNativeFullscreen();
             } else if (fullscreenMode === "simulated") {
