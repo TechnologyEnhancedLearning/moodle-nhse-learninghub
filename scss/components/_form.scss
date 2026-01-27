@@ -77,3 +77,9 @@ label input[type=checkbox] {
     }
   }
 }
+
+/* Ensure accessible text colour in the select boxes initial text that appears on a dark grey? */
+select .bg-secondary,
+[role="option"].bg-secondary {
+  color: #fff !important;
+}
