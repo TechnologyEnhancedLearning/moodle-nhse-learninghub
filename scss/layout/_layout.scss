@@ -221,3 +221,9 @@ body.pagelayout-report #page-wrapper #page .main-inner {
   padding-left: 3.5rem;
   padding-right: 3.5rem;
 }
+
+/* remove the max-width restriction and allow the breadcrumb and title */
+/*  to align left with the rest of the content                         */
+.path-admin.path-admin-roles:not(.format-site) .header-maxwidth {
+  max-width: unset !important;
+}
