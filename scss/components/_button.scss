@@ -30,10 +30,6 @@
   }
 }
 
-.bg-secondary {
-  color: core.$nhsuk-reverse-button-text-color !important;
-}
-
 .btn {
   &.btn-secondary,
   &.btn-outline-secondary {
@@ -42,7 +38,7 @@
     box-shadow: 0 2px 0 core.$nhsuk-button-shadow-colour;
 
     &:visited {
-      color: core.$nhsuk-reverse-button-color;
+      color: #005eb8 !important;
     }
   }
 }
@@ -100,4 +96,9 @@
   outline: 4px solid #ffeb3b !important;
   outline-offset: 0 !important;
   text-decoration: none !important;
+}
+
+/* Apply NHSUK Frontend secondary button styles to Bulk enable button on course management page */
+button.bulkEnable {
+  @extend .nhsuk-button--secondary;
 }
