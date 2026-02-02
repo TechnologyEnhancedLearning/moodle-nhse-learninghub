@@ -36,3 +36,8 @@
     left: auto !important;
     border-radius: 0 !important;            /* reset NHS radius */
 }
+
+/* Display caret upside down when More menu is open */
+.dropdown-toggle[aria-expanded="true"]::after {
+  transform: rotate(180deg);
+}
