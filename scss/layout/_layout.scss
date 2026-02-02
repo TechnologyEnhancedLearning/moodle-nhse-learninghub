@@ -1,4 +1,28 @@
 
+// Fix for Moodle Dialogue Scroll-Lock Issue
+// Prevents background scrolling when Permissions/SCORM popups are open.
+html.lockscroll {
+    overflow: hidden !important;
+    position: relative; 
+}
+
+body.lockscroll {
+    overflow: hidden !important;
+    height: 100vh !important;
+    position: fixed;
+    width: 100%;
+}
+
+// Ensure YUI3/Legacy Moodle dialogues stay centered in viewport
+.moodle-dialogue-base .moodle-dialogue {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    z-index: 1050 !important; 
+}
+
+
 /**
  * Page and headings
  */
