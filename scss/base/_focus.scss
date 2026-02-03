@@ -166,6 +166,16 @@ a.nav-link:active {
   text-decoration: none !important;
 }
 
+/* Apply the same NHS focus style to standard Select menus */
+select.form-control:focus,
+.custom-select:focus {
+    border: 2px solid #212b32 !important;
+    box-shadow: inset 0 0 0 2px #212b32 !important;
+    outline: 4px solid #ffeb3b !important;
+    outline-offset: 0 !important;
+    color: #212b32 !important;
+}
+
 .simplesearchform .form-control:focus {
   color: #212b32;
   background-color: #fff;
