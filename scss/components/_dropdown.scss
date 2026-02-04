@@ -40,8 +40,8 @@
 /* Display caret upside down when More menu is open */
 .dropdown-toggle[aria-expanded="true"]::after {
   transform: rotate(180deg);
+}
 
-  
 /* ==============================
     State Management (Focus & Open)
    ============================== */
