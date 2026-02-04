@@ -1,0 +1,6 @@
+
+/* hide the second "back to course" link in scorm */
+.path-mod-scorm .course-content-footer {
+    position: absolute !important;
+    left: -9999px;
+}
