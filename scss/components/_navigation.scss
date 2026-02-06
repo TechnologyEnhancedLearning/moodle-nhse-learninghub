@@ -1,6 +1,5 @@
-
-/* hide the second "back to course" link in scorm */
-.path-mod-scorm .course-content-footer {
-    position: absolute !important;
-    left: -9999px;
+/* hide the second "back to course" link on all page types */
+/* This replaces the previous solution that hid the link only on SCORM page types  */
+.course-content-footer a[href*="view.php?id="] {
+    display: none !important;
 }
