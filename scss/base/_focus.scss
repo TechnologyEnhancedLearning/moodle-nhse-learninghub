@@ -75,22 +75,36 @@ a:not([class]):focus,
   display: none !important;
 }
 
-.courseindex-item.d-flex:focus {
-  box-shadow: none;
+// Replacement for both .courseindex-item:focus and .courseindex-section:focus
+.courseindex-section[role="treeitem"],
+.courseindex-item[role="treeitem"] {    
+    // 1. Remove any default or previous focus boxes/borders
+    &:focus {
+        outline: none;
+        box-shadow: none;
 
-  a.courseindex-link {
-    @include core.nhsuk-focused-text;
-  }
-}
+        // 2. Target the Title (for sections) or the Item itself (for activities)
+        // Using > ensures we don't highlight nested sub-sections
+        > .courseindex-section-title, 
+        &.courseindex-item {
+            background-color: #ffeb3b !important; // NHS Yellow
+            color: #212b32 !important;           // NHS Dark Grey
+            
+            // This creates your "Whistle" bottom bar
+            box-shadow: 0 4px #212b32 !important; 
+            
+            // Clean up text and child elements
+            text-decoration: none;
 
-.courseindex-section[role=treeitem]:not([aria-expanded=true]):focus {
-  box-shadow: none;
-  border-color: core.nhsuk-colour("white");
-  border-width: 0 0 0 3px;
-
-  .courseindex-section-title {
-    @include core.nhsuk-focused-text;
-  }
+            .courseindex-link, 
+            .courseindex-chevron,
+            .icon {
+                color: #212b32 !important;
+                background-color: transparent !important;
+                box-shadow: none !important;
+            }
+        }
+    }
 }
 
 /* skip link focus colour */
