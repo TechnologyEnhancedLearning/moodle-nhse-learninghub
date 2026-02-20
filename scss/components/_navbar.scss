@@ -251,3 +251,23 @@ navbar {
     margin-top: 0;
   }
 }
+
+/*  Make secondary navigation align to the far left with no padding */
+/* horizontal spacing added with the rigth margin */
+/* Only targets the list items directly inside the main nav bar */
+.nav-tabs > .nhsuk-header__navigation-item {    
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-right: 1.5rem;
+}
+
+/* Only targets the links directly inside those top-level items */
+.nav-tabs > .nhsuk-header__navigation-item > .nhsuk-header__navigation-link {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+/* this ensures all the other links line up vertically with the More link */
+.nhsuk-navigation .nav-tabs .nav-link {
+  border:0px solid #fff0;
+}
