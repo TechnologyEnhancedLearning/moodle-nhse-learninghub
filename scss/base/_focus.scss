@@ -83,6 +83,7 @@ a:not([class]):focus,
     box-shadow: none !important;
 }
 
+
 /* 2. THE SECTION HIGHLIGHT */
 /* When a section title is focused (via Tab or Click) */
 [role="treeitem"]:focus > .nhsuk-focus-target,
@@ -90,6 +91,16 @@ a:not([class]):focus,
     background-color: #ffeb3b !important;
     color: #212b32 !important;
     
+    a, span, i, .courseindex-link {
+        color: #212b32 !important;
+        background-color: transparent !important;
+    }
+}
+[role="treeitem"]:focus > .courseindex-section-title,
+[role="treeitem"]:focus > .courseindex-section > .courseindex-section-title {
+    background-color: #ffeb3b !important;
+    color: #212b32 !important;
+
     a, span, i, .courseindex-link {
         color: #212b32 !important;
         background-color: transparent !important;
