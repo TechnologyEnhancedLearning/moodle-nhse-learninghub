@@ -35,3 +35,23 @@ body.simulated-fullscreen #page.drawers .main-inner {
 body.simulated-fullscreen .d-flex.flex-row-reverse.mb-2 a.btn.btn-secondary[title="Exit activity"] {
   display: none !important;
 }
+
+body #scormpage {
+  
+  #fullscreen-button-container {
+    position: relative !important;
+  }
+
+  #fullscreen-button-container .btn.btn-secondary {
+    margin-bottom: 0px !important;
+  }
+
+  #scorm_toc_toggle {
+    position: absolute !important;
+  }
+
+  #tocbox #toctree #scorm_content {
+    height: calc(-100px + 100vh) !important;
+    padding-top: 30px !important;;
+  }
+}

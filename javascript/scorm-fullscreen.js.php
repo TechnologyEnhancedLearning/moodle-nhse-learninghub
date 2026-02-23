@@ -261,8 +261,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 const headerHeight = 30;
                 console.log(`[${Date.now()}] Fullscreen header height: ${headerHeight}px`);
 
-                scormContentDiv.style.setProperty("padding-top", `${headerHeight}px`, "important");
-                scormContentDiv.style.setProperty("height", `calc(100vh - ${headerHeight}px)`, "important");
+                scormContentDiv.style.setProperty("padding-top", `${headerHeight}px`);
+                scormContentDiv.style.setProperty("height", `calc(100vh - ${headerHeight}px)`);
                 scormContentDiv.style.setProperty("width", "100vw", "important");
                 scormContentDiv.style.setProperty("box-sizing", "border-box", "important");
 
