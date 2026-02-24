@@ -257,7 +257,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 fullScreenButton.style.display = "none";
                 fullscreenButtonContainer.style.display = "flex";
 
-                scormContentDiv.style.setProperty("height", `calc(100vh - 30px)`);
+                scormContentDiv.style.setProperty("height", `calc(100vh - 100px)`);
                 scormContentDiv.style.setProperty("width", "100vw", "important");
                 scormContentDiv.style.setProperty("box-sizing", "border-box", "important");
 
@@ -314,7 +314,7 @@ document.addEventListener('DOMContentLoaded', function () {
             fullScreenButton.style.display = 'none'; 
             fullscreenButtonContainer.style.display = 'flex';
 
-            scormContentDiv.style.setProperty('height', `calc(100vh - 30px)`, 'important');
+            scormContentDiv.style.setProperty('height', `calc(100vh - 100px)`, 'important');
             scormContentDiv.style.setProperty('width', '100vw', 'important');
             scormContentDiv.style.setProperty('box-sizing', 'border-box', 'important');
 
