@@ -254,10 +254,15 @@ document.addEventListener('DOMContentLoaded', function () {
             elementToFullscreen.requestFullscreen()
                 .then(() => {
                 // --- layout adjustments ---
+                document.body.classList.add("native-fullscreen");
+
                 fullScreenButton.style.display = "none";
                 fullscreenButtonContainer.style.display = "flex";
 
-                scormContentDiv.style.setProperty("height", `calc(100vh - 100px)`);
+                // const headerHeight = fullscreenButtonContainer.offsetHeight;
+                const headerHeight = 30;
+
+                scormContentDiv.style.setProperty("height", `calc(100vh - ${headerHeight}px)`);
                 scormContentDiv.style.setProperty("width", "100vw", "important");
                 scormContentDiv.style.setProperty("box-sizing", "border-box", "important");
 
@@ -314,7 +319,10 @@ document.addEventListener('DOMContentLoaded', function () {
             fullScreenButton.style.display = 'none'; 
             fullscreenButtonContainer.style.display = 'flex';
 
-            scormContentDiv.style.setProperty('height', `calc(100vh - 100px)`, 'important');
+            // const headerHeight = fullscreenButtonContainer.offsetHeight;
+            const headerHeight = 30;
+
+            scormContentDiv.style.setProperty('height', `calc(100vh - ${headerHeight}px)`, 'important');
             scormContentDiv.style.setProperty('width', '100vw', 'important');
             scormContentDiv.style.setProperty('box-sizing', 'border-box', 'important');
 
