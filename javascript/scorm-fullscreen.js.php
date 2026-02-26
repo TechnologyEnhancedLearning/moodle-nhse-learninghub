@@ -14,8 +14,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // If not mobile then will use the native full screen implementation
     // If mobile then will use a simulated full screen implementation
     const isMobile = () => {
-        console.log("navigator.platform: " + navigator.platform);
-        console.log("navigator.maxTouchPoints = " + navigator.maxTouchPoints);
         const ua = navigator.userAgent || navigator.vendor || window.opera;
 
         // iOS detection (iPhone, iPod)
@@ -50,8 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
         for (let i = 0; i < breadcrumbItems.length; i++) {
             const link = breadcrumbItems[i];
             if (link.href.includes('/course/section.php?id=')) {
-                targetSectionLink = link.href;
-                console.log('Found target section link:', targetSectionLink);
+                targetSectionLink = link.href;                
                 break;
             }
         }
@@ -164,18 +161,20 @@ document.addEventListener('DOMContentLoaded', function () {
         const fullscreenButtonContainer = document.createElement('div');
         fullscreenButtonContainer.id = 'fullscreen-button-container';
         Object.assign(fullscreenButtonContainer.style, {
-            position: 'absolute',
+            position: 'relative',
             top: '0px', // Align to the very top of the fullscreen element
             left: '0px', // Align to the very left
             width: '100%', // Span the full width of the fullscreen element
             backgroundColor: 'white',
             padding: '10px 20px',
+            height: '60px',      // Changed from 100px to 80px
             borderRadius: '0px',            
             zIndex: '2147483647',
             display: 'none', // Initially hidden, only shown in fullscreen
             justifyContent: 'space-between', // Spaces out the buttons nicely
             alignItems: 'center',
-            boxSizing: 'border-box' // Ensures padding is included within the element's total width/height
+            boxSizing: 'border-box', // Ensures padding is included within the element's total width/height
+            flexShrink: '0'          // Prevents the header from collapsing
         });
 
         // Create custom "Exit full screen" button
@@ -233,74 +232,79 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         const enterSimulatedFullscreen = () => {            
-            document.body.classList.add("simulated-fullscreen");
-            isFullScreen = true;
+           isFullScreen = true;
+            fullscreenMode = "simulated";
+            applySimulatedFullscreenUI();
         };
 
-        const exitSimulatedFullscreen = () => {            
-            document.body.classList.remove("simulated-fullscreen");
-            resetFullscreenUI();        
+        const exitSimulatedFullscreen = () => { 
+            // No need for logic here anymore, just call the master reset
+            resetFullscreenUI(); 
+        };
+
+        const resetFullscreenUI = () => {
+            // 1. Remove both possible body classes
+            document.body.classList.remove('native-fullscreen');
+            document.body.classList.remove('simulated-fullscreen');
+
+            // 2. Reset Button Visibility
+            fullScreenButton.style.display = 'block';
+            fullscreenButtonContainer.style.display = 'none';
+
+            // 3. Clean up inline styles from SCORM container
+            scormContentDiv.style.removeProperty('padding-top');
+            scormContentDiv.style.removeProperty('height');
+            scormContentDiv.style.removeProperty('width');
+            scormContentDiv.style.removeProperty('box-sizing');
+
+            // 4. Clean up inline styles from the Iframe
+            const scormIframe = document.getElementById('scorm_object');
+            if (scormIframe) {
+                scormIframe.style.removeProperty('width');
+                scormIframe.style.removeProperty('height');
+                scormIframe.style.removeProperty('display');
+                scormIframe.style.removeProperty('background-color');
+            }
+
+            // 5. Reset state variables
+            isFullScreen = false;
+            fullscreenMode = null;
+            console.log("UI Reset to normal view");
         };
 
         const enterNativeFullscreen = () => {
-            
             const elementToFullscreen = scormPageDiv;
-
-            if (!elementToFullscreen) {
-                console.error("SCORM page div (#scormpage) not found for fullscreen.");
-                return;
-            }
+            if (!elementToFullscreen) return;
 
             elementToFullscreen.requestFullscreen()
-                .then(() => {
-                // --- layout adjustments ---
-                fullScreenButton.style.display = "none";
-                fullscreenButtonContainer.style.display = "flex";
-
-                // const headerHeight = fullscreenButtonContainer.offsetHeight;
-                const headerHeight = 30;
-                console.log(`[${Date.now()}] Fullscreen header height: ${headerHeight}px`);
-
-                scormContentDiv.style.setProperty("padding-top", `${headerHeight}px`, "important");
-                scormContentDiv.style.setProperty("height", `calc(100vh - ${headerHeight}px)`, "important");
-                scormContentDiv.style.setProperty("width", "100vw", "important");
-                scormContentDiv.style.setProperty("box-sizing", "border-box", "important");
-
-                const scormIframe = document.getElementById("scorm_object");
-                if (scormIframe) {
-                    scormIframe.style.setProperty("width", "100%", "important");
-                    scormIframe.style.setProperty("height", "100%", "important");
-                    scormIframe.style.setProperty("display", "block", "important");
-                    scormIframe.style.setProperty("background-color", "#ffffff", "important");
-                }
-
-                isFullScreen = true;
+                .then(() => {                    
+                    applyNativeFullscreenUI(); 
+                    fullscreenMode = "native";
+                    isFullScreen = true; // Ensure this flag is set!
                 })
-                .catch(err => {
-                console.error("Failed to enter fullscreen:", err);
-                });
-
+                .catch(err => console.error(err));
         };
 
         const exitNativeFullscreen = () => {
-            if (document.exitFullscreen) {
-                document.exitFullscreen();
-            }           
+            if (document.fullscreenElement) {
+                document.exitFullscreen()
+                    .then(() => {
+                        // The actual work is done in the handleFullscreenChange listener below
+                        console.log("Exited Native Fullscreen");
+                    })
+                    .catch(err => console.error("Error exiting fullscreen:", err));
+            }
         };
         
         
         fullScreenButton.addEventListener('click', function (e) {
             e.preventDefault(); 
-            if (!isFullScreen) { // Currently not in fullscreen
+            if (!isFullScreen) {
                 if (isMobile()) {
                     enterSimulatedFullscreen();
-                    applySimulatedFullscreenUI();  
-                    fullscreenMode = "simulated";
                 } else {
                     enterNativeFullscreen();
-                    applyNativeFullscreenUI(); 
-                    fullscreenMode = "native";
-                }               
+                }                
             }
         });
 
@@ -319,13 +323,13 @@ document.addEventListener('DOMContentLoaded', function () {
             fullScreenButton.style.display = 'none'; 
             fullscreenButtonContainer.style.display = 'flex';
 
-            // const headerHeight = fullscreenButtonContainer.offsetHeight;
-            const headerHeight = 30;
+            document.body.classList.add("native-fullscreen");
 
-            scormContentDiv.style.setProperty('padding-top', `${headerHeight}px`, 'important');
-            scormContentDiv.style.setProperty('height', `calc(100vh - ${headerHeight}px)`, 'important');
-            scormContentDiv.style.setProperty('width', '100vw', 'important');
-            scormContentDiv.style.setProperty('box-sizing', 'border-box', 'important');
+            //const headerHeight = 100;
+
+            //scormContentDiv.style.setProperty('height', `calc(100vh - ${headerHeight}px)`, 'important');
+            //scormContentDiv.style.setProperty('width', '100vw', 'important');
+           // scormContentDiv.style.setProperty('box-sizing', 'border-box', 'important');
 
             const scormIframe = document.getElementById('scorm_object');
             if (scormIframe) {
@@ -341,29 +345,10 @@ document.addEventListener('DOMContentLoaded', function () {
             applyNativeFullscreenUI(); // reuse shared iframe adjustments
         };
 
-        const resetFullscreenUI = () => {
-            fullScreenButton.style.display = 'block';
-            fullscreenButtonContainer.style.display = 'none';
-
-            scormContentDiv.style.removeProperty('padding-top');
-            scormContentDiv.style.removeProperty('height');
-            scormContentDiv.style.removeProperty('width');
-            scormContentDiv.style.removeProperty('box-sizing');
-
-            const scormIframe = document.getElementById('scorm_object');
-            if (scormIframe) {
-                scormIframe.style.removeProperty('width');
-                scormIframe.style.removeProperty('height');
-            }
-
-            document.body.classList.remove('simulated-fullscreen'); // cleanup if simulated
-            isFullScreen = false;
-        };
-
         // fullscreenchange listener
         const handleFullscreenChange = () => {
-            isFullScreen = !!document.fullscreenElement;
-            if (!isFullScreen) {
+            // If document.fullscreenElement is null, it means we just EXITED native fullscreen
+            if (!document.fullscreenElement) {
                 resetFullscreenUI();
             }
         };
