@@ -1,3 +1,26 @@
+// Remove bottom border from dropdown links in nav-tabs when active or focused
+.nav-tabs .dropdown-menu .nhsuk-header__navigation-link,
+.nav-tabs .dropdown-menu .nhsuk-header__navigation-link:focus,
+.nav-tabs .dropdown-menu .nhsuk-header__navigation-link.active,
+.nav-tabs .dropdown-menu .nhsuk-header__navigation-link[aria-current="true"] {
+  border-bottom: none !important;
+}
+
+
+// Fix: Align dropdown-toggle focus border with nav-tabs border
+.nav-tabs button.nhsuk-header__navigation-link.dropdown-toggle:focus {
+  position: relative;
+  box-shadow: none !important;
+  border-bottom: 4px solid core.nhsuk-colour("black") !important;
+  margin-bottom: -4px !important; // Pull border up to sit flush with nav-tabs border
+  background-color: core.nhsuk-colour("yellow") !important; // Optional: keep NHS focus bg
+  outline: none !important;
+}
+// Restore navigation link focus box-shadow for compatibility
+.nhsuk-header .nhsuk-header__navigation-link:focus {
+  box-shadow: inset 0 -4px core.nhsuk-colour("black");
+  border-bottom: 0;
+}
 /* ==========================================================================
 // HEADER STYLES
 // ========================================================================== */
@@ -303,10 +326,6 @@
   }
 }
 
-.nhsuk-header .nhsuk-header__navigation-link:focus {
-  box-shadow: inset 0 -4px core.nhsuk-colour("black");
-  border-bottom: 0;
-}
 
 .nhsuk-header__menu-toggle {
   border-bottom: 0;
@@ -579,15 +598,18 @@ button.nhsuk-header__menu-toggle.nav-link:focus {
     &:visited {
       color: core.nhsuk-colour("blue");
     }
-
+    /*
     &.active {
-      background-color: core.nhsuk-colour("blue");
-      color: core.nhsuk-colour("white");
-    }
+      /*background-color: core.nhsuk-colour("blue");*/
+      /*color: core.nhsuk-colour("white");   */ 
+      /*border-bottom: 5px solid #005eb8; */ 
+    /*}   */
+  
 
     &:hover {
-      background-color: core.nhsuk-colour("blue");
-      color: core.nhsuk-colour("white");
+      /*background-color: core.nhsuk-colour("blue"); */
+      /*color: core.nhsuk-colour("white"); */
+      font-weight: bold;
     }
 
     &:checked {
@@ -597,18 +619,20 @@ button.nhsuk-header__menu-toggle.nav-link:focus {
   }
 
   // Buttons (exclude padding)
-  button.nhsuk-header__navigation-link {
+  button.nhsuk-header__navigation-link, button.nhsuk-header__navigation-link.dropdown-toggle {
     color: core.nhsuk-colour("blue");
     border-bottom: 0;
 
     &.active {
-      background-color: core.nhsuk-colour("blue");
-      color: core.nhsuk-colour("white");
+      //background-color: core.nhsuk-colour("blue");
+      //color: core.nhsuk-colour("white");
+      color: core.nhsuk-colour("blue");
     }
 
     &:hover {
-      background-color: core.nhsuk-colour("blue");
-      color: core.nhsuk-colour("white");
+      /*background-color: core.nhsuk-colour("blue");
+      color: core.nhsuk-colour("white"); */
+      font-weight: bold;
     }
 
     &:focus {
@@ -619,10 +643,19 @@ button.nhsuk-header__menu-toggle.nav-link:focus {
   // Shared focus styling for anchors
   .nav-link {
     &:focus {
-      @include core.nhsuk-focused-text;
+      /* @include core.nhsuk-focused-text; */
+      color: core.nhsuk-colour("black") !important;
+      background-color: core.$nhsuk-focus-colour !important;
     }
   }
 }
+
+/*
+.nav-tabs a.nav-link:focus {
+  background-color:red !important;
+  color:white !important ;
+}
+  */
 
 
 
@@ -657,6 +690,11 @@ button.nhsuk-header__menu-toggle.nav-link:focus {
 
     */
   }
+
+
+
+
+
 
   .nhsuk-header__navigation-link {
     &:visited {
@@ -861,25 +899,30 @@ button.nhsuk-header__menu-toggle.nav-link:focus {
 }
 
 /* focus colour on tab "more" items */
+/*
 .nav-tabs .nhsuk-header__navigation-link.dropdown-item:focus {
   @include core.nhsuk-focused-text;
 }
+  */
+
 
 .nav-tabs button.nhsuk-header__navigation-link.dropdown-toggle {
-    background: none !important;
+    background: none;
     border: none !important;  
 }
+
 
 .nav-tabs button.nhsuk-header__navigation-link {
     color: core.nhsuk-colour("blue");
     border-bottom: 0;
     padding: 12px 12px;
 }
-
+/*
 .nav-tabs button.nhsuk-header__navigation-link:hover {
     background-color: core.nhsuk-colour("blue") !important;
     color: core.nhsuk-colour("white") !important;
 }
+    */
 
 
 /* ==========================================================================
@@ -977,3 +1020,115 @@ button.nhsuk-header__menu-toggle.nav-link:focus {
     flex-grow: 1;
     flex-shrink: 0;
 }
+
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-item.show .nav-link {
+  border-color: transparent !important;
+  /* Or set to your desired color */
+}
+
+.nav-tabs .nav-link:hover,
+.nav-tabs .nav-link:focus {
+  border-color: transparent !important;
+  /* Or set to your preferred color */
+}
+
+.nav-tabs a.nav-link:focus {
+  // border-bottom-width: 0 !important;
+  border-top:none !important;
+  // border-bottom:none !important;
+  border-bottom: 4px solid black !important;
+}
+
+// Default and visited: dark text, no background
+.nav-tabs .dropdown-menu .nhsuk-header__navigation-link,
+.nav-tabs .dropdown-menu .nhsuk-header__navigation-link:visited {
+  color: core.nhsuk-colour("blue") !important; // or black
+  background: none !important;
+}
+
+// Focus and active: white text, blue background
+.nav-tabs .dropdown-menu .nhsuk-header__navigation-link:focus,
+.nav-tabs .dropdown-menu .nhsuk-header__navigation-link:active {
+  color: #fff !important;
+  background-color: #005eb8 !important;
+}
+
+// Hover: dark text, light background (optional)
+.nav-tabs .dropdown-menu .nhsuk-header__navigation-link:hover {
+  color: core.nhsuk-colour("blue") !important; // or black
+  background: core.nhsuk-colour("grey-4") !important; // or your preferred hover bg
+}
+
+
+.dropdown-item {
+  position: relative;
+  padding-left: 1.5rem !important; // adjust as needed for tick space
+}
+
+.dropdown-item[aria-current=true]::before,
+.dropdown-item[aria-selected=true]::before {
+  content: "";
+  position: absolute;
+  left: 0.4rem;
+  top: 50%;
+  transform: translateY(-20%);
+  font-size: 0.7rem;
+}
+
+.dropdown-menu .dropdown-item[aria-current="true"]::before {
+  border-bottom-width: 0 !important;
+  border: none !important;  
+}
+
+/*
+.nav-tabs .nhsuk-header__navigation-link {
+  border-bottom: 4px solid transparent;
+}
+.nav-tabs .nhsuk-header__navigation-link[aria-current="true"]::before ,
+.nav-tabs .nhsuk-header__navigation-link.active::before  {
+  border-bottom: 4px solid core.nhsuk-colour("blue");
+}
+  */
+
+
+// Show black border for active/current
+.nav-tabs .nhsuk-header__navigation-link[aria-current=true],
+.nav-tabs .nhsuk-header__navigation-link.active {
+  border-top: none !important;
+  border:none;
+  border-bottom: 4px solid #005eb8 !important;
+  background-color: transparent;
+}
+
+// Show yellow background only when focused (and keep black border)
+.nav-tabs .nhsuk-header__navigation-link:focus {
+  background-color: #ffeb3b;
+  border-bottom: 4px solid #000 !important;
+  border-top: none !important;
+}
+
+// Remove ::before border when active/current
+.nav-tabs .nhsuk-header__navigation-link[aria-current=true]::before {
+  border-bottom-width: 0 !important;
+}
+
+.nav-tabs .nhsuk-header__navigation-link,
+.nav-tabs .nhsuk-header__navigation-link:focus {
+  border-left: none !important;
+  border-right: none !important;
+}
+
+// Only apply focus border to tab links, not dropdown links
+.nav-tabs > .nav-item > .nhsuk-header__navigation-link:focus {
+  border-bottom: 4px solid #000 !important;
+  border-top: none !important;
+}
+
+.nav-tabs .dropdown-menu .nhsuk-header__navigation-link:focus {
+  border-bottom: none !important;
+  border-top: none !important;
+}
+
+
+
