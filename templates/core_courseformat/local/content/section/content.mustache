@@ -96,23 +96,26 @@
     >
         <summary class="nhsuk-details__summary">
             <span class="nhsuk-details__summary-text">
+            <div class="d-flex align-items-center position-relative flex-grow-1">
                 {{#singleheader}}
                     {{$ core_courseformat/local/content/section/header }}
                         {{> core_courseformat/local/content/section/header }}
                     {{/ core_courseformat/local/content/section/header }}
                 {{/singleheader}}
-                {{#header}}
+             
+                {{^singleheader}}
+                  {{#header}}
                     {{$ core_courseformat/local/content/section/header }}
                         {{> core_courseformat/local/content/section/header }}
                     {{/ core_courseformat/local/content/section/header }}
-                {{/header}}
-                {{^singleheader}}
+                    {{/header}}
                     {{#restrictionlock}}
-                        <div class="align-self-center ms-2">
+                         <span class="ms-2">
                             {{#pix}}t/unlock, core{{/pix}}
-                        </div>
+                        </span>
                     {{/restrictionlock}}
                 {{/singleheader}}
+               </div>
                 <div data-region="sectionbadges" class="sectionbadges d-flex align-items-center">
                     {{$ core_courseformat/local/content/section/badges }}
                         {{> core_courseformat/local/content/section/badges }}
@@ -192,23 +195,26 @@
         data-id="{{id}}"
         data-number="{{num}}"
     >
+     <div class="d-flex align-items-center position-relative flex-grow-1">
         {{#singleheader}}
             {{$ core_courseformat/local/content/section/header }}
                 {{> core_courseformat/local/content/section/header }}
             {{/ core_courseformat/local/content/section/header }}
         {{/singleheader}}
-        {{#header}}
+       
+        {{^singleheader}}
+         {{#header}}
             {{$ core_courseformat/local/content/section/header }}
                 {{> core_courseformat/local/content/section/header }}
             {{/ core_courseformat/local/content/section/header }}
         {{/header}}
-        {{^singleheader}}
             {{#restrictionlock}}
                 <div class="align-self-center ms-2">
                     {{#pix}}t/unlock, core{{/pix}}
                 </div>
             {{/restrictionlock}}
         {{/singleheader}}
+        </div>
         <div data-region="sectionbadges" class="sectionbadges d-flex align-items-center">
             {{$ core_courseformat/local/content/section/badges }}
                 {{> core_courseformat/local/content/section/badges }}
