@@ -47,7 +47,7 @@
 .nhsuk-details.nhsuk-expander .section_link,
 .nhsuk-details.nhsuk-expander .summarytext,
 .course-content ul.topics li.section .nhsuk-expander .nhsuk-details__text.content {
-  padding-left: 0.75rem;
+  padding-left: 2rem;
 }
 
 @media (max-width: 37.49em) {
@@ -55,6 +55,6 @@
   .nhsuk-details.nhsuk-expander .section_link,
   .nhsuk-details.nhsuk-expander .summarytext,
   .course-content ul.topics li.section .nhsuk-expander .nhsuk-details__text.content {
-    padding-left: 0.5rem;
+    padding-left: 1.5rem;
   }
 }

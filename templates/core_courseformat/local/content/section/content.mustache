@@ -96,23 +96,34 @@
     >
         <summary class="nhsuk-details__summary">
             <span class="nhsuk-details__summary-text">
+            <div class="d-flex align-items-center position-relative flex-grow-1">
                 {{#singleheader}}
                     {{$ core_courseformat/local/content/section/header }}
                         {{> core_courseformat/local/content/section/header }}
                     {{/ core_courseformat/local/content/section/header }}
                 {{/singleheader}}
-                {{#header}}
+             
+                {{^singleheader}}
+                  {{#header}}
                     {{$ core_courseformat/local/content/section/header }}
                         {{> core_courseformat/local/content/section/header }}
                     {{/ core_courseformat/local/content/section/header }}
-                {{/header}}
-                {{^singleheader}}
+                    {{/header}}                   
+                     <!-- General section lock -->
                     {{#restrictionlock}}
-                        <div class="align-self-center ms-2">
-                            {{#pix}}t/unlock, core{{/pix}}
-                        </div>
+                        <span class="ms-2">
+                            {{#pix}}t/locked, core{{/pix}}
+                        </span>
                     {{/restrictionlock}}
+
+                    <!-- Other sections lock -->
+                    {{#availability.isrestricted}}
+                        <span class="ms-2">
+                            {{#pix}}t/locked, core{{/pix}}
+                        </span>
+                    {{/availability.isrestricted}}
                 {{/singleheader}}
+               </div>
                 <div data-region="sectionbadges" class="sectionbadges d-flex align-items-center">
                     {{$ core_courseformat/local/content/section/badges }}
                         {{> core_courseformat/local/content/section/badges }}
@@ -164,9 +175,7 @@
                     {{/ core_courseformat/local/content/section/summary }}
                 {{/summary}}
                 {{#availability}}
-                    {{$ core_courseformat/local/content/section/availability }}
                         {{> core_courseformat/local/content/section/availability }}
-                    {{/ core_courseformat/local/content/section/availability }}
                 {{/availability}}
             </div>
             {{#cmsummary}}
@@ -192,23 +201,19 @@
         data-id="{{id}}"
         data-number="{{num}}"
     >
+    
         {{#singleheader}}
             {{$ core_courseformat/local/content/section/header }}
                 {{> core_courseformat/local/content/section/header }}
             {{/ core_courseformat/local/content/section/header }}
         {{/singleheader}}
-        {{#header}}
+       
+         {{#header}}
             {{$ core_courseformat/local/content/section/header }}
                 {{> core_courseformat/local/content/section/header }}
             {{/ core_courseformat/local/content/section/header }}
         {{/header}}
-        {{^singleheader}}
-            {{#restrictionlock}}
-                <div class="align-self-center ms-2">
-                    {{#pix}}t/unlock, core{{/pix}}
-                </div>
-            {{/restrictionlock}}
-        {{/singleheader}}
+      
         <div data-region="sectionbadges" class="sectionbadges d-flex align-items-center">
             {{$ core_courseformat/local/content/section/badges }}
                 {{> core_courseformat/local/content/section/badges }}
