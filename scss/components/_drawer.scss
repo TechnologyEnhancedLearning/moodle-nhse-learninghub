@@ -101,5 +101,38 @@
   }
 }
 
+/* Ensure when active section is highlighed the focus style is still accessible */
+
+.courseindex {
+    .completioninfo {
+        display: inline-flex;
+        align-items: center; // Vertically centers the icon container
+        align-self: center;   // Centers the container within the menu item flex row
+        
+        .icon {
+            font-size: 0.6rem;    // Adjust size if needed
+            margin-top: 0.5rem;   // Manual "nudge" if it still looks slightly high
+            vertical-align: middle; 
+        }
+    }
+    .courseindex-item.pageitem {
+        background-color: #005eb8;
+        color: #fff;
+        scroll-margin: 6rem;
+
+        // When the active item is focused, ensure it follows NHS accessibility
+        &:focus-within,
+        &:focus {
+            background-color: transparent; // Prevents blue from peeking out
+            
+            a.courseindex-link {
+                background-color: #ffeb3b !important;
+                color: #212b32 !important; // NHS Dark Text for contrast
+                box-shadow: 0 -2px #ffeb3b, 0 4px #212b32;
+                text-decoration: none;
+            }
+        }
+    }
 
 
+}

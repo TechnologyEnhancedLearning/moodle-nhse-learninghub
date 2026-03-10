@@ -52,6 +52,20 @@ body.lockscroll {
   }
 }
 
+/* Ensure footer sits at the bottom when page content is brief */
+/* Prevents footer sitting half way up the page when there is little content */
+
+#page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+#page {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
 
 
 /**

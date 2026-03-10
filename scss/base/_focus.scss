@@ -75,22 +75,88 @@ a:not([class]):focus,
   display: none !important;
 }
 
-.courseindex-item.d-flex:focus {
-  box-shadow: none;
-
-  a.courseindex-link {
-    @include core.nhsuk-focused-text;
-  }
+/* 1. THE GLOBAL RESET */
+/* Removes Moodle's default focus rings to make way for our NHS yellow */
+.courseindex [role="treeitem"]:focus,
+.courseindex [role="treeitem"]:not([aria-expanded="true"]):focus {
+    outline: 0 !important;
+    box-shadow: none !important;
 }
 
-.courseindex-section[role=treeitem]:not([aria-expanded=true]):focus {
-  box-shadow: none;
-  border-color: core.nhsuk-colour("white");
-  border-width: 0 0 0 3px;
 
-  .courseindex-section-title {
-    @include core.nhsuk-focused-text;
-  }
+/* 2. THE SECTION HIGHLIGHT */
+/* When a section title is focused (via Tab or Click) */
+[role="treeitem"]:focus > .nhsuk-focus-target,
+[role="treeitem"]:focus > .courseindex-section > .nhsuk-focus-target {
+    background-color: #ffeb3b !important;
+    color: #212b32 !important;
+    
+    a, span, i, .courseindex-link {
+        color: #212b32 !important;
+        background-color: transparent !important;
+    }
+}
+[role="treeitem"]:focus > .courseindex-section-title,
+[role="treeitem"]:focus > .courseindex-section > .courseindex-section-title {
+    background-color: #ffeb3b !important;
+    color: #212b32 !important;
+
+    a, span, i, .courseindex-link {
+        color: #212b32 !important;
+        background-color: transparent !important;
+    }
+}
+
+/* 3. THE ACTIVITY HIGHLIGHT */
+/* When an individual activity/page link is focused */
+.courseindex-item[role="treeitem"]:not(:has(.nhsuk-focus-target)):focus {
+    background-color: #ffeb3b !important;
+    color: #212b32 !important;
+    .courseindex-link, span, i {
+        color: #212b32 !important;
+    }
+}
+
+/* 4. THE SHIELD (Surgical Version) */
+/* This rule targets non-active links when a parent is focused. */
+/* CRITICAL: No !important on color here. This allows Rule 5 to override it. */
+#course-index [role="treeitem"]:focus .courseindex-item:not(.is-current-page):not(.pageitem) .courseindex-link:not(:focus) {
+    color: #005eb8; 
+    background-color: transparent;
+}
+
+/* 5. THE ACTIVE ENFORCER */
+/* This ensures the active page/activity is ALWAYS NHS Blue with White text. */
+/* This rule WINS because it still uses !important. */
+.is-current-page, 
+.is-current-page .courseindex-link,
+.courseindex-item.pageitem,
+.courseindex-item.pageitem .courseindex-link {
+    background-color: #005eb8 !important;
+    color: #ffffff !important;
+}
+
+/* 6. THE SUBSECTION / SECTION ENFORCER */
+/* Applies the same 'Active' logic if the section itself is the current target */
+.is-current-section > .courseindex-item {
+    background-color: #005eb8 !important;
+    color: #ffffff !important;
+    
+    a, span, i {
+        color: #ffffff !important;
+    }
+}
+
+/* 7. THE FINAL PROTECTION */
+/* Ensures all icons and badges inside any blue active element stay white */
+.is-current-page i, 
+.is-current-page span,
+.is-current-section i,
+.is-current-section span,
+.pageitem i,
+.pageitem span,
+.pageitem .courseindex-link {
+    color: #ffffff !important;
 }
 
 /* skip link focus colour */
