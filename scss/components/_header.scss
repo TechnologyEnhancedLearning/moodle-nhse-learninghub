@@ -1131,4 +1131,31 @@ button.nhsuk-header__menu-toggle.nav-link:focus {
 }
 
 
+/* Admin logged in as another user banner  */
+.nhsuk-banner--admin-login {
+    background-color: #ffeb3b;     // NHS yellow
+    color: #212b32;                  // Dark text    
+    padding: 12px 16px;
+    width: 100%;
+    box-sizing: border-box;
 
+    /* Make the inner container full width and flex for right alignment */
+    .nhsuk-width-container {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;  // right-align text
+        align-items: center;
+        padding-right: 1rem;                
+    }
+
+    /* Style the text */
+    .nhsuk-banner__content {
+        margin: 0;
+        font-size: 1.25rem;
+    }
+
+    /* Optional: make the strong name a little bolder */
+    .nhsuk-banner__content strong {
+        font-weight: 700;
+    }
+}
