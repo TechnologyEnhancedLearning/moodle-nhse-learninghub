@@ -54,6 +54,17 @@
         ]
     }
 }}
+
+
+{{#loggedinasotheruser}}
+<div class="nhsuk-banner nhsuk-banner--admin-login" role="status" aria-live="polite">
+    <div class="nhsuk-width-container">
+         <p class="nhsuk-banner__content nhsuk-banner__content--right">
+            ⚠ You are logged in as <strong>{{impersonatedusername}}</strong>           
+        </p>
+    </div>
+</div>
+{{/loggedinasotheruser}}
 <header class="nhsuk-header {{#navbarstyle}}nhsuk-header--{{navbarstyle}}{{/navbarstyle}}{{^navbarstyle}}nhsuk-header--default{{/navbarstyle}}"
         role="banner"
         data-module="nhsuk-header">
