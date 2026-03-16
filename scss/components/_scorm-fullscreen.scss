@@ -87,3 +87,9 @@ body.simulated-fullscreen {
     }
 }
 
+/* Prevent inline SCORM resource overlapping footer */
+#page-mod-scorm-player #scormpage,
+#page-mod-scorm-player #tocbox,
+#page-mod-scorm-player #scormpage #scorm_content {
+  height: auto !important;
+}
