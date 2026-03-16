@@ -1,25 +1,24 @@
-
 // Fix for Moodle Dialogue Scroll-Lock Issue
 // Prevents background scrolling when Permissions/SCORM popups are open.
 html.lockscroll {
-    overflow: hidden !important;
-    position: relative; 
+  overflow: hidden !important;
+  position: relative;
 }
 
 body.lockscroll {
-    overflow: hidden !important;
-    height: 100vh !important;
-    position: fixed;
-    width: 100%;
+  overflow: hidden !important;
+  height: 100vh !important;
+  position: fixed;
+  width: 100%;
 }
 
 // Ensure YUI3/Legacy Moodle dialogues stay centered in viewport
 .moodle-dialogue-base .moodle-dialogue {
-    position: fixed !important;
-    top: 50% !important;
-    left: 50% !important;
-    transform: translate(-50%, -50%) !important;
-    z-index: 1050 !important; 
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  z-index: 1050 !important;
 }
 
 
@@ -60,6 +59,7 @@ body.lockscroll {
   display: flex;
   flex-direction: column;
 }
+
 #page {
   flex: 1 0 auto;
   display: flex;
@@ -178,7 +178,7 @@ body.lockscroll {
   body.limitedwidth.pagelayout-mycourses #page.drawers .main-inner,
   body.pagelayout-incourse #page.drawers .main-inner,
   body.pagelayout-admin #page.drawers .main-inner,
-  body.pagelayout-report #page.drawers .main-inner {    
+  body.pagelayout-report #page.drawers .main-inner {
     max-width: unset;
   }
 }
@@ -264,4 +264,18 @@ body.pagelayout-report #page-wrapper #page .main-inner {
 /*  to align left with the rest of the content                         */
 .path-admin.path-admin-roles:not(.format-site) .header-maxwidth {
   max-width: unset !important;
+}
+
+/* remove the 100% height on in-page "modal" */
+/* also reduce vertical padding generally */
+#page-course-delete #notice {
+  height: auto;
+
+  #modal-content.py-3 {
+    padding: 0 !important;
+  }
+
+  .btn {
+    margin-bottom: 0;
+  }
 }

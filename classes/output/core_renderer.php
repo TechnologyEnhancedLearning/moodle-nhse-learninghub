@@ -60,6 +60,15 @@ class core_renderer extends \theme_boost\output\core_renderer
         $context = new \stdClass();
         $context->customnavigation = []; // Default to empty array in case of API issues
         $context->notification_count = 0; // Initialize notification count for the template
+        // Add impersonation info if logged in as another user
+        $context->loggedinasotheruser = \core\session\manager::is_loggedinas();
+
+        if ($context->loggedinasotheruser) {
+            // $USER is the impersonated user
+            $context->impersonatedusername = fullname($USER);
+        } else {
+            $context->impersonatedusername = '';
+        }
 
         // Fetch token for current user
         $token = null; // Initialize to null
@@ -306,13 +315,8 @@ class core_renderer extends \theme_boost\output\core_renderer
                  // $context->notification_count remains 0 on error
              }
         }
-
-        // NEW: Require your autosuggest JavaScript module
-        $this->page->requires->js_call_amd('theme_nhse/autosuggest', 'init');
-
-        // You can remove this for now, or keep it, it won't hurt
-        // $this->page->requires->js_init_call('M.cfg.userid = ' . $USER->id . ';');
-
+        
+        $this->page->requires->js_call_amd('theme_nhse/autosuggest', 'init');        
         
         return $context; 
     }
