@@ -361,8 +361,7 @@ button.nhsuk-header__menu-toggle.nav-link:focus {
   background-color: unset;
 }
 
-.nhsuk-header__account-item {
-  padding-bottom:0 !important;
+.nhsuk-header__account-item {  
   flex-grow: 0;
 }
 
@@ -509,10 +508,10 @@ button.nhsuk-header__menu-toggle.nav-link:focus {
 .nhsuk-header__edit-switch-item label {
     display: flex;
     align-items: center;
-    padding: 8px 12px;   /* Large hit area */
-    margin: -8px -12px;  /* Visual correction */
-    cursor: pointer;     /* Makes the whole label feel like a link */
-    padding-right:4px;
+    cursor: pointer;    
+    /* Top: 8px | Right: 4px | Bottom: 0 | Left: 12px */
+    padding: 8px 4px 0 12px;       
+    margin: -8px -12px;
 }
 
 
@@ -1130,5 +1129,8 @@ button.nhsuk-header__menu-toggle.nav-link:focus {
   border-top: none !important;
 }
 
+.nhsuk-header__account-item {
+  padding: 8px 12px;
+}
 
 
