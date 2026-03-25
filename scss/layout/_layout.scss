@@ -263,7 +263,14 @@ body.pagelayout-report #page-wrapper #page .main-inner {
 /* remove the max-width restriction and allow the breadcrumb and title */
 /*  to align left with the rest of the content                         */
 .path-admin.path-admin-roles:not(.format-site) .header-maxwidth {
-  max-width: unset !important;
+  max-width: none !important;
+}
+
+/* Override the 830px restriction for Learning Plans and Admin Roles */
+.path-admin.path-admin-tool-lp .header-maxwidth,
+.path-admin.path-admin-roles:not(.format-site) .header-maxwidth,
+body.pagelayout-admin #page.drawers .main-inner header .header-maxwidth {
+    max-width: none !important;
 }
 
 /* remove the 100% height on in-page "modal" */
