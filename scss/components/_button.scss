@@ -99,6 +99,67 @@
 }
 
 /* Apply NHSUK Frontend secondary button styles to Bulk enable button on course management page */
-button.bulkEnable {
-  @extend .nhsuk-button--secondary;
+/* Target both the 'Bulk Enable' button and the 'Edit Restrictions' link */
+/* --- 1. DEFAULT STATE --- */
+
+button.bulkEnable.btn,
+.editavailability a.btn-sm {
+    @extend .nhsuk-button--secondary !optional;
+    
+    background-color: #ffffff !important;
+    color: #005eb8 !important;
+    
+    /* THE FRAME: 2px all around prevents the 'left shift' */
+    border: 2px solid #005eb8 !important;
+    
+    /* THE DEPTH: 4px Blue shadow */
+    /* Note: We use 0 2px offset to account for the 2px border, making it 4px total */
+    box-shadow: 0 2px 0 0 #005eb8 !important;
+    
+    display: inline-flex !important;
+    align-items: center;
+    padding: 10px 16px !important;
+    font-weight: 600 !important;
+    border-radius: 4px !important;
+    position: relative;
+    top: 0;
+    transition: none !important; /* NHS buttons are instant, no sliding */
+}
+
+/* --- 2. FOCUS STATE (Yellow Background + Black Shadow) --- */
+/* This remains active AFTER the click, just like the NHS site */
+
+button.bulkEnable.btn:focus, 
+.editavailability a.btn-sm:focus {
+    background-color: #ffeb3b !important;    
+    color: #212b32 !important;
+    border-color: transparent !important;    
+    box-shadow: 0 4px 0 0 #212b32, 0 0 0 0px #ffeb3b !important;        
+    outline: none !important;    
+    top: 0 !important;
+} 
+
+/* --- 3. ACTIVE STATE (The 'Pressed' Feel) --- */
+button.bulkEnable.btn:active,
+.editavailability a.btn-sm:active {
+    /* Physically drop the button */
+    top: 2px !important; 
+    
+    /* Kill the shadow so it looks like it hit the floor */
+    box-shadow: 0 0 0 0 transparent !important;
+    
+    /* Keep the border so it doesn't lose shape */
+    border: 2px solid #005eb8 !important;
+}
+
+/* --- 4. ICON SPACING (Corrected) --- */
+.editavailability a.btn-sm i.icon,
+button.bulkEnable.btn i.icon {
+    margin: 0 !important;
+}
+.editavailability a.btn-sm i.icon:first-child {
+    margin-right: 8px !important;
+}
+button.bulkEnable.btn i.icon:last-child {
+    margin-left: 8px !important;
 }
