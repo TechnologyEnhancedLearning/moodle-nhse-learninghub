@@ -52,12 +52,16 @@ a:not([class]).focus,
 a:not([class]):focus,
 .activityinstance>a.focus,
 .activityinstance>a:focus {
-  outline: 4px solid core.nhsuk-colour("white");
-  color: core.nhsuk-colour("black");
-  background-color: core.nhsuk-colour("yellow");
-  box-shadow: 0 -2px core.nhsuk-colour("yellow"), 0 4px core.nhsuk-colour("black");
-  text-decoration: none;
+    background-color: core.nhsuk-colour("yellow");
+    box-shadow: 0 -2px core.nhsuk-colour("yellow"), 0 3px core.nhsuk-colour("black");
+    outline: 4px solid transparent;
+    text-decoration: none;
 }
+
+.btn.btn-icon:focus {
+    background-color: core.nhsuk-colour("yellow");
+}
+
 
 /* Removing style focus and adding nhsuk focus for left hand side menu button */
 .drawer-toggles .drawer-toggler .btn:focus {
