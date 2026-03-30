@@ -17,7 +17,7 @@ body.lockscroll {
   position: fixed !important;
   top: 50% !important;
   left: 50% !important;
-  transform: translate(-50%, -50%) !important;  
+  transform: translate(-50%, -50%) !important;
 }
 
 
@@ -269,7 +269,7 @@ body.pagelayout-report #page-wrapper #page .main-inner {
 .path-admin.path-admin-tool-lp .header-maxwidth,
 .path-admin.path-admin-roles:not(.format-site) .header-maxwidth,
 body.pagelayout-admin #page.drawers .main-inner header .header-maxwidth {
-    max-width: none !important;
+  max-width: none !important;
 }
 
 /* remove the 100% height on in-page "modal" */
@@ -286,8 +286,12 @@ body.pagelayout-admin #page.drawers .main-inner header .header-maxwidth {
   }
 }
 
-.page-mycourses .drawers .block_myoverview > .card-body.p-3 {
+.page-mycourses .drawers .block_myoverview>.card-body.p-3 {
   padding-top: 1.25rem !important;
   padding-left: 1.25rem !important;
   padding-right: 1.25rem !important;
+}
+
+[role="main"] h2:first-of-type {
+  margin-bottom: 1rem;
 }
