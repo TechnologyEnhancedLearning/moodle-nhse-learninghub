@@ -102,3 +102,8 @@
 button.bulkEnable {
   @extend .nhsuk-button--secondary;
 }
+
+/* Global fix: prevent visited link styles from changing button text color */
+.btn:visited {
+    color: inherit !important;
+}
