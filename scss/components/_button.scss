@@ -242,3 +242,7 @@ button.bulkEnable.btn,
         }
     }
 }
+/* Global fix: prevent visited link styles from changing button text color */
+.btn:visited {
+    color: inherit !important;
+}

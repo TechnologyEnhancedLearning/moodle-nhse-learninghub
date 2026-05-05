@@ -3,3 +3,11 @@
 .course-content-footer a[href*="view.php?id="] {
     display: none !important;
 }
+
+/* Hide the form-based "Back to course" button on activity pages */
+/* Scoped to .path-mod to avoid affecting admin/theme upgrade pages */
+body.path-mod .continuebutton {
+    form[action*="course/view.php"] {
+        display: none;
+    }
+}
