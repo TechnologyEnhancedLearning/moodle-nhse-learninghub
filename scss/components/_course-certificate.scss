@@ -7,3 +7,8 @@
   display: block;
   overflow-x: auto;
 }
+
+/* Left-align the View Certificate button container */
+.mod_coursecertificate_view .mdl-align {
+    text-align: left !important;
+}
