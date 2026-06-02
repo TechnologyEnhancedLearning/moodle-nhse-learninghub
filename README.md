@@ -43,3 +43,20 @@ node -v
 5. `git tag YYYYMMDDXX && git push --tags` (Moodle format where YYYYMMDD is the current date and XX is the release number, e.g. 2023042301 for the first release on 23rd April 2023)
 
 6. Allow GitHub Actions to complete.
+
+
+---
+
+## License & Attribution
+
+This project is a derivative work that combines multiple open-source assets under compliant terms:
+
+* **The Theme (GPL-3.0):** This Moodle theme is a modified fork of the original theme developed by the [NHS Leadership Academy](https://github.com/NHSLeadership/moodle-nhse). It is licensed under the **GNU General Public License v3.0 or later**.
+* **The Design Framework (MIT):** This theme incorporates the [NHS.UK Frontend framework (v10.x)](https://github.com/nhsuk/nhsuk-frontend), developed by NHS England and licensed under the **MIT License**.
+
+### Copyright Notices
+* © NHS Leadership Academy (Original Moodle Theme components)
+* © 2026 NHS England TEL
+* © NHS England (NHS.UK Frontend assets)
+
+You may copy, distribute, and modify this software under the terms of the GPL-3.0 License. See the [LICENSE](LICENSE) file for the full text.
