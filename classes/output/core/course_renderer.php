@@ -25,7 +25,7 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace theme_nhse\output\core;
+namespace theme_nhsetel\output\core;
 
 defined('MOODLE_INTERNAL') || die();
 

@@ -1,12 +1,12 @@
 {
-    "name": "nhse-tel/moodle-nhse-learninghub",
+    "name": "technologyenhancedlearning/moodle-theme-nhsetel",
     "type": "moodle-theme",
-    "version": "2025022005",
+    "version": "2026060500",
     "require": {
         "composer/installers": "~1.0"
     },
     "extra": {
-        "installer-name": "moodle-nhse-learninghub"
+        "installer-name": "moodle-nhsetel"
     },
     "config": {
         "allow-plugins": {

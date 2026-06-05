@@ -7,10 +7,10 @@
 
 ### Installation
 
-1. Clone that repository into your Moodle `theme/nhse` directory.
+1. Clone that repository into your Moodle `theme/nhsetel` directory.
 
 ```
-git clone git@github.com:TechnologyEnhancedLearning/moodle-nhse-learninghub
+git clone git@github.com:TechnologyEnhancedLearning/moodle-theme-nhsetel
 ```
 
 2. Before activating theme in Moodle theme selector the dependencies need loading.

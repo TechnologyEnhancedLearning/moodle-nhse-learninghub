@@ -15,7 +15,7 @@
     along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 }}
 {{!
-    @template theme_nhse/login
+    @template theme_nhsetel/login
 
     Login page template
 
@@ -29,16 +29,16 @@
         }
     }
 }}
-{{> theme_nhse/head }}
+{{> theme_nhsetel/head }}
 
 <body {{{ bodyattributes }}}>
 <a class="nhsuk-skip-link" href="#page-wrapper">{{#str}}tocontent, core_access{{/str}}</a>
 {{> core/local/toast/wrapper}}
 
-<div id="page-wrapper" class="nhse-login d-print-block">
+<div id="page-wrapper" class="nhsetel-login d-print-block">
 
     {{{ output.standard_top_of_body_html }}}
-    {{> theme_nhse/header }}
+    {{> theme_nhsetel/header }}
 
     <div  id="page" class="nhsuk-width-container">
         <div class="main-inner nhsuk-u-padding-bottom-4">
@@ -48,7 +48,7 @@
     <!-- end of div id="page"-->
 
     {{# output.get_footer_data }}
-        {{> theme_nhse/footer }}
+        {{> theme_nhsetel/footer }}
     {{/ output.get_footer_data }}
     {{{ output.standard_after_main_region_html }}}
 </div>

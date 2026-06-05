@@ -17,7 +17,7 @@
 /**
  * Theme functions.
  *
- * @package   theme_nhse
+ * @package   theme_nhsetel
  * @copyright NHS England
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -30,7 +30,7 @@ defined('MOODLE_INTERNAL') || die();
  * @param theme_config $theme The theme config object.
  * @return string
  */
-function theme_nhse_get_extra_scss($theme) {
+function theme_nhsetel_get_extra_scss($theme) {
     // Load the settings from the parent.
     $theme = theme_config::load('boost');
 
@@ -44,7 +44,7 @@ function theme_nhse_get_extra_scss($theme) {
  * @param theme_config $theme The theme config object.
  * @return string
  */
-function theme_nhse_get_main_scss_content($theme) {
+function theme_nhsetel_get_main_scss_content($theme) {
     global $CFG;
     $scss = '';
 
@@ -56,9 +56,9 @@ function theme_nhse_get_main_scss_content($theme) {
 //    $scss .= file_get_contents($CFG->dirroot . '/theme/boost/scss/moodle.scss');
 
     // Get main theme file and combine them together.
-    $scss .= "\n" . file_get_contents($CFG->dirroot . '/theme/nhse/css/nhse.min.css');
-    //$scss .= "\n" . file_get_contents($CFG->dirroot . '/theme/nhse/scss/nhsuk.scss');
-    //$scss .= "\n" . file_get_contents($CFG->dirroot . '/theme/nhse/scss/nhse.scss');
+    $scss .= "\n" . file_get_contents($CFG->dirroot . '/theme/nhsetel/css/nhsetel.min.css');
+    //$scss .= "\n" . file_get_contents($CFG->dirroot . '/theme/nhsetel/scss/nhsuk.scss');
+    //$scss .= "\n" . file_get_contents($CFG->dirroot . '/theme/nhsetel/scss/nhsetel.scss');
 
     return $scss;
 }

@@ -17,7 +17,7 @@
 /**
  * Boost config.
  *
- * @package   theme_nhse
+ * @package   theme_nhsetel
  * @copyright NHS England
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -44,7 +44,7 @@ $THEME->doctype = 'html5';
 //$THEME->lessfile = 'moodle';
 //$THEME->lessvariablescallback = 'theme_more_less_variables';
 //$THEME->extralesscallback = 'theme_more_extra_less';
-$THEME->name = 'nhse';
+$THEME->name = 'nhsetel';
 $THEME->version = '2025022005';
 $THEME->parents = ['boost'];
 $THEME->regions = [];
@@ -56,7 +56,7 @@ $THEME->usefallback = true;
 // This is the function that returns the SCSS source for the main file in our theme. We override the boost version because
 // we want to allow presets uploaded to our own theme file area to be selected in the preset list.
 $THEME->scss = function($theme) {
-    return theme_nhse_get_main_scss_content($theme);
+    return theme_nhsetel_get_main_scss_content($theme);
 };
 $THEME->extrascsscallback = 'theme_boost_get_extra_scss';
 $THEME->prescsscallback = 'theme_boost_get_pre_scss';
@@ -205,9 +205,9 @@ $THEME->layouts = [
 ];
 
 $THEME->enable_dock = false;
-//$THEME->prescsscallback = 'theme_nhse_get_pre_scss';
-$THEME->extrascsscallback = 'theme_nhse_get_extra_scss';
-//$THEME->precompiledcsscallback = 'theme_nhse_get_precompiled_css';
+//$THEME->prescsscallback = 'theme_nhsetel_get_pre_scss';
+$THEME->extrascsscallback = 'theme_nhsetel_get_extra_scss';
+//$THEME->precompiledcsscallback = 'theme_nhsetel_get_precompiled_css';
 $THEME->yuicssmodules = array();
 $THEME->rendererfactory = 'theme_overridden_renderer_factory';
 $THEME->requiredblocks = '';
@@ -219,7 +219,7 @@ $THEME->haseditswitch = true;
 // A new theme config 'usescourseindex' allows a theme to specify whether it implements and uses course index, shows modules pagination if unset or false
 $THEME->usescourseindex = getenv("USES_COURSE_INDEX");
 
-// Control displaying nhse titles (Boost is set to true).
+// Control displaying nhsetel titles (Boost is set to true).
 $THEME->activityheaderconfig = [
     'notitle' => false
 ];
@@ -233,5 +233,5 @@ $THEME->rarrow = '';
 // This guarantees the script is placed correctly in the <head> *after* the DTD,
 // fixing the DTD failure and the resulting CSS inconsistency.
 if (!empty($PAGE)) {
-    $PAGE->requires->js_module('theme_nhse/nhsuk-init-module', 'theme_nhse');
+    $PAGE->requires->js_module('theme_nhsetel/nhsuk-init-module', 'theme_nhsetel');
 }

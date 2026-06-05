@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace theme_nhse\output;
+namespace theme_nhsetel\output;
 
 use context_course;
 use navigation_node;
@@ -30,7 +30,7 @@ defined('MOODLE_INTERNAL') || die;
 /**
  * Renderers to align Moodle's HTML with that expected by Bootstrap
  *
- * @package    theme_nhse
+ * @package    theme_nhsetel
  * @copyright  NHS England
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -77,7 +77,7 @@ class core_renderer extends \theme_boost\output\core_renderer
         $response_content = false; // Initialize to false
 
         // --- NEW: Get the configured .NET application base URL ---
-        $dotnet_base_url = get_config('theme_nhse', 'dotnet_base_url');
+        $dotnet_base_url = get_config('theme_nhsetel', 'dotnet_base_url');
 
         if (!empty($dotnet_base_url) && substr($dotnet_base_url, -1) !== '/') {
             $dotnet_base_url .= '/';
@@ -90,7 +90,7 @@ class core_renderer extends \theme_boost\output\core_renderer
         $context->sessionKey = sesskey();
 
         // --- NEW: Get the configured API Base URL ---
-        $api_base_url = get_config('theme_nhse', 'api_base_url');
+        $api_base_url = get_config('theme_nhsetel', 'api_base_url');
         // Ensure the API base URL ends with a slash if it's not empty
         if (!empty($api_base_url) && substr($api_base_url, -1) !== '/') {
             $api_base_url .= '/';
@@ -98,7 +98,7 @@ class core_renderer extends \theme_boost\output\core_renderer
         
         if (empty($api_base_url)) {
             // Log an error and return early if the API URL is not configured
-            error_log("theme_nhse: ERROR: LH OpenAPI Base URL is not configured in theme settings. Cannot fetch navigation data.");
+            error_log("theme_nhsetel: ERROR: LH OpenAPI Base URL is not configured in theme settings. Cannot fetch navigation data.");
             return $context; // Return empty context if API URL is missing
         }
 
@@ -119,28 +119,28 @@ class core_renderer extends \theme_boost\output\core_renderer
             // Add this admin link to your customnavigation array
             // This ensures it gets rendered by your {{#customnavigation}} block in Mustache
             $context->customnavigation[] = $admin_link;
-            error_log("theme_nhse: Added Site Administration link to custom navigation.");
+            error_log("theme_nhsetel: Added Site Administration link to custom navigation.");
         }
 
 
         if (isloggedin()) { // Only try to fetch token if a user is logged in
             $token = $DB->get_record('auth_oidc_token', ['username' => $USER->username]);           
             if ($token) {
-                error_log("theme_nhse: Found OIDC token for user {$USER->username}.");
+                error_log("theme_nhsetel: Found OIDC token for user {$USER->username}.");
                 // You would then use $token->accesstoken to construct your bearer token
                  $accesstoken = $token->token;
-                 error_log("theme_nhse: accesstoken {$accesstoken}");
+                 error_log("theme_nhsetel: accesstoken {$accesstoken}");
 
             } else {
-                error_log("theme_nhse: No OIDC token found for user {$USER->username}.");
+                error_log("theme_nhsetel: No OIDC token found for user {$USER->username}.");
             }
         } else {
-            error_log("theme_nhse: User not logged in, skipping OIDC token fetch.");
+            error_log("theme_nhsetel: User not logged in, skipping OIDC token fetch.");
         }
 
         // Ensure we have an access token before trying to call *any* API
         if (empty($accesstoken)) {
-             error_log("theme_nhse: Access token is missing, skipping all protected API calls.");
+             error_log("theme_nhsetel: Access token is missing, skipping all protected API calls.");
              return $context;
         }
 
@@ -166,22 +166,22 @@ class core_renderer extends \theme_boost\output\core_renderer
             
            
              // Log the raw response and the decoded result
-            error_log("theme_nhse: API Response (raw): " . $response);
-            error_log("theme_nhse: API Response (decoded): " . print_r($navigation_result, true));
+            error_log("theme_nhsetel: API Response (raw): " . $response);
+            error_log("theme_nhsetel: API Response (decoded): " . print_r($navigation_result, true));
             // Check for JSON decoding errors
             if (json_last_error() !== JSON_ERROR_NONE) {
-                error_log("theme_nhse: Navigation API JSON decoding error: " . json_last_error_msg());
+                error_log("theme_nhsetel: Navigation API JSON decoding error: " . json_last_error_msg());
             }
           } catch (\Exception $e) {          
             debugging('CURL error (Navigation): ' . $e->getMessage(), DEBUG_DEVELOPER);
-            error_log("theme_nhse: CURL Exception caught for Navigation URL: " . $navigation_url . " Message: " . $e->getMessage());
+            error_log("theme_nhsetel: CURL Exception caught for Navigation URL: " . $navigation_url . " Message: " . $e->getMessage());
           }
 
         // --- Conditional Block for Processing Response (after try-catch) ---
         // We use $result here, which will be null if there was an API error or JSON decoding issue.
         if (is_array($navigation_result) && !empty($navigation_result)) {
             // JSON decoded successfully and is an array with content
-            error_log("theme_nhse: JSON decoded successfully. Processing " . count($navigation_result) . " items.");
+            error_log("theme_nhsetel: JSON decoded successfully. Processing " . count($navigation_result) . " items.");
             $processed_links = [];
             foreach ($navigation_result as $item) {
                 // Check 'visible' property from API (only include if true or not set)
@@ -190,7 +190,7 @@ class core_renderer extends \theme_boost\output\core_renderer
                  // --- NEW: Skip item if title is "Sign Out" ---
                 // We use trim() to handle any potential leading/trailing whitespace.
                 if (isset($item['title']) && trim($item['title']) === 'Sign Out') {
-                    error_log("theme_nhse: Skipping 'Sign Out' link from API response.");
+                    error_log("theme_nhsetel: Skipping 'Sign Out' link from API response.");
                     continue; // Skip to the next item in the loop
                 }
 
@@ -204,36 +204,36 @@ class core_renderer extends \theme_boost\output\core_renderer
                         $item_url_path = $item['url']; // Store the raw URL from the API       
                         // --- NEW: Override URL for 'Admin' link with theme setting ---
                         if (trim($processed_item->title) === 'Admin') {
-                            $admin_url = get_config('theme_nhse', 'admin_url');
+                            $admin_url = get_config('theme_nhsetel', 'admin_url');
                             if (!empty($admin_url)) {
                                 $processed_item->url = $admin_url;
                                 $processed_item->openInNewTab = true;
-                                error_log("theme_nhse: Overriding 'Admin' URL with theme setting: {$processed_item->url}");
+                                error_log("theme_nhsetel: Overriding 'Admin' URL with theme setting: {$processed_item->url}");
                             } else {
                                 // Fallback to original logic if theme setting is not configured
-                                error_log("theme_nhse: Admin URL theme setting not found, falling back to API URL.");
+                                error_log("theme_nhsetel: Admin URL theme setting not found, falling back to API URL.");
                             }
                         // Check if it's an absolute URL (starts with http/s or //)
                         } else if (strpos($item_url_path, 'http') === 0 || strpos($item_url_path, '//') === 0) {
                             $processed_item->url = $item_url_path; // Use the absolute URL as is
-                            error_log("theme_nhse: Processing absolute URL: {$processed_item->url}");
+                            error_log("theme_nhsetel: Processing absolute URL: {$processed_item->url}");
                         } 
                         // If it's a relative URL AND we have a configured .NET base URL, prepend it
                         else if (!empty($dotnet_base_url)) {
                             // Prepend .NET base URL, ensuring no double slashes by trimming leading slash from item_url_path
                             $processed_item->url = $dotnet_base_url . ltrim($item_url_path, '/'); 
-                            error_log("theme_nhse: Redirecting relative link '{$item_url_path}' to .NET domain: {$processed_item->url}");
+                            error_log("theme_nhsetel: Redirecting relative link '{$item_url_path}' to .NET domain: {$processed_item->url}");
                         }
                         // Fallback: If it's a relative URL but no .NET base URL is configured,
                         // treat it as a Moodle internal URL.
                         else {
                             $processed_item->url = new \moodle_url($item_url_path);
-                            error_log("theme_nhse: .NET base URL not configured, processing relative link '{$item_url_path}' as Moodle internal.");
+                            error_log("theme_nhsetel: .NET base URL not configured, processing relative link '{$item_url_path}' as Moodle internal.");
                         }
                     } else {
                         // Default to Moodle home if URL is missing or empty
                         $processed_item->url = new \moodle_url('/');
-                        error_log("theme_nhse: Item has empty or missing URL, defaulting to Moodle home.");
+                        error_log("theme_nhsetel: Item has empty or missing URL, defaulting to Moodle home.");
                     }
                     $processed_item->hasnotification = $item['hasNotification'] ?? false;
                     $processed_item->notificationcount = $item['notificationCount'] ?? 0;                    
@@ -241,7 +241,7 @@ class core_renderer extends \theme_boost\output\core_renderer
                     $processed_links[] = $processed_item;
                 } else {
                     // Log items that are not visible
-                    error_log("theme_nhse: Item not visible and filtered out: " . ($item['title'] ?? 'N/A') . " (visible: " . ($item['visible'] ? 'true' : 'false') . ")");
+                    error_log("theme_nhsetel: Item not visible and filtered out: " . ($item['title'] ?? 'N/A') . " (visible: " . ($item['visible'] ? 'true' : 'false') . ")");
                 }
             }
 
@@ -250,19 +250,19 @@ class core_renderer extends \theme_boost\output\core_renderer
             $context->customnavigation = array_merge($context->customnavigation, $processed_links);
             //$context->customnavigation = array_unshift($context->customnavigation, $processed_links);
 
-            error_log("theme_nhse: Processed links for display: " . print_r($context->customnavigation, true));
+            error_log("theme_nhsetel: Processed links for display: " . print_r($context->customnavigation, true));
 
        
             // Log the final processed links (for debugging)
-            error_log("theme_nhse: Processed links for display: " . print_r($processed_links, true));
+            error_log("theme_nhsetel: Processed links for display: " . print_r($processed_links, true));
         } else {
             // This block handles cases where:
             // 1. $result is null (due to JSON decoding error or CURL exception)
             // 2. $result is not an array (e.g., API returned a non-array JSON like a string or object)
             // 3. $result is an empty array
             $json_error_msg = (json_last_error() !== JSON_ERROR_NONE) ? json_last_error_msg() : 'N/A';
-            error_log("theme_nhse: Failed to process API response. Response was empty, not an array, or an error occurred. JSON Error: " . $json_error_msg);
-            error_log("theme_nhse: Raw API response (if available): " . ($response ?: 'No response content'));
+            error_log("theme_nhsetel: Failed to process API response. Response was empty, not an array, or an error occurred. JSON Error: " . $json_error_msg);
+            error_log("theme_nhsetel: Raw API response (if available): " . ($response ?: 'No response content'));
         }
 
 
@@ -296,7 +296,7 @@ class core_renderer extends \theme_boost\output\core_renderer
                     $notification_count = (int) trim($response);
                 } else {
                     $notification_count = 0;
-                    error_log("theme_nhse: Notification API returned unexpected format for URL: " . $notification_url . " Raw Response: " . $response);
+                    error_log("theme_nhsetel: Notification API returned unexpected format for URL: " . $notification_url . " Raw Response: " . $response);
                 }
 
                 $display_notification_count = $notification_count;
@@ -307,16 +307,16 @@ class core_renderer extends \theme_boost\output\core_renderer
                 $context->notification_count = $notification_count;
                 $context->display_notification_count = $display_notification_count; // The "9+" or number string
                 
-                error_log("theme_nhse: Fetched unread notification count: {$context->notification_count}");
+                error_log("theme_nhsetel: Fetched unread notification count: {$context->notification_count}");
                 
              } catch (\Exception $e) {
                  debugging('CURL error (Notifications): ' . $e->getMessage(), DEBUG_DEVELOPER);
-                 error_log("theme_nhse: CURL Exception caught for Notification URL: " . $notification_url . " Message: " . $e->getMessage());
+                 error_log("theme_nhsetel: CURL Exception caught for Notification URL: " . $notification_url . " Message: " . $e->getMessage());
                  // $context->notification_count remains 0 on error
              }
         }
         
-        $this->page->requires->js_call_amd('theme_nhse/autosuggest', 'init');        
+        $this->page->requires->js_call_amd('theme_nhsetel/autosuggest', 'init');        
         
         return $context; 
     }
@@ -324,7 +324,7 @@ class core_renderer extends \theme_boost\output\core_renderer
     public function get_footer_data(): \stdClass {
         $context = new \stdClass();
 
-        $dotnet_base_url = get_config('theme_nhse', 'dotnet_base_url');
+        $dotnet_base_url = get_config('theme_nhsetel', 'dotnet_base_url');
         if (!empty($dotnet_base_url) && substr($dotnet_base_url, -1) !== '/') {
             $dotnet_base_url .= '/';
         }
@@ -339,7 +339,7 @@ class core_renderer extends \theme_boost\output\core_renderer
         $output = parent::standard_head_html();
 
         // Inject dotnet_base_url into M.cfg globally
-        $dotnet_base_url = get_config('theme_nhse', 'dotnet_base_url');
+        $dotnet_base_url = get_config('theme_nhsetel', 'dotnet_base_url');
 
         if (!empty($dotnet_base_url)) {
             $output .= '<script>';
@@ -369,7 +369,7 @@ class core_renderer extends \theme_boost\output\core_renderer
     public function header()
     {
         $html = parent::header();
-        $navbarstyle = get_config( 'theme_nhse', 'navbarstyle');
+        $navbarstyle = get_config( 'theme_nhsetel', 'navbarstyle');
 //        if ($navbarstyle) {
 //            $html = str_replace('nhsuk-header--default', 'nhsuk-header__' . $navbarstyle, $html);
 //            $html = str_replace('navbar__default', 'navbar__light', $html);
@@ -399,7 +399,7 @@ class core_renderer extends \theme_boost\output\core_renderer
         $html = parent::footer();
 
         // Activate only if we want white style footer
-        //$navbarstyle = get_config( 'theme_nhse', 'navbarstyle');
+        //$navbarstyle = get_config( 'theme_nhsetel', 'navbarstyle');
         //$navbarstyle = 'white';
         //if ($navbarstyle) {
         //    $html = str_replace('nhsuk-header--default', 'nhsuk-header--' . $navbarstyle, $html);
@@ -433,7 +433,7 @@ class core_renderer extends \theme_boost\output\core_renderer
     {
         $showcategories = true;
 
-        $breadcrumb_cat_toggle = get_config( 'theme_nhse', 'bc_cats' );
+        $breadcrumb_cat_toggle = get_config( 'theme_nhsetel', 'bc_cats' );
         if ((($this->page->pagelayout == 'course') || ($this->page->pagelayout == 'incourse')) && ($breadcrumb_cat_toggle === 'no')) {
             $showcategories = false;
         }
@@ -464,7 +464,7 @@ class core_renderer extends \theme_boost\output\core_renderer
         $context->breadcrumbs = $breadcrumbs;
         $context->home_url = new \moodle_url('/');
 
-        return $this->render_from_template('theme_nhse/breadcrumbs', $context);
+        return $this->render_from_template('theme_nhsetel/breadcrumbs', $context);
     }
 
     /**
@@ -492,11 +492,11 @@ class core_renderer extends \theme_boost\output\core_renderer
         $context->logourl = $url;
         $context->sitename = format_string($SITE->fullname, true,
             ['context' => context_course::instance(SITEID), "escape" => false]);
-        $context->login_page_toggle = (boolean) get_config( 'theme_nhse', 'login_page_toggle' );
-        $context->oauth_login_button_icon = (boolean) get_config( 'theme_nhse', 'oauth_login_button_icon' );
-        $context->login_expand_text = get_config( 'theme_nhse', 'login_expand_text');
-        $context->login_header_text_default = get_config( 'theme_nhse', 'login_header_text_default');
-        $context->login_header_text = get_config( 'theme_nhse', 'login_header_text');
+        $context->login_page_toggle = (boolean) get_config( 'theme_nhsetel', 'login_page_toggle' );
+        $context->oauth_login_button_icon = (boolean) get_config( 'theme_nhsetel', 'oauth_login_button_icon' );
+        $context->login_expand_text = get_config( 'theme_nhsetel', 'login_expand_text');
+        $context->login_header_text_default = get_config( 'theme_nhsetel', 'login_header_text_default');
+        $context->login_header_text = get_config( 'theme_nhsetel', 'login_header_text');
 
         return $this->render_from_template('core/loginform', $context);
     }
@@ -508,6 +508,6 @@ class core_renderer extends \theme_boost\output\core_renderer
      * @throws \moodle_exception
      */
     public function render_preferences_groups(\preferences_groups $renderable) {
-        return $this->render_from_template('theme_nhse/core/preferences_groups', $renderable);
+        return $this->render_from_template('theme_nhsetel/core/preferences_groups', $renderable);
     }
 }
