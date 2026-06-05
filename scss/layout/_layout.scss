@@ -299,3 +299,8 @@ body.pagelayout-admin #page.drawers .main-inner header .header-maxwidth {
 [role="main"] h2:first-of-type {
   margin-bottom: 1rem;
 }
+
+// Fix for inline alert dialogues forcing 100% height and overlapping the footer
+div[role="alertdialog"].modal-in-page {
+  height: auto !important;
+}
