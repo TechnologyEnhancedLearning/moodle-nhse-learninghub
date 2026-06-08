@@ -136,15 +136,15 @@ a:not([class]):focus,
 .is-current-page .courseindex-link,
 .courseindex-item.pageitem,
 .courseindex-item.pageitem .courseindex-link {
-    background-color: #005eb8 !important;
-    color: #ffffff !important;
+    background-color: #005eb8;
+    color: #ffffff;
 }
 
 /* 6. THE SUBSECTION / SECTION ENFORCER */
 /* Applies the same 'Active' logic if the section itself is the current target */
 .is-current-section > .courseindex-item {
-    background-color: #005eb8 !important;
-    color: #ffffff !important;
+    background-color: #005eb8;
+    color: #ffffff;
     
     a, span, i {
         color: #ffffff !important;
@@ -160,7 +160,7 @@ a:not([class]):focus,
 .pageitem i,
 .pageitem span,
 .pageitem .courseindex-link {
-    color: #ffffff !important;
+    color: #ffffff;
 }
 
 /* skip link focus colour */

@@ -57,7 +57,7 @@
     }
 }}
 <div
-    class="courseindex-section {{#current}}current is-current-section{{/current}} {{#component}}delegated-section{{/component}}"
+    class="sectionmustache1 courseindex-section {{#current}}current is-current-section{{/current}} {{#component}}delegated-section{{/component}}"
     id="course-index-section-{{id}}"
     data-for="section"
     data-id="{{id}}"
@@ -65,7 +65,7 @@
     {{^component}}role="treeitem"{{/component}}
     aria-owns="courseindexcollapse{{number}}"
 >
-    <div class="courseindex-item d-flex
+    <div class="sectionmustache2 courseindex-item d-flex
             {{^visible}}dimmed{{/visible}}
             {{#hasrestrictions}}restrictions{{/hasrestrictions}}
             courseindex-section-title nhsuk-focus-target"
@@ -107,10 +107,10 @@
         </span>
     </div>
     <div id="courseindexcollapse{{number}}"
-        class="courseindex-item-content collapse {{^indexcollapsed}}show{{/indexcollapsed}}"
+        class="sectionmustache3 courseindex-item-content collapse {{^indexcollapsed}}show{{/indexcollapsed}}"
         aria-labelledby="courseindexsection{{number}}" role="group"
     >
-        <ul class="courseindex-sectioncontent unlist" data-for="cmlist" data-id="{{id}}" role="group">
+        <ul class="sectionmustache4 courseindex-sectioncontent unlist" data-for="cmlist" data-id="{{id}}" role="group">
             {{#cms}}
             {{> core_courseformat/local/courseindex/cm }}
             {{/cms}}

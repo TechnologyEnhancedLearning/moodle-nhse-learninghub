@@ -1,0 +1,127 @@
+.drawer.drawer-left {
+  width:350px;
+  max-width:350px;
+}
+
+.drawercontent.drag-container h1 {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #005EB8; //nhs-blue
+  line-height:1.25rem;
+  padding-top:1.25rem;
+  padding-bottom:1.25rem;
+  padding-left:2.875rem;
+  border-width:0 1px 1px 0;
+  border-color: #D8DDE0; //nhs grey-4
+  border-style:solid;
+
+}
+
+.tel-frontend.courseindex {
+  .courseindex-section {
+    border-right:1px solid #D8DDE0; //nhs grey-4
+    border-bottom:1px solid #D8DDE0; //nhs grey-4
+    padding:1rem 0.4rem;
+  }
+
+  .courseindex-section-title:has(a.courseindex-chevron.icons-collapse-expand:not(.collapsed)) {
+    background:#E4F0FA; //nhs pale blue
+  }
+
+  .courseindex-item .courseindex-link, 
+  .courseindex-item .courseindex-chevron {
+    color: #005EB8; //nhs-blue
+  }
+  
+  // Following rule overrides the current section colour in scrolling
+  .courseindex-item.pageitem,
+  .courseindex-item.pageitem .courseindex-link,
+   .courseindex-item.pageitem i {
+    background:#0000;
+    color:#005eb8;
+  }
+
+  .icon {
+    font-size:0.75rem;
+  }
+  .courseindex-item-content.collapse {
+
+    margin-left:1.25rem;
+    border-left: 1px solid #D8DDE0; //nhs grey-4
+
+    .courseindex-item {
+      padding-left:1.25rem;
+    }    
+  }
+
+  .courseindex-item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    
+  
+
+    // LHS menu link
+    .courseindex-link {
+      font-size: 16px;
+    }
+
+    .courseindex-section::before {
+      content: "";
+      display: inline-block;
+      vertical-align: top;
+      width: 16px;
+      height: 18px;
+      background-color: #005eb8;
+    }
+
+    .courseindex-section {
+      position: relative;
+    }
+
+  // .courseindex-section .courseindex-item-content.collapse .courseindex-item .courseindex-section::before {
+  //   content: "";
+  //   display: inline-block;
+  //   vertical-align: top;
+  //   width: 16px;
+  //   height: 18px;
+  //   background-color: #005eb8;
+  // }
+
+
+    // LHS menu title override
+    &.courseindex-section-title {
+      .courseindex-link {
+        font-weight: 400;
+      }
+    } 
+
+    .completioninfo {
+      margin-left:auto;
+      .icon {
+        font-size: 1rem;
+        height: 1rem;
+        width: 1rem;
+        border: 1px solid #D8DDE0; //nhs grey-4
+        border-radius: 50%;
+        margin-right: 0;
+      }
+    }
+
+    .completioninfo.completion_incomplete {
+      .icon {
+        color: #FFFFFF; //nhs white
+      }
+    }
+  }
+
+
+
+
+}
+
+.courseindex .courseindex-item:hover, .courseindex .courseindex-item:focus
+
+ {
+    color: #000;
+}
