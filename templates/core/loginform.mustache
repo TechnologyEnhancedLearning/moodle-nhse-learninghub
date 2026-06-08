@@ -99,12 +99,12 @@
         {{/hasinstructions}}
         <div class="nhsuk-inset-text">
             <span class="nhsuk-u-visually-hidden">Information: </span>
-            <p>{{#str}} cookiesenabled, theme_nhse {{/str}}.
+            <p>{{#str}} cookiesenabled, theme_nhsetel {{/str}}.
                 <a href="" {{!
                         }} data-modal="alert"{{!
                         }} data-modal-title-str='["cookiesenabled", "core"]' {{!
                         }} data-modal-content-str='["cookiesenabled_help_html", "core"]'{{!
-                        }}>{{#str}} cookiesnotice, theme_nhse {{/str}}</a>
+                        }}>{{#str}} cookiesnotice, theme_nhsetel {{/str}}</a>
             </p>
         </div>
     </div>
@@ -139,7 +139,7 @@
                                     {{ login_header_text }}
                                 {{/login_header_text}}
                                 {{^login_header_text}}
-                                    {{#str}} login_header_text_default, theme_nhse {{/str}}
+                                    {{#str}} login_header_text_default, theme_nhsetel {{/str}}
                                 {{/login_header_text}}</span>
                         </h3>
                         <span class="nhsuk-care-card__arrow" aria-hidden="true"></span>
@@ -152,14 +152,14 @@
                                 <div class="potentialidp">
                                     <a href="{{url}}"
                                        class="nhsuk-button nhsuk-u-margin-bottom-2"
-                                       title={{#quote}}{{#str}} login_oauth_with, theme_nhse {{/str}} {{name}}{{/quote}}>
+                                       title={{#quote}}{{#str}} login_oauth_with, theme_nhsetel {{/str}} {{name}}{{/quote}}>
                                         <!-- we add a setting here because Moodle auto picks icon up from the provider if OAuth setting doesnt specify one -->
                                         {{#oauth_login_button_icon}}
                                             {{#iconurl}}
                                                 <img src="{{iconurl}}" alt="" width="24" height="24"/>
                                             {{/iconurl}}
                                         {{/oauth_login_button_icon}}
-                                        {{#str}} login_oauth_with, theme_nhse {{/str}} {{name}}
+                                        {{#str}} login_oauth_with, theme_nhsetel {{/str}} {{name}}
                                         {{^name}}
                                             Single Sign On
                                         {{/name}}
@@ -177,7 +177,7 @@
                                     {{ login_expand_text }}
                                 {{/login_expand_text}}
                                 {{^login_expand_text}}
-                                    {{#str}} login_expand_text_default, theme_nhse {{/str}}
+                                    {{#str}} login_expand_text_default, theme_nhsetel {{/str}}
                                 {{/login_expand_text}}
                             </span>
                     </summary>
@@ -196,7 +196,7 @@
                             {{ login_expand_text }}
                         {{/login_expand_text}}
                         {{^login_expand_text}}
-                            {{#str}} login_expand_text_default, theme_nhse {{/str}}
+                            {{#str}} login_expand_text_default, theme_nhsetel {{/str}}
                         {{/login_expand_text}}
                     </span>
                 </h3>
@@ -298,7 +298,7 @@
                                 <path d="M0 0h24v24H0z" fill="none"></path>
                                 <path d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z"></path>
                             </svg>
-                            <strong class="nhsuk-action-link__text">{{#str}} loginguest, theme_nhse {{/str}}</strong>
+                            <strong class="nhsuk-action-link__text">{{#str}} loginguest, theme_nhsetel {{/str}}</strong>
                         </a>
                     </div>
                 </form>

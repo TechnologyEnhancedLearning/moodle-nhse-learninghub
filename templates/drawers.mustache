@@ -15,7 +15,7 @@
     along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 }}
 {{!
-    @template theme_nhse/drawers
+    @template theme_nhsetel/drawers
 
     Boost drawer template.
 
@@ -49,7 +49,7 @@
         "addblockbutton": ""
     }
 }}
-{{> theme_nhse/head }}
+{{> theme_nhsetel/head }}
 
 <body {{{ bodyattributes }}}>
 <a class="nhsuk-skip-link" href="#page-wrapper">{{#str}}tocontent, core_access{{/str}}</a>
@@ -64,14 +64,14 @@
     {{# output.get_global_header_data }}
         {{! Now, the header partial will be rendered with the context prepared above. }}
         {{! 'customnavigation' will be directly accessible in header.mustache. }}
-        {{> theme_nhse/header }}
+        {{> theme_nhsetel/header }}
     {{/ output.get_global_header_data }}
 
     {{#courseindex}}
         {{< theme_boost/drawer }}
             {{$id}}theme_boost-drawers-courseindex{{/id}}
             {{$drawerheadercontent}}
-                {{> theme_nhse/courseindexdrawercontrols}}
+                {{> theme_nhsetel/courseindexdrawercontrols}}
             {{/drawerheadercontent}}
             {{$drawerclasses}}drawer drawer-left {{#courseindexopen}}show{{/courseindexopen}}{{/drawerclasses}}
             {{$drawercontent}}
@@ -180,7 +180,7 @@
     <!-- end of div id="page"-->
 
     {{# output.get_footer_data }}
-        {{> theme_nhse/footer }}
+        {{> theme_nhsetel/footer }}
     {{/ output.get_footer_data }}
     {{{ output.standard_after_main_region_html }}}
 

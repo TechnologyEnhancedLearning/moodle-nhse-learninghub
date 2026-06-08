@@ -17,7 +17,7 @@
 /**
  * Language file.
  *
- * @package   theme_nhse
+ * @package   theme_nhsetel
  * @copyright NHS England
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -81,7 +81,7 @@ $string['login_expand_text_default']                   = 'Other Login';
 $string['loginguest']                                  = 'Continue as a guest';
 $string['login_oauth_with']                            = 'Log in with';
 $string['nobootswatch']                                = 'None';
-$string['pluginname']                                  = 'NHSE';
+$string['pluginname']                                  = 'NHS England TEL';
 $string['preset']                                      = 'Theme preset';
 $string['preset_desc']                                 = 'Pick a preset to broadly change the look of the theme.';
 $string['presetfiles']                                 = 'Additional theme preset files';

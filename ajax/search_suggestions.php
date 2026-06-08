@@ -8,7 +8,7 @@ header('Content-Type: application/json');
 // Function to handle JSON error response and exit.
 // This centralizes error handling and ensures consistent output.
 function send_json_error($message, $status = 'error', $http_status_code = 500) {
-    error_log("theme_nhse: send_json_error - Status: " . $status . ", Message: " . $message);
+    error_log("theme_nhsetel: send_json_error - Status: " . $status . ", Message: " . $message);
     http_response_code($http_status_code);
     echo json_encode(['status' => $status, 'message' => $message]);
     exit;
@@ -16,7 +16,7 @@ function send_json_error($message, $status = 'error', $http_status_code = 500) {
 
 try {
     global $USER, $DB;
-    $theme_identifier = 'theme_nhse';       
+    $theme_identifier = 'theme_nhsetel';       
 
     // Get the .NET application base URL theme property
     $dotnet_base_url = get_config($theme_identifier, 'dotnet_base_url');
@@ -80,7 +80,7 @@ try
     
     if (json_last_error() !== JSON_ERROR_NONE) {
         $json_error_msg = json_last_error_msg();
-        error_log("theme_nhse: JSON decoding error: " . $json_error_msg);       
+        error_log("theme_nhsetel: JSON decoding error: " . $json_error_msg);       
         send_json_error(
             'API response could not be decoded: ' . $json_error_msg,
             'json_decode_error',
@@ -99,7 +99,7 @@ try
 
 
 } catch (Exception $e) {       
-    error_log("theme_nhse: CURL Exception caught for URL: " . $url_for_search . " Message: " . $e->getMessage()); // Use $url_for_search for clarity
+    error_log("theme_nhsetel: CURL Exception caught for URL: " . $url_for_search . " Message: " . $e->getMessage()); // Use $url_for_search for clarity
     send_json_error(
         'Failed to connect to API: ' . $e->getMessage(), // Message for client and log
         'curl_error',                                    // Specific status for cURL issues
