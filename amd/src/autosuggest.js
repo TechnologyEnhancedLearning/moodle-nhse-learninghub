@@ -23,7 +23,7 @@ define(['jquery'], function($) {
                 }
 
                 $.ajax({
-                    url: M.cfg.wwwroot + '/theme/nhse/ajax/search_suggestions.php',
+                    url: M.cfg.wwwroot + '/theme/nhsetel/ajax/search_suggestions.php',
                     type: 'GET',
                     data: { query: query },
                     success: function(response) {

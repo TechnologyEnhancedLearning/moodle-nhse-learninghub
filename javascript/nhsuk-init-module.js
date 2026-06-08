@@ -1,7 +1,7 @@
 // This import path uses a relative path from:
-// /theme/nhse/javascript/nhsuk-init-module.js
+// /theme/nhsetel/javascript/nhsuk-init-module.js
 // to:
-// /theme/nhse/node_modules/nhsuk-frontend/dist/nhsuk/nhsuk-frontend.js
+// /theme/nhsetel/node_modules/nhsuk-frontend/dist/nhsuk/nhsuk-frontend.js
 // (Using .js as per the file you provided, assuming it's the un-minified version).
 
 import { initAll } from '../node_modules/nhsuk-frontend/dist/nhsuk/nhsuk-frontend.js';
