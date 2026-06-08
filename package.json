@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TechnologyEnhancedLearning/moodle-nhsetel-learninghub"
+    "url": "git+https://github.com/TechnologyEnhancedLearning/moodle-theme-nhsetel"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/TechnologyEnhancedLearning/moodle-nhsetel-learninghub/issues"
+    "url": "https://github.com/TechnologyEnhancedLearning/moodle-theme-nhsetel/issues"
   },
-  "homepage": "https://github.com/TechnologyEnhancedLearning/moodle-nhsetel-learninghub#readme",
+  "homepage": "https://github.com/TechnologyEnhancedLearning/moodle-theme-nhsetel#readme",
   "dependencies": {
     "nhsuk-frontend": "^10.0.0",
     "sass": "^1.79.4"
