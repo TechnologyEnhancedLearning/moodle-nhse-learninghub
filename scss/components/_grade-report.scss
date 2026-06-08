@@ -3,6 +3,8 @@
     overflow-x: auto !important;
     max-width: 100%;
     -webkit-overflow-scrolling: touch;
+    display: grid !important;           /* fix for Firefox layout engine to ensure horizonal scroll bar appears */
+    justify-items: stretch;             /* addition to go with above Firefox fixEnsures small tables stretch full-width in Chrome/Edge */
 }
 
 #page-grade-report-grader-index #user-grades {

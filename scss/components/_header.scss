@@ -1,3 +1,7 @@
+// Ensure .text-primary stays white in edit switch
+.nhsuk-header__edit-switch-item label.text-primary {
+  color: core.nhsuk-colour("white") !important;
+}
 // Remove bottom border from dropdown links in nav-tabs when active or focused
 .nav-tabs .dropdown-menu .nhsuk-header__navigation-link,
 .nav-tabs .dropdown-menu .nhsuk-header__navigation-link:focus,
@@ -64,10 +68,6 @@
 
 .custom-control-input:checked~.custom-control-label::after {
   background-color: $btn-primary-background;
-}
-
-.text-primary {
-  color: $btn-secondary-text !important;
 }
 
 .nhsuk-header__content {
